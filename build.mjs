@@ -27,6 +27,16 @@ const PAGES = [
   { kind: 'user', file: 'user.md', html: 'index.html', label: '用戶指南', en: 'User Guide' },
   { kind: 'dev', file: 'dev.md', html: 'dev.html', label: '開發者筆記', en: 'Developer Notes' },
 ]
+/**
+ * 產品有邊幾頁：meta.json 嘅 `pages`，預設 ["user", "dev"]。
+ * 只有一頁嘅產品（例如私人自用工具只做開發者頁），嗰頁直接輸出做 index.html，唔顯示切換掣。
+ */
+function pagesFor(meta) {
+  const kinds = Array.isArray(meta.pages) && meta.pages.length ? meta.pages : ['user', 'dev']
+  const list = PAGES.filter((p) => kinds.includes(p.kind))
+  return list.length === 1 ? [{ ...list[0], html: 'index.html' }] : list
+}
+
 // 用戶頁「開始使用」章節嘅固定 id —— strict 模式靠佢判斷邊啲截圖係硬性要求
 const GETTING_STARTED_ID = 'getting-started'
 
@@ -211,8 +221,8 @@ function tocHtml(toc) {
   return `<ul>${items.join('')}</ul>`
 }
 
-function pageHtml({ meta, page, body, toc, slug }) {
-  const other = PAGES.find((p) => p.kind !== page.kind)
+function pageHtml({ meta, page, body, toc, slug, pages }) {
+  const other = pages.find((p) => p.kind !== page.kind)
   const title = `${meta.name}｜${page.label}`
   const mail = Buffer.from(site.feedbackEmail.split('').reverse().join('')).toString('base64')
   return `<!doctype html>
@@ -232,10 +242,10 @@ function pageHtml({ meta, page, body, toc, slug }) {
 <header class="topbar glass">
   <a class="brand" href="../">${esc(site.title)}</a>
   <span class="crumb">${esc(meta.name)}</span>
-  <nav class="switch" aria-label="切換面向">
+  ${other ? `<nav class="switch" aria-label="切換面向">
     <a href="index.html" class="${page.kind === 'user' ? 'on' : ''}">用戶<small>User</small></a>
     <a href="dev.html" class="${page.kind === 'dev' ? 'on' : ''}">開發者<small>Developer</small></a>
-  </nav>
+  </nav>` : '<span class="switch-spacer"></span>'}
   <button class="toc-toggle" type="button" aria-label="目錄">目錄</button>
 </header>
 <section class="hero">
@@ -246,8 +256,9 @@ function pageHtml({ meta, page, body, toc, slug }) {
     <p class="meta-line">最後更新 ${esc(meta.updated)}　·　${esc(site.author)}</p>
     <div class="hero-actions">
       ${meta.publicUrl ? `<a class="hero-cta" href="${esc(meta.publicUrl)}" target="_blank" rel="noopener">開啟產品 <span>Open App</span> ↗</a>` : ''}
-      <a class="hero-switch" href="${other.html}">切換至${other.label} →</a>
+      ${other ? `<a class="hero-switch" href="${other.html}">切換至${other.label} →</a>` : ''}
     </div>
+    ${!meta.publicUrl && meta.noPublicUrlReason ? `<p class="hero-url">${esc(meta.noPublicUrlReason)}</p>` : ''}
     ${meta.publicUrl ? `<p class="hero-url">產品網址：<a href="${esc(meta.publicUrl)}" target="_blank" rel="noopener">${esc(meta.publicUrl.replace(/^https?:\/\//, '').replace(/\/$/, ''))}</a></p>` : ''}
   </div>
   ${meta.hero ? `<div class="hero-art">${inlineHero(meta, slug)}</div>` : ''}
@@ -288,7 +299,7 @@ function hubHtml(products) {
   <p>${esc(m.tagline)}</p>
   <p class="card-meta">最後更新 ${esc(m.updated)}</p>
   ${m.publicUrl ? `<a class="card-app" href="${esc(m.publicUrl)}" target="_blank" rel="noopener">開啟產品 ↗</a>` : ''}
-  <div class="card-links"><a href="${m.slug}/">用戶指南</a><a href="${m.slug}/dev.html">開發者筆記</a></div>
+  <div class="card-links">${pagesFor(m).map((p) => `<a href="${m.slug}/${p.html === 'index.html' ? '' : p.html}">${p.label}</a>`).join('')}</div>
 </article>`
     )
     .join('\n')
@@ -329,7 +340,8 @@ function buildProduct(slug) {
   const shots = []
 
   // 第一輪：兩頁都 lex 同編號，先收齊所有 id，交叉引用先解析得到
-  const lexed = PAGES.map((page) => {
+  const pages = pagesFor(meta)
+  const lexed = pages.map((page) => {
     const file = path.join(productDir, page.file)
     if (!fs.existsSync(file)) {
       errors.push(`${slug}: 缺少 ${page.file}`)
@@ -354,7 +366,7 @@ function buildProduct(slug) {
     body = wrapChapters(body)
     const outDir = path.join(OUT, slug)
     fs.mkdirSync(outDir, { recursive: true })
-    fs.writeFileSync(path.join(outDir, page.html), pageHtml({ meta, page, body, toc, slug }))
+    fs.writeFileSync(path.join(outDir, page.html), pageHtml({ meta, page, body, toc, slug, pages }))
     item.shots = ctx.shots
   }
 
@@ -448,7 +460,7 @@ function main() {
           warnings.push(`${r.meta.slug}: 截圖待補 images/${s.file}（${s.page} §${s.section}），准許佔位發佈`)
         }
       }
-      if (r.shots) {
+      if (r.shots && pagesFor(r.meta).some((p) => p.kind === 'user')) {
         const userToc = fs.readFileSync(path.join(productsDir, r.meta.slug, 'user.md'), 'utf8')
         if (!userToc.includes(`{#${GETTING_STARTED_ID}}`)) errors.push(`${r.meta.slug}: user.md 冇 {#${GETTING_STARTED_ID}} 章節`)
       }

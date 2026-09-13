@@ -48,6 +48,7 @@ const RULES = [
   ['GCP project id', /\bgen-lang-client-\d{6,}\b/g],
   ['Drive / Sheet ID（疑似）', /(?<![A-Za-z0-9_-])1[A-Za-z0-9_-]{32,43}(?![A-Za-z0-9_-])/g],
   // ---- ⚠️ bot 名、email、本機路徑
+  ['Telegram chat ID', /(chat[_ ]?id|ALLOWED_CHAT_ID)\s*[:=：]?\s*-?\d{6,}/gi],
   ['Telegram bot 名', /@[A-Za-z0-9_]{3,}_?bot\b/gi],
   ['Email', /\b[\w.+-]+@[\w-]+\.[\w.-]+\b/g],
   ['本機路徑', /\b[A-Z]:\\Users\\[^\s"'<]+|\/Users\/[a-z][^\s"'<]*|<HOME>/g],

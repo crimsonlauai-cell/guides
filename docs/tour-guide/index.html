@@ -1,0 +1,1319 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Tour-Guide 日本旅行即時指引｜開發者筆記</title>
+<meta name="description" content="Telegram bot：發一個位置、揀一個分類，兩秒內回地圖加五間店，再用食べログ分數、本地 blog 與繁中說明重新排序。">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🗾</text></svg>">
+</head>
+<body data-product="tour-guide" data-page="dev" data-m="bW9jLmxpYW1nQGlhLnVhbG5vc21pcmM=">
+<div class="bg" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><span></span></div>
+<header class="topbar glass">
+  <a class="brand" href="../">Crimson Guides</a>
+  <span class="crumb">Tour-Guide 日本旅行即時指引</span>
+  <span class="switch-spacer"></span>
+  <button class="toc-toggle" type="button" aria-label="目錄">目錄</button>
+</header>
+<section class="hero">
+  <div class="hero-text">
+    <p class="eyebrow">開發者筆記 <span>Developer Notes</span></p>
+    <h1>Tour-Guide 日本旅行即時指引</h1>
+    <p class="tagline">Telegram bot：發一個位置、揀一個分類，兩秒內回地圖加五間店，再用食べログ分數、本地 blog 與繁中說明重新排序。</p>
+    <p class="meta-line">最後更新 2026-09-14　·　Crimson Lau · CKW Group</p>
+    <div class="hero-actions">
+      
+      
+    </div>
+    <p class="hero-url">私人自用的 Telegram bot，只接受擁有人一個帳號，不對外開放。本頁只提供開發筆記，供參考重建同類工具。</p>
+    
+  </div>
+  <div class="hero-art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <defs>
+    <radialGradient id="tg-hero-glow1" cx="0.8" cy="0.15" r="0.6">
+      <stop offset="0" stop-color="#4be3db" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#4be3db" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="tg-hero-glow2" cx="0.1" cy="0.9" r="0.55">
+      <stop offset="0" stop-color="#60a5fa" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#60a5fa" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="tg-hero-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0b5c8a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="560" height="400" rx="24" fill="#f7fbfd"/>
+  <rect width="560" height="400" rx="24" fill="url(#tg-hero-glow1)"/>
+  <rect width="560" height="400" rx="24" fill="url(#tg-hero-glow2)"/>
+
+  <!-- 手機 -->
+  <g filter="url(#tg-hero-shadow)">
+    <rect x="170" y="30" width="220" height="340" rx="30" fill="#ffffff" fill-opacity="0.92" stroke="#e3edf3"/>
+  </g>
+  <!-- 地圖 -->
+  <rect x="186" y="62" width="188" height="120" rx="12" fill="#eef4ee"/>
+  <path d="M186 132 L374 98" stroke="#ffffff" stroke-width="10"/>
+  <path d="M250 62 L270 182" stroke="#ffffff" stroke-width="7"/>
+  <path d="M320 62 L306 182" stroke="#f3b4b4" stroke-width="12" opacity="0.6"/>
+  <g font-size="10" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <circle cx="300" cy="122" r="9" fill="#60a5fa"/><text x="300" y="126">Y</text>
+    <circle cx="240" cy="100" r="8" fill="#d94a4a"/><text x="240" y="104">1</text>
+    <circle cx="345" cy="88" r="8" fill="#d94a4a"/><text x="345" y="92">2</text>
+    <circle cx="214" cy="150" r="8" fill="#d94a4a"/><text x="214" y="154">3</text>
+    <circle cx="338" cy="160" r="8" fill="#d94a4a"/><text x="338" y="164">4</text>
+  </g>
+  <!-- 名單 -->
+  <g font-size="11" fill="#1e2a3a">
+    <text x="190" y="206" font-weight="700">1️⃣ 風雲児</text>
+    <text x="190" y="222" fill="#0b5c8a">⭐ 食べログ 3.80 · Google 4.3</text>
+    <text x="190" y="238" fill="#5b6b7f">🚶 6 分鐘 · 380m</text>
+    <text x="190" y="262" font-weight="700">2️⃣ 五ノ神製作所</text>
+    <text x="190" y="278" fill="#0b5c8a">⭐ 食べログ 3.77 · Google 4.1</text>
+    <text x="190" y="294" fill="#5b6b7f">🚶 9 分鐘 · 610m</text>
+  </g>
+  <g font-size="10" fill="#0b5c8a" text-anchor="middle">
+    <rect x="186" y="314" width="58" height="24" rx="8" fill="#e8f7f6"/><text x="215" y="330">🚶 近</text>
+    <rect x="251" y="314" width="58" height="24" rx="8" fill="#4be3db"/><text x="280" y="330" fill="#0f2233">⭐ 好食</text>
+    <rect x="316" y="314" width="58" height="24" rx="8" fill="#e8f7f6"/><text x="345" y="330">⚡ 即食</text>
+  </g>
+
+  <!-- 側邊徽章 -->
+  <g filter="url(#tg-hero-shadow)">
+    <rect x="30" y="92" width="120" height="70" rx="16" fill="#ffffff" fill-opacity="0.85" stroke="#ffffff"/>
+    <rect x="410" y="210" width="126" height="70" rx="16" fill="#ffffff" fill-opacity="0.85" stroke="#ffffff"/>
+  </g>
+  <text x="90" y="120" text-anchor="middle" font-size="12" fill="#5b6b7f">第一段</text>
+  <text x="90" y="146" text-anchor="middle" font-size="20" font-weight="700" fill="#0b5c8a">≈ 2 秒</text>
+  <text x="473" y="238" text-anchor="middle" font-size="12" fill="#5b6b7f">每月成本</text>
+  <text x="473" y="264" text-anchor="middle" font-size="20" font-weight="700" fill="#0b5c8a">US$0</text>
+</svg>
+</div>
+</section>
+<div class="layout">
+  <aside class="toc glass" aria-label="目錄"><ul><li class="t1"><a href="#origin" data-target="origin"><span class="tn">1</span>緣起</a></li><li class="t2"><a href="#s-1-1" data-target="s-1-1"><span class="tn">1.1</span>構思起點</a></li><li class="t2"><a href="#s-1-2" data-target="s-1-2"><span class="tn">1.2</span>要解決的問題</a></li><li class="t2"><a href="#s-1-3" data-target="s-1-3"><span class="tn">1.3</span>範圍</a></li><li class="t1"><a href="#tools-cost" data-target="tools-cost"><span class="tn">2</span>工具與成本</a></li><li class="t2"><a href="#s-2-1" data-target="s-2-1"><span class="tn">2.1</span>AI Agent 與模型</a></li><li class="t2"><a href="#s-2-2" data-target="s-2-2"><span class="tn">2.2</span>開發工具</a></li><li class="t2"><a href="#s-2-3" data-target="s-2-3"><span class="tn">2.3</span>第三方服務</a></li><li class="t2"><a href="#s-2-4" data-target="s-2-4"><span class="tn">2.4</span>開發成本</a></li><li class="t2"><a href="#s-2-5" data-target="s-2-5"><span class="tn">2.5</span>運作成本</a></li><li class="t1"><a href="#architecture" data-target="architecture"><span class="tn">3</span>技術架構</a></li><li class="t2"><a href="#s-3-1" data-target="s-3-1"><span class="tn">3.1</span>系統總覽</a></li><li class="t2"><a href="#backend" data-target="backend"><span class="tn">3.2</span>後台技術</a></li><li class="t2"><a href="#ai" data-target="ai"><span class="tn">3.3</span>AI 技術</a></li><li class="t2"><a href="#s-3-4" data-target="s-3-4"><span class="tn">3.4</span>核心邏輯</a></li><li class="t1"><a href="#build" data-target="build"><span class="tn">4</span>逐步教學</a></li><li class="t2"><a href="#s-4-1" data-target="s-4-1"><span class="tn">4.1</span>階段一：資料源驗證</a></li><li class="t2"><a href="#s-4-2" data-target="s-4-2"><span class="tn">4.2</span>階段二：骨架與地區抽象層</a></li><li class="t2"><a href="#s-4-3" data-target="s-4-3"><span class="tn">4.3</span>階段三：資料層</a></li><li class="t2"><a href="#s-4-4" data-target="s-4-4"><span class="tn">4.4</span>階段四：排序與流程</a></li><li class="t2"><a href="#s-4-5" data-target="s-4-5"><span class="tn">4.5</span>階段五：Telegram 介面</a></li><li class="t2"><a href="#s-4-6" data-target="s-4-6"><span class="tn">4.6</span>階段六：長駐服務化</a></li><li class="t2"><a href="#step-verify" data-target="step-verify"><span class="tn">4.7</span>完整驗證</a></li><li class="t1"><a href="#tradeoffs" data-target="tradeoffs"><span class="tn">5</span>做法評估</a></li><li class="t2"><a href="#s-5-1" data-target="s-5-1"><span class="tn">5.1</span>好處</a></li><li class="t2"><a href="#s-5-2" data-target="s-5-2"><span class="tn">5.2</span>壞處</a></li><li class="t2"><a href="#s-5-3" data-target="s-5-3"><span class="tn">5.3</span>難處</a></li><li class="t2"><a href="#s-5-4" data-target="s-5-4"><span class="tn">5.4</span>未嘗試的方案</a></li><li class="t1"><a href="#journal" data-target="journal"><span class="tn">6</span>開發歷程</a></li><li class="t2"><a href="#journal-grounding" data-target="journal-grounding"><span class="tn">6.1</span>以為 Gemini 可以兼任搜尋引擎</a></li><li class="t2"><a href="#journal-precision" data-target="journal-precision"><span class="tn">6.2</span>分數只有一位小數</a></li><li class="t2"><a href="#journal-category-first" data-target="journal-category-first"><span class="tn">6.3</span>發位置即查，結果全是連鎖店</a></li><li class="t2"><a href="#journal-shopping" data-target="journal-shopping"><span class="tn">6.4</span>購物分類照查食べログ</a></li><li class="t2"><a href="#journal-cache-key" data-target="journal-cache-key"><span class="tn">6.5</span>改了查詢詞但結果不變</a></li><li class="t2"><a href="#journal-types" data-target="journal-types"><span class="tn">6.6</span>Places 類型標籤不可盡信</a></li><li class="t2"><a href="#journal-format" data-target="journal-format"><span class="tn">6.7</span>強制格式令模型不搜尋</a></li><li class="t2"><a href="#journal-summary" data-target="journal-summary"><span class="tn">6.8</span>說明行最先被刪</a></li><li class="t2"><a href="#journal-getupdates" data-target="journal-getupdates"><span class="tn">6.9</span>檢查工具殺死了服務</a></li><li class="t2"><a href="#journal-service" data-target="journal-service"><span class="tn">6.10</span>重裝後服務靜靜起不到</a></li><li class="t1"><a href="#extensions" data-target="extensions"><span class="tn">7</span>延伸應用</a></li><li class="t1"><a href="#gaps" data-target="gaps"><span class="tn">8</span>已知缺口</a></li><li class="t1"><a href="#feedback" data-target="feedback"><span class="tn">9</span>意見反饋</a></li></ul></aside>
+  <main class="content">
+<section class="chapter" id="ch-origin">
+<h2 id="origin" class="hd d1" data-num="1"><a class="num" href="#origin">1</a><span class="zh">緣起</span> <span class="en">Origin</span></h2>
+<h3 id="s-1-1" class="hd d2" data-num="1.1"><a class="num" href="#s-1-1">1.1</a><span class="zh">構思起點</span> <span class="en">The Spark</span></h3>
+<p>Crimson Lau（CKW Group）機緣巧合下想做一個日本旅行時用的即時指引工具：人在街頭，發一個位置，就知道附近值得去的店。</p>
+<p>最初的要求只有三條原則：遠近、評分或熱門程度、營業時間；輸入輸出都在 Telegram，回覆要有圖片、地點連結及文字。</p>
+<p>需求訪談期間，真正的問題浮現出來：<strong>Google 評分在日本餐飲上幾乎沒有分辨力。</strong> 同一區的好店與遊客店都是 4.3 分。日本本地人參考的是食べログ（Tabelog），但它沒有 API，亦禁止抓取。整個產品於是變成一個問題：怎樣在合規的前提下，用食べログ做排序主軸。</p>
+<p>本產品是私人自用工具，只接受一個 Telegram 帳號，不對外開放。</p>
+<h3 id="s-1-2" class="hd d2" data-num="1.2"><a class="num" href="#s-1-2">1.2</a><span class="zh">要解決的問題</span> <span class="en">Problem</span></h3>
+<ol>
+<li><strong>評分失真。</strong> 同一區拉麵店的 Google 評分全部落在 4.1 至 4.4，食べログ分數卻拉開到 3.09 至 3.80（見 <a class="xref" href="#logic-score">3.4.1 食べログ分數抽取</a>）。</li>
+<li><strong>候選池被連鎖店佔據。</strong> 不指定分類時，新宿 600 公尺內頭十間有八間是壽司郎、一蘭、麥當勞、薩莉亞一類。</li>
+<li><strong>街頭等不起。</strong> 所有資料源加起來要二十秒，但人站在路口，兩秒內就要看到東西。</li>
+<li><strong>遊客陷阱。</strong> 很多 <code>.jp</code> 網站其實專寫給外國遊客，推薦的正是遊客店，必須分辨真正的本地來源。</li>
+</ol>
+<h3 id="s-1-3" class="hd d2" data-num="1.3"><a class="num" href="#s-1-3">1.3</a><span class="zh">範圍</span> <span class="en">Scope</span></h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>做</th>
+<th>刻意不做</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>分類優先：先揀拉麵、藥妝等分類，再查</td>
+<td><strong>爬食べログ頁面</strong>：店舖頁回 <code>403</code>，使用條款明文禁止複製及保管</td>
+</tr>
+<tr>
+<td>三個模式：越近越好、越好食越好、即食得</td>
+<td><strong>食べログ評語全文</strong>：只讀分數；評語分析改用 Google Places 的日文評論</td>
+</tr>
+<tr>
+<td>兩段式回覆：2 秒快名單，約 20 秒後補分數及說明</td>
+<td><strong>雲端備援</strong>：電腦停電或斷網即不可用，評估後認為不值得另寫雲端版</td>
+</tr>
+<tr>
+<td>本地 blog 補充，並分辨遊客媒體</td>
+<td><strong>多用戶</strong>：白名單只認一個 chat ID</td>
+</tr>
+<tr>
+<td>同品牌去重、7 日內不重複推薦</td>
+<td><strong>自動更新位置</strong>：不做 Live Location、位置過期提示或 GPS 精度警告，由用戶手動按「更新位置」</td>
+</tr>
+<tr>
+<td>開機自動啟動、crash 自動重啟</td>
+<td><strong>儲存店舖相片</strong>：Google 條款不准，每次即時取</td>
+</tr>
+</tbody></table>
+</div><p class="chapter-fb"><a href="#" data-fb="1">對第 1 章有意見？</a></p>
+</section><section class="chapter" id="ch-tools-cost">
+<h2 id="tools-cost" class="hd d1" data-num="2"><a class="num" href="#tools-cost">2</a><span class="zh">工具與成本</span> <span class="en">Tools &amp; Cost</span></h2>
+<h3 id="s-2-1" class="hd d2" data-num="2.1"><a class="num" href="#s-2-1">2.1</a><span class="zh">AI Agent 與模型</span> <span class="en">Agent &amp; Models</span></h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Claude Code（桌面版）</td>
+<td>需求訪談、資料源驗證腳本、全部程式碼、服務化腳本、部署指引</td>
+</tr>
+<tr>
+<td>Skill：grilling</td>
+<td>逐條訪談需求，建立設計決策紀錄 <code>docs/DECISIONS.md</code></td>
+</tr>
+<tr>
+<td>Skill：rebuild-doc</td>
+<td>開發完成後產出重建指南 <code>REBUILD.md</code>，本頁逐步教學以此為基礎</td>
+</tr>
+<tr>
+<td>Gemini Flash（產品內）</td>
+<td>本地 blog 搜尋（grounding）及繁體中文摘要</td>
+</tr>
+</tbody></table>
+</div><h3 id="s-2-2" class="hd d2" data-num="2.2"><a class="num" href="#s-2-2">2.2</a><span class="zh">開發工具</span> <span class="en">Dev Tools</span></h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>用途</th>
+<th>收費</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Node.js 24（要求 22 以上）</td>
+<td>Runtime；需要內建的 <code>node:sqlite</code> 及 <code>process.loadEnvFile()</code></td>
+<td>免費</td>
+</tr>
+<tr>
+<td>grammY</td>
+<td>Telegram bot 框架</td>
+<td>免費</td>
+</tr>
+<tr>
+<td><code>@google/genai</code></td>
+<td>Gemini SDK</td>
+<td>免費</td>
+</tr>
+<tr>
+<td>Windows 工作排程器、PowerShell 5.1</td>
+<td>常駐服務</td>
+<td>系統內建</td>
+</tr>
+</tbody></table>
+</div><h3 id="s-2-3" class="hd d2" data-num="2.3"><a class="num" href="#s-2-3">2.3</a><span class="zh">第三方服務</span> <span class="en">Services</span></h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>服務</th>
+<th>用途</th>
+<th>收費</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Google Places API (New)</td>
+<td>座標、距離、Google 評分、營業時間、日文評論</td>
+<td>需綁信用卡；免費額度內不扣款</td>
+</tr>
+<tr>
+<td>Maps Static API</td>
+<td>地圖圖片</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>Serper.dev</td>
+<td>讀取 Google 搜尋結果，抽食べログ分數</td>
+<td>註冊送 2,500 次，不需信用卡；之後最低 US$50（50,000 次，6 個月到期）</td>
+</tr>
+<tr>
+<td>Gemini API（Google AI Studio）</td>
+<td>blog grounding、摘要</td>
+<td>免費額度；但 key 所屬專案必須已接 billing account</td>
+</tr>
+<tr>
+<td>Telegram Bot API</td>
+<td>輸入輸出</td>
+<td>免費</td>
+</tr>
+</tbody></table>
+</div><h3 id="s-2-4" class="hd d2" data-num="2.4"><a class="num" href="#s-2-4">2.4</a><span class="zh">開發成本</span> <span class="en">Build Cost</span></h3>
+<ul>
+<li><strong>AI：</strong> Claude 訂閱，沒有額外 API 費用。</li>
+<li><strong>時間：</strong> 核心開發集中在 2026 年 8 月 8 日至 9 日；8 月 16 日至 19 日加入「更新位置」按鈕並撰寫重建文件。按重建指南估算，同類工具約需 6 至 10 小時。</li>
+</ul>
+<div class="callout c-gap"><div class="callout-title">推導步驟，未經實跑驗證</div><p>開發時數由 session 日期推算，未有精確工時紀錄。</p>
+</div><figure class="diagram"><svg role="img" aria-label="開發時間線" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 300" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <defs>
+    <linearGradient id="tg-tl-line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4be3db"/>
+      <stop offset="1" stop-color="#0b5c8a"/>
+    </linearGradient>
+  </defs>
+  <text x="20" y="34" font-size="19" font-weight="700" fill="#1e2a3a">開發時間線（2026 年）</text>
+  <text x="20" y="58" font-size="13" fill="#5b6b7f">紅點為推翻原設計的轉折</text>
+
+  <rect x="40" y="140" width="840" height="6" rx="3" fill="url(#tg-tl-line)"/>
+  <g font-size="13" text-anchor="middle">
+    <circle cx="80" cy="143" r="9" fill="#ffffff" stroke="#4be3db" stroke-width="3"/>
+    <text x="80" y="116" font-weight="700" fill="#1e2a3a">8/8 ①</text>
+    <text x="80" y="176" fill="#1e2a3a">需求訪談</text>
+    <text x="80" y="196" fill="#5b6b7f">資料源分工定案</text>
+
+    <circle cx="260" cy="143" r="10" fill="#d94a4a"/>
+    <text x="260" y="116" font-weight="700" fill="#1e2a3a">8/8 ②</text>
+    <text x="260" y="176" fill="#b91c1c">Step 0 證偽</text>
+    <text x="260" y="196" fill="#5b6b7f">Gemini 取不到食べログ → Serper</text>
+
+    <circle cx="440" cy="143" r="10" fill="#d94a4a"/>
+    <text x="440" y="116" font-weight="700" fill="#1e2a3a">8/8 ③</text>
+    <text x="440" y="176" fill="#b91c1c">改為分類優先</text>
+    <text x="440" y="196" fill="#5b6b7f">候選池被連鎖店佔據</text>
+
+    <circle cx="620" cy="143" r="9" fill="#ffffff" stroke="#0b5c8a" stroke-width="3"/>
+    <text x="620" y="116" font-weight="700" fill="#1e2a3a">8/9</text>
+    <text x="620" y="176" fill="#1e2a3a">購物層、服務化</text>
+    <text x="620" y="196" fill="#5b6b7f">工作排程器取代 NSSM</text>
+
+    <circle cx="820" cy="143" r="9" fill="#0b5c8a"/>
+    <text x="820" y="116" font-weight="700" fill="#1e2a3a">8/16–19</text>
+    <text x="820" y="176" fill="#1e2a3a">更新位置按鈕</text>
+    <text x="820" y="196" fill="#5b6b7f">撰寫重建文件</text>
+  </g>
+
+  <rect x="20" y="226" width="880" height="54" rx="12" fill="#f4fbfb" stroke="#bfeeea"/>
+  <text x="40" y="250" font-size="13" fill="#1e2a3a">主線 session 50 條指示；核心開發集中在 8 月 8 日至 9 日兩天。</text>
+  <text x="40" y="270" font-size="13" fill="#5b6b7f">先用獨立腳本驗證資料源（Step 0 至 0c），通過門檻才寫正式程式碼。</text>
+</svg>
+<figcaption>開發時間線</figcaption></figure>
+<h3 id="s-2-5" class="hd d2" data-num="2.5"><a class="num" href="#s-2-5">2.5</a><span class="zh">運作成本</span> <span class="en">Running Cost</span></h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>免費額度</th>
+<th>個人旅行用量</th>
+<th>實付</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Places（Enterprise + Atmosphere）</td>
+<td>1,000 次／月</td>
+<td>少於 300</td>
+<td>US$0</td>
+</tr>
+<tr>
+<td>Maps Static</td>
+<td>10,000 次／月</td>
+<td>少於 300</td>
+<td>US$0</td>
+</tr>
+<tr>
+<td>Place Photo</td>
+<td>按次計費（每 1,000 次約 US$7）</td>
+<td>少於 100</td>
+<td>約 US$0</td>
+</tr>
+<tr>
+<td>Gemini Flash</td>
+<td>1,000 次／日</td>
+<td>遠低於</td>
+<td>US$0</td>
+</tr>
+<tr>
+<td>Gemini grounding</td>
+<td>5,000 次／月</td>
+<td>約 1,800</td>
+<td>US$0</td>
+</tr>
+<tr>
+<td>Serper</td>
+<td>一次性 2,500 次</td>
+<td>每次查詢約 6 次</td>
+<td>US$0（約夠三四趟旅行）</td>
+</tr>
+</tbody></table>
+</div><p><strong>每月 US$0。</strong> 真正的門檻不是錢，而是要開一個綁卡的 Google Cloud 帳戶。</p>
+<div class="callout c-warn"><div class="callout-title">免費額度會變動</div><p>以上為 2026 年 8 月的情況，請以各服務官方頁面為準。</p>
+</div><p class="chapter-fb"><a href="#" data-fb="2">對第 2 章有意見？</a></p>
+</section><section class="chapter" id="ch-architecture">
+<h2 id="architecture" class="hd d1" data-num="3"><a class="num" href="#architecture">3</a><span class="zh">技術架構</span> <span class="en">Architecture</span></h2>
+<h3 id="s-3-1" class="hd d2" data-num="3.1"><a class="num" href="#s-3-1">3.1</a><span class="zh">系統總覽</span> <span class="en">Overview</span></h3>
+<figure class="diagram"><svg role="img" aria-label="系統架構：手機、Telegram、個人電腦上的常駐程序及四個外部服務" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 440" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <defs>
+    <marker id="tg-arch-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0b5c8a"/>
+    </marker>
+    <filter id="tg-arch-shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0b5c8a" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#tg-arch-shadow)">
+    <rect x="20" y="150" width="150" height="130" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <rect x="220" y="150" width="150" height="130" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <rect x="420" y="40" width="250" height="360" rx="16" fill="#f4fbfb" stroke="#4be3db"/>
+    <rect x="720" y="40" width="200" height="80" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <rect x="720" y="135" width="200" height="80" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <rect x="720" y="230" width="200" height="80" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <rect x="720" y="325" width="200" height="75" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+  </g>
+
+  <g font-size="15" font-weight="700" fill="#1e2a3a">
+    <text x="38" y="180">手機 Telegram</text>
+    <text x="238" y="180">Telegram 伺服器</text>
+    <text x="438" y="72">Node.js 常駐程序（個人電腦）</text>
+    <text x="738" y="70">Google Places</text>
+    <text x="738" y="165">Serper（SERP）</text>
+    <text x="738" y="260">Gemini API</text>
+    <text x="738" y="355">node:sqlite</text>
+  </g>
+  <g font-size="13" fill="#5b6b7f">
+    <text x="38" y="206">發位置</text>
+    <text x="38" y="228">揀分類、模式</text>
+    <text x="38" y="250">按導航、相片</text>
+
+    <text x="238" y="206">bot 只做 long polling</text>
+    <text x="238" y="228">毋須公網入口</text>
+    <text x="238" y="250">白名單只認一個 chat</text>
+
+    <text x="738" y="94">座標、評分、營業時間、日文評論</text>
+    <text x="738" y="189">食べログ分數（snippet 抽取）</text>
+    <text x="738" y="284">本地 blog grounding、繁中摘要</text>
+    <text x="738" y="377">狀態、快取、推薦紀錄</text>
+  </g>
+
+  <g font-size="13" fill="#1e2a3a">
+    <rect x="440" y="92" width="210" height="44" rx="10" fill="#ffffff" stroke="#d9e2ea"/>
+    <text x="456" y="119"><tspan font-weight="700">bot.js</tspan>　鍵盤、callback</text>
+    <rect x="440" y="146" width="210" height="44" rx="10" fill="#ffffff" stroke="#d9e2ea"/>
+    <text x="456" y="173"><tspan font-weight="700">pipeline.js</tspan>　兩段式流程</text>
+    <rect x="440" y="200" width="210" height="44" rx="10" fill="#ffffff" stroke="#d9e2ea"/>
+    <text x="456" y="227"><tspan font-weight="700">ranking.js</tspan>　硬閘、排序、去重</text>
+    <rect x="440" y="254" width="210" height="44" rx="10" fill="#ffffff" stroke="#d9e2ea"/>
+    <text x="456" y="281"><tspan font-weight="700">providers/</tspan>　三個資料源</text>
+    <rect x="440" y="308" width="210" height="44" rx="10" fill="#ffffff" stroke="#d9e2ea"/>
+    <text x="456" y="335"><tspan font-weight="700">regions/</tspan>　地區抽象層</text>
+    <text x="440" y="382" font-size="12" fill="#0b5c8a">Windows 工作排程器：開機自啟、crash 重啟</text>
+  </g>
+
+  <g stroke="#0b5c8a" stroke-width="1.8" fill="none" marker-end="url(#tg-arch-arrow)">
+    <line x1="172" y1="215" x2="216" y2="215"/>
+    <line x1="372" y1="215" x2="416" y2="215"/>
+    <line x1="672" y1="80" x2="716" y2="80"/>
+    <line x1="672" y1="175" x2="716" y2="175"/>
+    <line x1="672" y1="270" x2="716" y2="270"/>
+    <line x1="672" y1="362" x2="716" y2="362"/>
+  </g>
+</svg>
+<figcaption>系統架構：手機、Telegram、個人電腦上的常駐程序及四個外部服務</figcaption></figure>
+<p>bot 以 long polling 向 Telegram 取訊息，所以跑在個人電腦上即可，不需要公網入口。每次查詢：</p>
+<ol>
+<li>用戶在 Telegram 發位置、揀分類。</li>
+<li><code>pipeline.js</code> 第一段向 Places 取 20 間候選，過閘後立即回覆地圖及五間店。</li>
+<li>第二段在背景向 Serper 查食べログ分數、向 Gemini 找本地 blog 及寫摘要，完成後覆寫同一條訊息。</li>
+<li>所有結果按資料源分別快取在 <code>node:sqlite</code>。</li>
+</ol>
+<figure class="shot"><img src="images/dev-static-map.png" alt="bot 每次回覆的靜態地圖：藍色 Y 是用戶位置，紅色 1 至 5 對應名單" loading="lazy"><figcaption>bot 每次回覆的靜態地圖：藍色 Y 是用戶位置，紅色 1 至 5 對應名單</figcaption></figure>
+<h3 id="backend" class="hd d2" data-num="3.2"><a class="num" href="#backend">3.2</a><span class="zh">後台技術</span> <span class="en">Backend &amp; IT</span></h3>
+<p><strong>技術棧</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>層</th>
+<th>用甚麼</th>
+<th>為甚麼</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Runtime</td>
+<td>Node.js 22 以上</td>
+<td>內建 <code>node:sqlite</code> 及 <code>process.loadEnvFile()</code>，免安裝額外套件</td>
+</tr>
+<tr>
+<td>Telegram</td>
+<td>grammY + long polling</td>
+<td>inline keyboard 與 callback query API 直觀；long polling 毋須公網 HTTPS</td>
+</tr>
+<tr>
+<td>地點資料</td>
+<td>Google Places API (New)</td>
+<td>唯一能一次取得座標、營業時間、評分及日文評論的來源，一個請求回 20 間只計一次費</td>
+</tr>
+<tr>
+<td>本地評分</td>
+<td>Serper.dev</td>
+<td>食べログ沒有 API 且封鎖抓取，但分數會出現在搜尋結果 snippet</td>
+</tr>
+<tr>
+<td>本地 blog、摘要</td>
+<td>Gemini API</td>
+<td><code>google_search</code> grounding 能找到日本本地 blog；同一個 key 兼做摘要</td>
+</tr>
+<tr>
+<td>儲存</td>
+<td><code>node:sqlite</code></td>
+<td>Node 內建，零原生編譯；換機或升級 Node 不會出現原生模組編譯失敗</td>
+</tr>
+<tr>
+<td>常駐</td>
+<td>Windows 工作排程器</td>
+<td>系統內建，不需下載第三方 binary</td>
+</tr>
+</tbody></table>
+</div><p><strong>檔案樹</strong></p>
+<pre><code class="language-text">Tour-Guide/
+├── index.js                進入點：chdir、載入環境變數、連線重試、long polling、409 退避
+├── .env.example            key 欄位範本（.env 不入版控）
+├── docs/DECISIONS.md       設計決策紀錄
+├── scripts/
+│   ├── step0b-serper-tabelog-test.mjs   資料源驗證：Serper 抽食べログ分數
+│   ├── step0c-e2e-test.mjs              端到端驗證：Places → Serper → 身分驗證
+│   ├── run-bot.cmd                      服務啟動器（負責輸出重新導向）
+│   ├── install-service.ps1              註冊開機自啟服務
+│   └── uninstall-service.ps1
+└── src/
+    ├── config.js           分類、三個模式、距離閘、快取 TTL
+    ├── db.js               使用者狀態、快取、推薦紀錄
+    ├── logger.js           檔案日誌（每日一檔，保留 14 日）
+    ├── ranking.js          硬閘、排序、自動放寬、同品牌去重
+    ├── pipeline.js         兩段式流程；餐飲與購物分流
+    ├── format.js           訊息版式與長度降級
+    ├── bot.js              白名單、鍵盤、callback、背景第二段
+    ├── place-types.js      Places 類型 → 繁中標籤（說明的保底）
+    ├── providers/          places.js、tabelog.js、gemini.js
+    └── regions/            index.js（註冊表）、japan.js（日本實作）
+</code></pre>
+<p><strong>正規化店舖物件</strong>（<code>providers/places.js</code> 產生，全程通用）</p>
+<pre><code class="language-js">{
+  id, name, address, lat, lng,
+  distanceMetres, walkMinutes,
+  googleRating, googleRatingCount, priceLevel,
+  typeCode,        // Places 英文枚舉，例如 &#39;ramen_restaurant&#39;
+  typeLabel,       // Places 日文顯示名
+  mapsUri,
+  openNow,         // true / false / null（資料不齊時為 null）
+  periods, weekdayHours,
+  reviews          // 只保留日文評論：[{ text, rating }]
+}
+</code></pre>
+<p><strong>RegionProvider 介面</strong>（<code>regions/japan.js</code> 實作）</p>
+<pre><code class="language-js">{
+  id, label, languageCode, regionCode, timezone, scoreSourceName,
+  contains({ lat, lng }),                           // 座標是否屬於這個地區
+  scoreAppliesTo(category),                         // 本地權威評分覆蓋哪些分類
+  buildScoreQuery({ name, ward, town }),
+  buildBlogQuery({ name, ward }),
+  isLocalSource({ url, domain, title, snippet }),   // 本地來源判定
+  parseAddress(address),                            // → { ward, town, chome }
+  parseScoreUrl(url),                               // → { prefecture, majorArea, minorArea, shopId }
+  isDefunct(text)                                   // 已結業判定
+}
+</code></pre>
+<p><strong>資料表</strong>（<code>db.js</code>）</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>表</th>
+<th>內容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>user_state</code></td>
+<td>chat_id 主鍵、上次模式、上次分類、上次座標</td>
+</tr>
+<tr>
+<td><code>cache</code></td>
+<td>key、來源、JSON payload、到期時間</td>
+</tr>
+<tr>
+<td><code>recommendations</code></td>
+<td>(chat_id, place_id) 複合主鍵、推薦時間、去過時間</td>
+</tr>
+</tbody></table>
+</div><p>快取 TTL：Places 資料 7 日（條款上限 30 日）、食べログ分數 24 小時（刻意壓到最短）、blog 3 日。</p>
+<p><strong>外部接口</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>服務</th>
+<th>端點</th>
+<th>重點</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Places 附近搜尋</td>
+<td><code>POST https://places.googleapis.com/v1/places:searchNearby</code></td>
+<td>標頭 <code>X-Goog-Api-Key</code>、<code>X-Goog-FieldMask</code>；body 用 <code>includedPrimaryTypes</code></td>
+</tr>
+<tr>
+<td>Places 文字搜尋</td>
+<td><code>POST https://places.googleapis.com/v1/places:searchText</code></td>
+<td><code>rankPreference</code> 只接受 <code>RELEVANCE</code> 或 <code>DISTANCE</code></td>
+</tr>
+<tr>
+<td>Places 相片</td>
+<td><code>GET https://places.googleapis.com/v1/{photoName}/media</code></td>
+<td>不准儲存，即取即用</td>
+</tr>
+<tr>
+<td>靜態地圖</td>
+<td><code>GET https://maps.googleapis.com/maps/api/staticmap</code></td>
+<td><code>markers</code> 可重複，每個一組 pin</td>
+</tr>
+<tr>
+<td>導航連結</td>
+<td><code>https://www.google.com/maps/dir/?api=1&amp;destination=…</code></td>
+<td>免費，不需要 key</td>
+</tr>
+<tr>
+<td>Serper</td>
+<td><code>POST https://google.serper.dev/search</code></td>
+<td>標頭 <code>X-API-KEY</code>；body <code>{ q, gl: &#39;jp&#39;, hl: &#39;ja&#39;, num }</code></td>
+</tr>
+<tr>
+<td>Gemini</td>
+<td><code>POST https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent</code></td>
+<td>標頭 <code>x-goog-api-key</code>；grounding 用 <code>tools: [{ google_search: {} }]</code></td>
+</tr>
+</tbody></table>
+</div><p><strong>Places field mask 計費規則</strong>（影響整個設計）</p>
+<p>按 field mask 中<strong>最貴的欄位</strong>計費：</p>
+<ul>
+<li>Essentials／Pro：<code>id</code>、<code>location</code>、<code>formattedAddress</code>、<code>displayName</code>、<code>googleMapsUri</code></li>
+<li>Enterprise：<code>rating</code>、<code>userRatingCount</code>、<code>regularOpeningHours</code>、<code>priceLevel</code></li>
+<li>Enterprise + Atmosphere：<code>reviews</code></li>
+</ul>
+<p>所以加了 <code>rating</code> 之後，營業時間是免費順手取得；評論在搜尋請求中一併取回（一次呼叫），比逐間呼叫 Place Details（五次）便宜五倍。</p>
+<h3 id="ai" class="hd d2" data-num="3.3"><a class="num" href="#ai">3.3</a><span class="zh">AI 技術</span> <span class="en">AI Techniques</span></h3>
+<h4 id="s-3-3-1" class="hd d3" data-num="3.3.1"><a class="num" href="#s-3-3-1">3.3.1</a><span class="zh">本地 blog 搜尋</span> <span class="en">Local Blog Grounding</span></h4>
+<p>Gemini 的 <code>google_search</code> grounding 負責找日本本地 blog。流程：</p>
+<ol>
+<li>prompt 全日文，使用分類的日文關鍵詞（<code>category.ja</code>），例如「新宿区 ラーメン」。</li>
+<li>先要求模型搜尋並自由說明，<strong>在「回答の最後に」才要求逐行輸出</strong> <code>STORE=&lt;店名&gt; | REASON=&lt;理由&gt;</code>。</li>
+<li>取 <code>groundingMetadata.groundingChunks</code> 的來源，經本地來源判定過濾（見 <a class="xref" href="#logic-local">3.4.3 本地來源判定</a>）。</li>
+<li>一個本地來源都沒有時，當作查不到。blog 層可以完全無效，不影響主排序。</li>
+</ol>
+<h4 id="s-3-3-2" class="hd d3" data-num="3.3.2"><a class="num" href="#s-3-3-2">3.3.2</a><span class="zh">批次繁中摘要</span> <span class="en">Batch Summaries</span></h4>
+<p>五間店一次過送去 Gemini，每間回一句 25 字以內的繁體中文說明，不開 grounding（資料已在 prompt 內）。三層保底：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>情況</th>
+<th>顯示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>正常</td>
+<td>由日文評論寫成的具體說明</td>
+</tr>
+<tr>
+<td>沒有日文評論</td>
+<td>由店名與業種描述店舖類型</td>
+</tr>
+<tr>
+<td>Gemini 逾時或 503</td>
+<td>由 <code>primaryType</code> 對照的繁中類型標籤（例如「藥妝店」）</td>
+</tr>
+<tr>
+<td>類型亦未知</td>
+<td>日文原類型名，最後退到「店舖」</td>
+</tr>
+</tbody></table>
+</div><h4 id="s-3-3-3" class="hd d3" data-num="3.3.3"><a class="num" href="#s-3-3-3">3.3.3</a><span class="zh">兩個令 grounding 靜靜失效的陷阱</span> <span class="en">Grounding Pitfalls</span></h4>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>陷阱</th>
+<th>現象</th>
+<th>處理</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>prompt 一開頭強制固定格式（「説明文は不要」）</td>
+<td>模型完全不呼叫搜尋工具，憑記憶作答，數字看似真實</td>
+<td>先要求搜尋，格式要求放最後；檢查 <code>groundingChunks</code> 及 <code>webSearchQueries</code> 是否為空</td>
+</tr>
+<tr>
+<td>日文 prompt 夾雜中文分類名</td>
+<td>搜尋工具不啟動</td>
+<td>每個分類獨立一個 <code>ja</code> 欄位</td>
+</tr>
+</tbody></table>
+</div><p>此外，Gemini 延遲波動很大：grounding 實測 20 至 35 秒，偶爾超過 70 秒。時限設為搜尋 45 秒、摘要 40 秒，收到 429 或 503 時退避重試最多三次。</p>
+<h3 id="s-3-4" class="hd d2" data-num="3.4"><a class="num" href="#s-3-4">3.4</a><span class="zh">核心邏輯</span> <span class="en">Core Logic</span></h3>
+<h4 id="logic-score" class="hd d3" data-num="3.4.1"><a class="num" href="#logic-score">3.4.1</a><span class="zh">食べログ分數抽取</span> <span class="en">Tabelog Score Extraction</span></h4>
+<figure class="diagram"><svg role="img" aria-label="同一批新宿拉麵店的 Google 評分與食べログ分數分佈" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <text x="20" y="34" font-size="19" font-weight="700" fill="#1e2a3a">同一批新宿拉麵店：兩種評分的分佈</text>
+  <text x="20" y="58" font-size="13" fill="#5b6b7f">端到端測試實測數據；Google 評分集中在窄帶，食べログ分數拉得開</text>
+
+  <!-- Google -->
+  <rect x="20" y="80" width="420" height="300" rx="16" fill="#ffffff" stroke="#d9e2ea"/>
+  <text x="40" y="112" font-size="15" font-weight="700" fill="#5b6b7f">Google 評分（1–5）</text>
+  <line x1="60" y1="330" x2="420" y2="330" stroke="#d9e2ea"/>
+  <g font-size="12" fill="#5b6b7f" text-anchor="middle">
+    <text x="60" y="350">4.0</text><text x="240" y="350">4.25</text><text x="420" y="350">4.5</text>
+  </g>
+  <rect x="204" y="140" width="144" height="180" rx="10" fill="#9aa8b5" fill-opacity="0.18"/>
+  <g font-size="12" fill="#1e2a3a">
+    <circle cx="276" cy="170" r="7" fill="#9aa8b5"/><text x="288" y="174">風雲児 4.3</text>
+    <circle cx="204" cy="205" r="7" fill="#9aa8b5"/><text x="216" y="209">五ノ神製作所 4.1</text>
+    <circle cx="276" cy="240" r="7" fill="#9aa8b5"/><text x="288" y="244">一蘭 中央東口 4.3</text>
+    <circle cx="348" cy="275" r="7" fill="#9aa8b5"/><text x="248" y="300">一蘭 歌舞伎町 4.4</text>
+  </g>
+  <text x="40" y="372" font-size="13" fill="#b45309">四間落在 0.3 分之內，無法分辨好壞</text>
+
+  <!-- Tabelog -->
+  <rect x="460" y="80" width="420" height="300" rx="16" fill="#f4fbfb" stroke="#4be3db"/>
+  <text x="480" y="112" font-size="15" font-weight="700" fill="#0b5c8a">食べログ分數（1–5）</text>
+  <line x1="500" y1="330" x2="860" y2="330" stroke="#bfeeea"/>
+  <g font-size="12" fill="#5b6b7f" text-anchor="middle">
+    <text x="500" y="350">3.0</text><text x="680" y="350">3.45</text><text x="860" y="350">3.9</text>
+  </g>
+  <g font-size="12" fill="#1e2a3a">
+    <circle cx="820" cy="170" r="7" fill="#0b5c8a"/><text x="706" y="174">風雲児 3.80</text>
+    <circle cx="808" cy="205" r="7" fill="#0b5c8a"/><text x="670" y="209">五ノ神製作所 3.77</text>
+    <circle cx="580" cy="240" r="7" fill="#4be3db"/><text x="592" y="244">一蘭 中央東口 3.20</text>
+    <circle cx="536" cy="275" r="7" fill="#4be3db"/><text x="548" y="279">一蘭 歌舞伎町 3.09</text>
+  </g>
+  <text x="480" y="372" font-size="13" fill="#0b5c8a">拉開 0.71 分，排序主軸改用食べログ</text>
+</svg>
+<figcaption>同一批新宿拉麵店的 Google 評分與食べログ分數分佈</figcaption></figure>
+<p>食べログ沒有 API，但分數會出現在 Google 搜尋結果的 snippet。抽取流程：</p>
+<ol>
+<li><strong>查詢詞：</strong> <code>site:tabelog.com &lt;店名&gt; &lt;区&gt;&lt;町&gt; 総合得点</code>。加「総合得点」後，Google 會挑含分數的段落做 snippet，才能取得兩位小數。</li>
+<li><strong>抽分數：</strong> 優先抓「総合得点 3.83」這種帶標籤的兩位小數，其次任何 <code>[2-4].dd</code>，最後才用 Serper 的 <code>rating</code> 欄位（只有一位小數，標記為不精確）。</li>
+<li><strong>身分驗證：</strong> 逐個結果檢查，第一個通過的就用：<ul>
+<li>含「【閉店】」「閉店しております」「【移転】」→ 跳過</li>
+<li>URL 不是店舖頁（<code>^https://tabelog\.com/(en/)?[a-z]+/A\d+/A\d+/\d+/?$</code>）→ 跳過</li>
+<li>都道府縣與預期不同 → 跳過</li>
+<li>snippet 有地址就比對「区市」，沒有地址才正規化比對店名</li>
+</ul>
+</li>
+<li><strong>一致性檢查：</strong> 同一次查詢的店都在同一區，統計多數派都道府縣，剔走少數派結果。</li>
+<li><strong>快取：</strong> 查不到也用 <code>null</code> 寫入快取，避免同一間店重複消耗 credit；網絡或額度錯誤則不寫。</li>
+</ol>
+<p>驗證結果：端到端測試可用率 90%，兩位小數比例 6/6。</p>
+<h4 id="logic-ranking" class="hd d3" data-num="3.4.2"><a class="num" href="#logic-ranking">3.4.2</a><span class="zh">排序與硬閘</span> <span class="en">Ranking &amp; Gates</span></h4>
+<figure class="diagram"><svg role="img" aria-label="由 20 間候選到 5 間推薦的五個步驟" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 360" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <defs>
+    <marker id="tg-rank-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0b5c8a"/>
+    </marker>
+  </defs>
+  <text x="20" y="34" font-size="19" font-weight="700" fill="#1e2a3a">由 20 間候選到 5 間推薦</text>
+  <text x="20" y="58" font-size="13" fill="#5b6b7f">ranking.js；所有數值集中在 config.js</text>
+
+  <g font-size="13">
+    <rect x="20" y="84" width="160" height="170" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <text x="36" y="112" font-size="15" font-weight="700" fill="#1e2a3a">① 取池</text>
+    <text x="36" y="138" fill="#1e2a3a">Places 最多 20 間</text>
+    <text x="36" y="160" fill="#1e2a3a">越近越好 → DISTANCE</text>
+    <text x="36" y="182" fill="#1e2a3a">其餘 → POPULARITY</text>
+    <text x="36" y="214" fill="#5b6b7f">取池準則決定</text>
+    <text x="36" y="234" fill="#5b6b7f">之後排得出甚麼</text>
+
+    <rect x="205" y="84" width="170" height="170" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <text x="221" y="112" font-size="15" font-weight="700" fill="#1e2a3a">② 硬閘</text>
+    <text x="221" y="138" fill="#1e2a3a">7 日內推薦過 → 剔</text>
+    <text x="221" y="160" fill="#1e2a3a">超出步行距離 → 剔</text>
+    <text x="221" y="182" fill="#1e2a3a">明確未營業 → 剔</text>
+    <text x="221" y="204" fill="#1e2a3a">快將關門 → 剔</text>
+    <text x="221" y="234" fill="#5b6b7f">營業資料缺失不剔</text>
+
+    <rect x="400" y="84" width="150" height="170" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <text x="416" y="112" font-size="15" font-weight="700" fill="#1e2a3a">③ 自動放寬</text>
+    <text x="416" y="138" fill="#1e2a3a">不足 5 間時</text>
+    <text x="416" y="160" fill="#1e2a3a">距離 × 1.5</text>
+    <text x="416" y="182" fill="#1e2a3a">再不足 × 2.5</text>
+    <text x="416" y="234" fill="#5b6b7f">訊息註明已擴大</text>
+
+    <rect x="575" y="84" width="165" height="170" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <text x="591" y="112" font-size="15" font-weight="700" fill="#1e2a3a">④ 排序</text>
+    <text x="591" y="138" fill="#1e2a3a">餐飲：食べログ分</text>
+    <text x="591" y="160" fill="#1e2a3a">（無分當 3.0）</text>
+    <text x="591" y="182" fill="#1e2a3a">購物：Google 分</text>
+    <text x="591" y="204" fill="#1e2a3a">　+ blog 提及 0.6</text>
+    <text x="591" y="234" fill="#5b6b7f">每公里扣 0.02</text>
+
+    <rect x="765" y="84" width="135" height="170" rx="14" fill="#f4fbfb" stroke="#4be3db"/>
+    <text x="781" y="112" font-size="15" font-weight="700" fill="#0b5c8a">⑤ 品牌去重</text>
+    <text x="781" y="138" fill="#1e2a3a">同品牌留一間</text>
+    <text x="781" y="160" fill="#1e2a3a">保留最近分店</text>
+    <text x="781" y="182" fill="#1e2a3a">不足 3 間</text>
+    <text x="781" y="204" fill="#1e2a3a">才補分店</text>
+  </g>
+  <g stroke="#0b5c8a" stroke-width="1.8" marker-end="url(#tg-rank-arrow)">
+    <line x1="182" y1="169" x2="201" y2="169"/>
+    <line x1="377" y1="169" x2="396" y2="169"/>
+    <line x1="552" y1="169" x2="571" y2="169"/>
+    <line x1="742" y1="169" x2="761" y2="169"/>
+  </g>
+
+  <rect x="20" y="276" width="880" height="64" rx="12" fill="#ffffff" stroke="#d9e2ea"/>
+  <text x="36" y="302" font-size="13" font-weight="700" fill="#1e2a3a">三個模式</text>
+  <text x="36" y="326" font-size="13" fill="#1e2a3a">🚶 越近越好：8 分鐘、按距離、須營業中　⭐ 越好食越好：25 分鐘、按分數、可今日稍後開　⚡ 即食得：12 分鐘、按分數、至少再開 45 分鐘</text>
+</svg>
+<figcaption>由 20 間候選到 5 間推薦的五個步驟</figcaption></figure>
+<p>三個細節：</p>
+<ul>
+<li><strong>取池準則跟隨模式。</strong> Places 只回 20 間，用甚麼準則取池，直接決定之後排得出甚麼。中野 1,200 公尺範圍實測：用 <code>POPULARITY</code> 取池，500 公尺內只有 7 間、最近 184 公尺；用 <code>DISTANCE</code> 取池，500 公尺內有 19 間、最近 95 公尺。所以「越近越好」必須用 <code>DISTANCE</code>。</li>
+<li><strong>沒有最低分數閘。</strong> 沒有食べログ分數的店照出並以 3.0 計算，很多新店及本地小店未有分數。</li>
+<li><strong>營業資料缺失不懲罰。</strong> <code>openNow</code> 為 <code>null</code> 時不剔除。</li>
+</ul>
+<p>步行時間 = 直線距離 × 1.25（街道繞行係數）÷ 每分鐘 80 公尺。</p>
+<h4 id="logic-local" class="hd d3" data-num="3.4.3"><a class="num" href="#logic-local">3.4.3</a><span class="zh">本地來源判定</span> <span class="en">Local Source Detection</span></h4>
+<p><code>japan.js</code> 的 <code>isLocalSource()</code> 依次判斷：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>次序</th>
+<th>規則</th>
+<th>結果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>遊客媒體黑名單：<code>livejapan.com</code>、<code>matcha-jp.com</code>、<code>tsunagujapan.com</code>、<code>japantravel.com</code>、<code>japan-guide.com</code>、<code>tripadvisor</code>、<code>klook.com</code>、<code>kkday.com</code></td>
+<td>不是本地</td>
+</tr>
+<tr>
+<td>2</td>
+<td>本地 blog 平台：<code>note.com</code>、<code>hatenablog.com</code>、<code>hatenablog.jp</code>、<code>ameblo.jp</code>、<code>livedoor.jp</code>、<code>fc2.com</code>、<code>exblog.jp</code>、<code>goo.ne.jp</code>、<code>supleks.jp</code></td>
+<td>本地，並加分</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>.jp</code> 域名</td>
+<td>本地</td>
+</tr>
+<tr>
+<td>4</td>
+<td>文字足夠長且假名比例超過 5%</td>
+<td>本地</td>
+</tr>
+<tr>
+<td>5</td>
+<td>其他</td>
+<td>無法確認，剔除</td>
+</tr>
+</tbody></table>
+</div><div class="callout c-warn"><div class="callout-title">`.jp` 不等於本地人所寫</div><p>日本有大量 <code>.jp</code> 媒體專門寫給外國遊客，推薦的正是遊客店。所以黑名單必須排在 <code>.jp</code> 規則之前。</p>
+</div><h4 id="logic-dedupe" class="hd d3" data-num="3.4.4"><a class="num" href="#logic-dedupe">3.4.4</a><span class="zh">同品牌去重</span> <span class="en">Brand Dedupe</span></h4>
+<ul>
+<li>品牌由店名推斷：剝走最後一個以「店」結尾的空白分隔詞（「ドン・キホーテ 新宿東南口店」→「ドン・キホーテ」）。名字沒有空白就用全名，寧願漏去重，也不要把兩間不同的店當成同一品牌。</li>
+<li>同品牌只留一間，佔該品牌的最高排名位置，但<strong>保留最近的分店</strong>：連鎖分店質素相同，距離才是差別。</li>
+<li>去重後不補到滿，只有少於 3 間才補回分店。四個真實選擇好過五個有重複的選擇。</li>
+</ul>
+<h4 id="logic-two-stage" class="hd d3" data-num="3.4.5"><a class="num" href="#logic-two-stage">3.4.5</a><span class="zh">兩段式回覆</span> <span class="en">Two-Stage Reply</span></h4>
+<figure class="diagram"><svg role="img" aria-label="兩段式回覆的時序" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 400" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <defs>
+    <marker id="tg-two-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0b5c8a"/>
+    </marker>
+  </defs>
+  <text x="20" y="34" font-size="19" font-weight="700" fill="#1e2a3a">兩段式回覆：先給保底結果，再覆寫同一條訊息</text>
+  <text x="20" y="58" font-size="13" fill="#5b6b7f">第二段在背景執行，不 await，bot 在等待期間仍可回應按鈕</text>
+
+  <!-- time axis -->
+  <line x1="60" y1="360" x2="880" y2="360" stroke="#d9e2ea" stroke-width="2"/>
+  <g font-size="12" fill="#5b6b7f" text-anchor="middle">
+    <text x="60" y="382">0 秒</text><text x="200" y="382">2 秒</text><text x="500" y="382">≈ 10 秒</text><text x="820" y="382">≈ 20 秒</text>
+  </g>
+
+  <!-- lanes -->
+  <g font-size="13" font-weight="700" fill="#5b6b7f">
+    <text x="20" y="104">第一段</text>
+    <text x="20" y="184">食べログ</text>
+    <text x="20" y="234">本地 blog</text>
+    <text x="20" y="284">繁中摘要</text>
+  </g>
+  <rect x="70" y="84" width="130" height="30" rx="8" fill="#4be3db"/>
+  <text x="80" y="104" font-size="12" fill="#0f2233">Places 取池 + 過閘</text>
+
+  <rect x="210" y="164" width="300" height="30" rx="8" fill="#0b5c8a"/>
+  <text x="222" y="184" font-size="12" fill="#ffffff">Serper × 最多 8 間，並行 3 個</text>
+  <rect x="210" y="214" width="610" height="30" rx="8" fill="#60a5fa" fill-opacity="0.7"/>
+  <text x="222" y="234" font-size="12" fill="#0f2233">Gemini grounding（最慢，最早開始；時限 45 秒）</text>
+  <rect x="520" y="264" width="300" height="30" rx="8" fill="#9aa8b5" fill-opacity="0.8"/>
+  <text x="532" y="284" font-size="12" fill="#0f2233">批次摘要五間（時限 40 秒）</text>
+
+  <!-- messages -->
+  <rect x="210" y="76" width="250" height="46" rx="10" fill="#ffffff" stroke="#4be3db"/>
+  <text x="222" y="96" font-size="12" fill="#1e2a3a">① replyWithPhoto：地圖 + 五間</text>
+  <text x="222" y="113" font-size="12" fill="#5b6b7f">底部「🔍 分析緊…」</text>
+  <rect x="640" y="76" width="260" height="46" rx="10" fill="#ffffff" stroke="#0b5c8a"/>
+  <text x="652" y="96" font-size="12" fill="#1e2a3a">② editMessageCaption 覆寫</text>
+  <text x="652" y="113" font-size="12" fill="#5b6b7f">重新排序、補分數與說明</text>
+  <path d="M820 262 L820 126" stroke="#0b5c8a" stroke-width="1.6" stroke-dasharray="4 4" fill="none" marker-end="url(#tg-two-arrow)"/>
+
+  <rect x="60" y="310" width="840" height="30" rx="8" fill="#fef3c7"/>
+  <text x="76" y="330" font-size="12" fill="#b45309">購物分類：跳過食べログ，要等 blog 結果回來才能排序（Google 評分 + 本地 blog 提及加 0.6 分）</text>
+</svg>
+<figcaption>兩段式回覆的時序</figcaption></figure>
+<ul>
+<li>第一段用 <code>replyWithPhoto</code> 發地圖及名單，caption 底部顯示「🔍 分析緊…」。</li>
+<li>第二段<strong>不可 <code>await</code></strong>，改為呼叫獨立背景函式，完成後以 <code>editMessageCaption</code> 覆寫同一條訊息。</li>
+<li>第二段失敗時保留第一段結果，只在末尾註明深度分析失敗。</li>
+<li>Telegram 圖片 caption 上限 1,024 字元，超出會整條發送失敗。降級次序：先刪 blog 行，再減店數，<strong>說明行永不刪除</strong>。</li>
+</ul>
+<figure class="shot"><img src="images/dev-telegram-stage1.png" alt="第一段：地圖及候選名單，底部顯示分析中；原範圍不足，已自動放寬至 20 分鐘" loading="lazy"><figcaption>第一段：地圖及候選名單，底部顯示分析中；原範圍不足，已自動放寬至 20 分鐘</figcaption></figure><figure class="shot"><img src="images/dev-telegram-stage2.png" alt="第二段：同一條訊息補上食べログ分數、繁中說明及本地 blog 另外提到的店" loading="lazy"><figcaption>第二段：同一條訊息補上食べログ分數、繁中說明及本地 blog 另外提到的店</figcaption></figure><h4 id="logic-categories" class="hd d3" data-num="3.4.6"><a class="num" href="#logic-categories">3.4.6</a><span class="zh">分類搜尋策略</span> <span class="en">Category Strategies</span></h4>
+<p>Places 有些分類有原生類型，有些沒有；兩種策略收費同級。以下為東京新宿、中野一帶實測結果：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>分類</th>
+<th>策略</th>
+<th>參數</th>
+<th>候選池質素</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>🍜 拉麵</td>
+<td>Nearby</td>
+<td><code>ramen_restaurant</code></td>
+<td>優</td>
+</tr>
+<tr>
+<td>🍣 壽司</td>
+<td>Nearby</td>
+<td><code>sushi_restaurant</code></td>
+<td>中（連鎖偏多）</td>
+</tr>
+<tr>
+<td>🥟 中華</td>
+<td>Nearby</td>
+<td><code>chinese_restaurant</code></td>
+<td>優</td>
+</tr>
+<tr>
+<td>☕ 咖啡</td>
+<td>Nearby</td>
+<td><code>cafe</code>、<code>coffee_shop</code></td>
+<td>優（老派喫茶店會浮上）</td>
+</tr>
+<tr>
+<td>🍝 西餐</td>
+<td>Nearby</td>
+<td><code>italian_restaurant</code>、<code>french_restaurant</code>、<code>western_restaurant</code>、<code>steak_house</code></td>
+<td>未測</td>
+</tr>
+<tr>
+<td>🍔 快餐</td>
+<td>Nearby</td>
+<td><code>fast_food_restaurant</code></td>
+<td>未測</td>
+</tr>
+<tr>
+<td>🍢 居酒屋</td>
+<td>Text</td>
+<td><code>居酒屋</code></td>
+<td>優</td>
+</tr>
+<tr>
+<td>🍖 燒肉</td>
+<td>Text</td>
+<td><code>焼肉</code></td>
+<td>優（Google 分普遍 4.9，靠食べログ校正）</td>
+</tr>
+<tr>
+<td>🍤 天婦羅</td>
+<td>Text</td>
+<td><code>天ぷら</code></td>
+<td>優</td>
+</tr>
+<tr>
+<td>🍱 定食</td>
+<td>Text</td>
+<td><code>和食 定食</code></td>
+<td>優</td>
+</tr>
+<tr>
+<td>💊 藥妝</td>
+<td>Nearby</td>
+<td><code>drugstore</code>、<code>pharmacy</code></td>
+<td>優（本地平價藥妝浮上）</td>
+</tr>
+<tr>
+<td>👕 服飾</td>
+<td>Nearby</td>
+<td><code>clothing_store</code>、<code>shoe_store</code></td>
+<td>中（連鎖偏多）</td>
+</tr>
+<tr>
+<td>🎮 電器</td>
+<td>Nearby</td>
+<td><code>electronics_store</code></td>
+<td>優</td>
+</tr>
+<tr>
+<td>📚 書店</td>
+<td>Nearby</td>
+<td><code>book_store</code></td>
+<td>優</td>
+</tr>
+<tr>
+<td>🛒 超級市場</td>
+<td>Nearby</td>
+<td><code>supermarket</code>、<code>grocery_store</code></td>
+<td>優（配合 DISTANCE 取池）</td>
+</tr>
+<tr>
+<td>🏠 生活雜貨</td>
+<td>Text</td>
+<td><code>生活雑貨 インテリア 雑貨店</code></td>
+<td>優</td>
+</tr>
+<tr>
+<td>🎁 手信</td>
+<td>Text</td>
+<td><code>お土産</code></td>
+<td>優</td>
+</tr>
+<tr>
+<td>👘 古着二手</td>
+<td>Text</td>
+<td><code>古着</code></td>
+<td>優</td>
+</tr>
+<tr>
+<td>🏪 激安折扣</td>
+<td>Text</td>
+<td><code>激安 ディスカウントストア</code></td>
+<td>優</td>
+</tr>
+<tr>
+<td>🎌 動漫</td>
+<td>Text</td>
+<td><code>アニメショップ</code></td>
+<td>優</td>
+</tr>
+</tbody></table>
+</div><p><strong>不要用的類型：</strong></p>
+<ul>
+<li><code>japanese_restaurant</code> 太闊，結果與不分類無異。</li>
+<li><code>bar</code>、<code>pub</code> 不等於居酒屋，實測回賽馬投注站、卡拉 OK、live house。</li>
+<li><code>home_goods_store</code> 在新宿被相機店佔據（見 <a class="xref" href="#journal-types">6.6 Places 類型標籤不可盡信</a>）。</li>
+</ul>
+<h4 id="logic-region" class="hd d3" data-num="3.4.7"><a class="num" href="#logic-region">3.4.7</a><span class="zh">地區抽象層</span> <span class="en">Region Abstraction</span></h4>
+<p>所有日本專屬知識（權威評分來源、本地來源判定、查詢語言、地址格式）收在 <code>regions/japan.js</code>。<code>resolveRegion()</code> 對不支援的座標回 <code>null</code>，不會 fallback 到日本，否則在台灣查會拿到食べログ結果。加台灣或韓國只需新增一個同介面的檔案。</p>
+<div class="callout c-note"><div class="callout-title">為何值得做抽象層</div><p>地區差異不只是換字串：權威評分來源、本地來源判定方式、查詢語言、地址格式四樣都不同，抽象層才有實質價值。如果差異只是介面語言，i18n 已經足夠。</p>
+</div><p class="chapter-fb"><a href="#" data-fb="3">對第 3 章有意見？</a></p>
+</section><section class="chapter" id="ch-build">
+<h2 id="build" class="hd d1" data-num="4"><a class="num" href="#build">4</a><span class="zh">逐步教學</span> <span class="en">Build Step-by-Step</span></h2>
+<p>以下是重建同類 bot 的最短路徑，步驟已重新排序；實際過程的轉折見 <a class="xref" href="#journal">6 開發歷程</a>。每步的指令可以直接貼給 AI agent。</p>
+<h3 id="s-4-1" class="hd d2" data-num="4.1"><a class="num" href="#s-4-1">4.1</a><span class="zh">階段一：資料源驗證</span> <span class="en">Phase 1: Validate Data Sources</span></h3>
+<p>完成後，你會證實食べログ分數真的抽得到。整個產品的排序主軸壓在這個假設上，所以先驗證再動手。</p>
+<h4 id="step-skeleton" class="hd d3" data-num="4.1.1"><a class="num" href="#step-skeleton">4.1.1</a><span class="zh">建立專案骨架</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 1 指令</span><button class="copy" type="button">複製</button></div><pre><code>在新資料夾建立 Node.js 專案骨架：&#10;1. package.json：name tour-guide、&quot;type&quot;: &quot;module&quot;、&quot;private&quot;: true、engines.node &quot;&gt;=22&quot;，暫時不加 dependencies&#10;2. .gitignore：node_modules/、.env、*.log、data/、logs/&#10;3. .env.example：GEMINI_API_KEY、SERPER_API_KEY、GOOGLE_MAPS_API_KEY、TELEGRAM_BOT_TOKEN、TELEGRAM_ALLOWED_CHAT_ID，每個上面一行註釋說明去哪裏取得&#10;不要建立 src/ 下任何檔案。</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><ul>
+<li><code>package.json</code>、<code>.gitignore</code>、<code>.env.example</code> 存在。</li>
+<li><code>node -e &quot;console.log(process.version)&quot;</code> 印出 v22 或以上。</li>
+</ul>
+</div><h4 id="step-keys" class="hd d3" data-num="4.1.2"><a class="num" href="#step-keys">4.1.2</a><span class="zh">取得三個 API key</span></h4>
+<p>依次申請 Serper.dev（不需信用卡）、Google AI Studio（Gemini）、Google Maps Platform（啟用 Places API (New) 及 Maps Static API，並限制 key 只能用這兩個 API），填入 <code>.env</code>。</p>
+<div class="callout c-check"><div class="callout-title">完成後應該看到</div><pre><code class="language-bash">node -e &quot;process.loadEnvFile(&#39;.env&#39;); for (const k of [&#39;GEMINI_API_KEY&#39;,&#39;SERPER_API_KEY&#39;,&#39;GOOGLE_MAPS_API_KEY&#39;]) console.log(k, process.env[k] ? &#39;已填&#39; : &#39;未填&#39;)&quot;
+</code></pre>
+<p>三條 key 都顯示「已填」。</p>
+</div><div class="callout c-warn"><div class="callout-title">Gemini key 回 `401 API_KEY_SERVICE_BLOCKED`</div><p>AI Studio 新發的 key 為 <code>AQ.</code> 開頭，舊的 <code>AIza</code> 格式亦一樣，<strong>都用 <code>x-goog-api-key</code> 標頭，不要用 <code>Authorization: Bearer</code></strong>。收到這個錯誤，成因不是傳送方式，而是 key 所屬專案綁定了服務帳戶，或未接 billing account。修改 API 限制或按「啟用」都無效，唯一做法是換一條屬於已接 billing 專案的 key。</p>
+</div><div class="callout c-gap"><div class="callout-title">推導步驟，未經實跑驗證</div><p>三個服務的註冊點擊流程會改版，本頁未逐步記錄。</p>
+</div><h4 id="step-serper-test" class="hd d3" data-num="4.1.3"><a class="num" href="#step-serper-test">4.1.3</a><span class="zh">驗證 Serper 抽得到食べログ分數</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 3 指令</span><button class="copy" type="button">複製</button></div><pre><code>建立 scripts/step0b-serper-tabelog-test.mjs：&#10;1. process.loadEnvFile(&#39;.env&#39;) 讀 SERPER_API_KEY&#10;2. 內建 10 間真實日本餐廳（店名 + 地區），分 famous / known / obscure 三個知名度&#10;3. 每間發 POST https://google.serper.dev/search，標頭 X-API-KEY，body { q, gl: &#39;jp&#39;, hl: &#39;ja&#39;, num: 10 }&#10;   查詢詞：site:tabelog.com &lt;店名&gt; &lt;地區&gt; 総合得点&#10;4. 抽分數：優先「総合得点 3.83」，其次任何 [2-4].dd，最後才用 rating 欄位；抽評論數「口コミ 1,315 件」&#10;5. 身分驗證：只認店舖頁 URL ^https://tabelog\.com/(en/)?[a-z]+/A\d+/A\d+/\d+/?$；排除「【閉店】」「閉店しております」；店名去空白後雙向包含&#10;6. 逐間印出 title 及 snippet 原文&#10;7. 最後印出命中率、兩位小數比例、按知名度拆分的命中率&#10;package.json 加 script step0b。</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><p><code>npm run step0b</code> 命中率 <strong>≥ 70%</strong>，兩位小數比例接近 100%。低於 70% 不要繼續往下建。</p>
+</div><div class="callout c-warn"><div class="callout-title">查詢詞一定要加「総合得点」</div><p>不加的話，Google 多數挑地址或營業時間做 snippet，只能取得 <code>rating</code> 欄位的一位小數。3.57 與 3.52 差很遠，四捨五入後分不開，排序主軸等於報廢一半。</p>
+</div><h4 id="step-e2e" class="hd d3" data-num="4.1.4"><a class="num" href="#step-e2e">4.1.4</a><span class="zh">驗證端到端資料鏈</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 4 指令</span><button class="copy" type="button">複製</button></div><pre><code>建立 scripts/step0c-e2e-test.mjs：&#10;1. 命令列參數：緯度、經度、半徑（預設 35.6896, 139.7006, 600）&#10;2. POST https://places.googleapis.com/v1/places:searchNearby 取候選&#10;   FieldMask：places.id, displayName, formattedAddress, location, rating, userRatingCount, primaryTypeDisplayName, currentOpeningHours.openNow&#10;   body：includedPrimaryTypes 餐飲類型、maxResultCount 20、languageCode &#39;ja&#39;、regionCode &#39;JP&#39;、rankPreference &#39;POPULARITY&#39;&#10;3. 取前 10 間，用 Step 3 方式查食べログ分數&#10;4. 身分驗證改用地址：寫日本地址解析函式，把「〒160-0022 東京都新宿区新宿３丁目３４−１１」解析為 { ward: &#39;新宿区&#39;, town: &#39;新宿&#39;, chome: 3 }（先把全形數字轉半形）；snippet 沒有地址時才比對店名&#10;5. 印出可用率、錯配數、兩位小數比例&#10;6. 最後印出「以食べログ重排的前五間」，與 Google 排序對照&#10;package.json 加 script step0c。</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><ul>
+<li><code>npm run step0c</code> 可用率 <strong>≥ 70%</strong>。</li>
+<li>重排後名單與 Google 排序<strong>明顯不同</strong>。看不到這種差距，後面所有工作都沒有意義。</li>
+</ul>
+</div><div class="callout c-note"><div class="callout-title">為何讀 SERP snippet，而不直接抓食べログ</div><p>官方 API 已於 2014 年停止，店舖頁直接請求回 <code>403</code>，使用條款禁止複製及保管。讀取公開搜尋結果的 snippet，只使用已公開索引的摘要，不接觸目標網站，也不儲存原始頁面。適用條件：目標資料必須會出現在 snippet 中——分數與評論數會，評語全文不會。</p>
+</div><h3 id="s-4-2" class="hd d2" data-num="4.2"><a class="num" href="#s-4-2">4.2</a><span class="zh">階段二：骨架與地區抽象層</span> <span class="en">Phase 2: Skeleton</span></h3>
+<p>完成後，專案有設定檔、地區抽象層及本機儲存。</p>
+<h4 id="step-config" class="hd d3" data-num="4.2.1"><a class="num" href="#step-config">4.2.1</a><span class="zh">設定檔</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 5 指令</span><button class="copy" type="button">複製</button></div><pre><code>建立 src/config.js，匯出：&#10;1. walkingMetresPerMinute = 80&#10;2. modes：near（8 分鐘、sortBy distance、需要營業中）、best（25 分鐘、sortBy score、不要求營業中）、now（12 分鐘、sortBy score、需要營業中且至少再開 45 分鐘）；每個有 id / emoji / label / labelShopping / walkMinutes / sortBy / requireOpenNow / minMinutesBeforeClosing&#10;3. defaultModeId &#39;best&#39;；distanceRelaxSteps [1.5, 2.5]&#10;4. categories：食嘢 10 個、購物 10 個，每個有 id / group / emoji / label / ja / strategy，nearby 用 types、text 用 query（清單見「分類搜尋策略」一節）。ja 欄位必填&#10;5. search = { poolSize: 20, tabelogLookupCount: 8, resultCount: 5 }&#10;6. cacheTtl = { placeData: 7 天, tabelog: 24 小時, blog: 3 天 }（秒）&#10;7. dedupeDays = 7&#10;8. getCategory(id)、getCategoriesByGroup(group)、modeLabel(mode, category)</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><pre><code class="language-bash">node -e &quot;import(&#39;./src/config.js&#39;).then(c =&gt; console.log(&#39;食&#39;, c.getCategoriesByGroup(&#39;food&#39;).length, &#39;購物&#39;, c.getCategoriesByGroup(&#39;shopping&#39;).length))&quot;
+</code></pre>
+<p>輸出 <code>食 10 購物 10</code>。</p>
+</div><h4 id="step-region" class="hd d3" data-num="4.2.2"><a class="num" href="#step-region">4.2.2</a><span class="zh">地區抽象層</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 6 指令</span><button class="copy" type="button">複製</button></div><pre><code>建立 src/regions/japan.js 及 src/regions/index.js。&#10;japan.js 匯出 japanProvider：id &#39;jp&#39;、label &#39;日本&#39;、languageCode &#39;ja&#39;、regionCode &#39;JP&#39;、timezone &#39;Asia/Tokyo&#39;、scoreSourceName &#39;食べログ&#39;，以及：&#10;- contains({lat,lng})：lat 24–46、lng 122–146&#10;- scoreAppliesTo(category)：category.group === &#39;food&#39;&#10;- buildScoreQuery({name,ward,town})：site:tabelog.com &lt;name&gt; &lt;ward&gt;&lt;town&gt; 総合得点&#10;- buildBlogQuery({name,ward})：&lt;name&gt; &lt;ward&gt; 感想 ブログ&#10;- isLocalSource：遊客媒體黑名單 → 否；本地 blog 平台 → 是並加分；.jp → 是；假名比例 &gt; 5% → 是；其他 → 無法確認（清單見「本地來源判定」一節）&#10;- parseAddress、parseScoreUrl、isDefunct&#10;index.js 匯出 resolveRegion（找不到回 null，不要 fallback 到日本）、getRegionById、supportedRegions。</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><pre><code class="language-bash">node -e &quot;import(&#39;./src/regions/index.js&#39;).then(r =&gt; { const jp = r.resolveRegion({lat:35.6896,lng:139.7006}); console.log(jp?.label, r.resolveRegion({lat:25.03,lng:121.56}), JSON.stringify(jp.parseAddress(&#39;〒160-0022 東京都新宿区新宿３丁目３４−１１&#39;))) })&quot;
+</code></pre>
+<p>輸出 <code>日本 null {&quot;ward&quot;:&quot;新宿区&quot;,&quot;town&quot;:&quot;新宿&quot;,&quot;chome&quot;:3}</code>。</p>
+</div><h4 id="step-db" class="hd d3" data-num="4.2.3"><a class="num" href="#step-db">4.2.3</a><span class="zh">本機儲存</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 7 指令</span><button class="copy" type="button">複製</button></div><pre><code>建立 src/db.js，用 Node 內建 node:sqlite（不要用 better-sqlite3）：&#10;1. 資料庫 data/tour-guide.db，自動建立資料夾；PRAGMA journal_mode = WAL&#10;2. 三張表：user_state、cache（key、source、payload、expires_at，並為 expires_at 及 source 建 index）、recommendations（(chat_id, place_id) 複合主鍵、name、recommended_at、visited_at）&#10;3. 函式：cacheGet（過期或 JSON 解析失敗就刪除並回 null）、cacheSet、cachePurgeExpired、getUserState、saveUserState、recordRecommendations、getRecentlyRecommended、markVisited</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><p><code>data/tour-guide.db</code> 出現；寫入一筆狀態及快取後讀回正常。</p>
+</div><h3 id="s-4-3" class="hd d2" data-num="4.3"><a class="num" href="#s-4-3">4.3</a><span class="zh">階段三：資料層</span> <span class="en">Phase 3: Data Providers</span></h3>
+<p>完成後，可在命令列印出五間店連食べログ分數及繁中說明。</p>
+<h4 id="step-places" class="hd d3" data-num="4.3.1"><a class="num" href="#step-places">4.3.1</a><span class="zh">Places provider</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 8 指令</span><button class="copy" type="button">複製</button></div><pre><code>建立 src/providers/places.js：&#10;1. FIELD_MASK：places.id, displayName, formattedAddress, location, rating, userRatingCount, priceLevel, primaryType, primaryTypeDisplayName, googleMapsUri, currentOpeningHours.openNow, currentOpeningHours.periods, regularOpeningHours.weekdayDescriptions, reviews&#10;2. haversineMetres；walkMinutes = 直線距離 × 1.25 ÷ 80&#10;3. searchCandidates({ origin, category, radiusMetres, region, rankPreference })：text 策略用 searchText（textQuery、locationBias、rankPreference 只可 RELEVANCE / DISTANCE）；否則 searchNearby（includedPrimaryTypes、locationRestriction、POPULARITY / DISTANCE）&#10;4. 結果快取，key 必須包含 category.id、strategy、實際 query 或 types、rankPreference、座標（四位小數）、半徑&#10;5. 正規化成統一店舖物件；評論只保留 languageCode &#39;ja&#39;&#10;6. buildStaticMapUrl：640x400、scale 2、language ja；用戶位置藍色 Y，前五間紅色 1–5&#10;7. buildDirectionsUrl：https://www.google.com/maps/dir/?api=1&amp;destination=&lt;lat&gt;,&lt;lng&gt;&amp;destination_place_id=&lt;id&gt;</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><p>在新宿座標搜「拉麵」、半徑 800 公尺，回 20 間，第一間有日文評論。</p>
+</div><div class="callout c-warn"><div class="callout-title">快取 key 一定要包含實際查詢內容</div><p>只用分類 ID 做 key，之後修改查詢詞會繼續拿到最多七日前的舊結果，令人以為查詢詞無效而亂改其他地方。</p>
+</div><div class="callout c-warn"><div class="callout-title">Places 類型標註很嘈雜</div><p>用 <code>includedTypes</code> 搜餐廳會撈到百貨公司及酒店。即使用 <code>includedPrimaryTypes</code>，個別類型亦會出錯。每個分類接上後實際跑一次看結果，不對就改用 <code>searchText</code> 加日文關鍵詞。</p>
+</div><h4 id="step-tabelog" class="hd d3" data-num="4.3.2"><a class="num" href="#step-tabelog">4.3.2</a><span class="zh">食べログ provider</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 9 指令</span><button class="copy" type="button">複製</button></div><pre><code>建立 src/providers/tabelog.js，把 Step 3、4 驗證過的邏輯正式化：&#10;1. fetchScore({ place, region, expectedPrefecture })：先查快取（包括快取了 null）；用 region.buildScoreQuery 砌查詢；逐個結果驗證：isDefunct 跳過、parseScoreUrl 解析不到跳過、都道府縣不同跳過、snippet 有地址比對区市、沒有地址比對店名&#10;2. 抽分數：総合得点 → 任何兩位小數 → rating 欄位（precise: false）；回 { score, precise, reviewCount, url, verifiedBy, area }&#10;3. 查不到也把 null 寫入快取；網絡或額度錯誤不寫&#10;4. fetchScores({ places, region, concurrency = 3 })：有限並行；完成後統計多數派都道府縣，剔走少數派</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><p>新宿拉麵前 6 間，至少 4 間有兩位小數分數。</p>
+</div><h4 id="step-gemini" class="hd d3" data-num="4.3.3"><a class="num" href="#step-gemini">4.3.3</a><span class="zh">Gemini provider</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 10 指令</span><button class="copy" type="button">複製</button></div><pre><code>建立 src/providers/gemini.js：&#10;共用 callGemini({ prompt, useSearch })：端點 models/gemini-flash-latest:generateContent；標頭 x-goog-api-key；useSearch 時加 tools: [{ google_search: {} }]；AbortController 時限搜尋 45 秒、純文字 40 秒；429 / 503 退避重試最多三次；回 { text, chunks, queries }&#10;searchLocalBlogs({ areaLabel, category, region })：快取 blog:&lt;region&gt;:&lt;area&gt;:&lt;category&gt;；prompt 全日文並用 category.ja；先要求搜尋及說明，最後才要求逐行 STORE=&lt;店名&gt; | REASON=&lt;理由&gt;；grounding chunks 的域名從 web.title 讀取，再經 region.isLocalSource 過濾&#10;matchBlogMentions({ places, mentions })：店名正規化（去空白、全形轉半形、去「本店」「支店」「店」）後雙向包含&#10;summarizeReviews({ items })：五間一次過批次；沒有評論的店也要送；繁體中文、每間一行、25 字內；不開 grounding</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><p>新宿拉麵的 blog 搜尋回 5 至 10 個本地來源（<code>hatenablog.jp</code>、<code>ameblo.jp</code>、<code>note.com</code> 一類）及 6 至 8 間店名。</p>
+</div><div class="callout c-warn"><div class="callout-title">grounding 來源的域名在 `title`，不在 `domain`</div><p>grounding chunk 的 <code>web.uri</code> 是 <code>vertexaisearch.cloud.google.com</code> 轉址連結，<code>web.title</code> 才是真正域名，<code>web.domain</code> 根本不存在。讀錯欄位會令所有來源被判為「無法確認」而全部剔除，blog 層永遠空白。</p>
+</div><h3 id="s-4-4" class="hd d2" data-num="4.4"><a class="num" href="#s-4-4">4.4</a><span class="zh">階段四：排序與流程</span> <span class="en">Phase 4: Ranking &amp; Pipeline</span></h3>
+<p>完成後，完整的兩段式流程可在命令列跑通。</p>
+<h4 id="step-ranking" class="hd d3" data-num="4.4.1"><a class="num" href="#step-ranking">4.4.1</a><span class="zh">排序引擎</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 11 指令</span><button class="copy" type="button">複製</button></div><pre><code>建立 src/ranking.js：&#10;1. walkMinutesToMetres(minutes) = minutes × 80 ÷ 1.25（與 places.js 同一個係數）&#10;2. minutesUntilClosing（處理跨夜營業）、opensLaterToday&#10;3. applyGates({ places, mode, radiusMultiplier, excludeIds, now })：近期推薦過、超出距離、openNow 明確為 false、剩餘營業時間不足 → 拒；openNow 為 null 不拒；回 { passed, rejected }（附原因）&#10;4. gateWithRelaxation：依次用 1、1.5、2.5 倍半徑，湊夠 resultCount 就停&#10;5. rankPlaces：scoreSource &#39;google&#39; 時基準分 = Google 評分 + (blog 提及 ? 0.6 : 0)；否則食べログ分數（缺分當 3.0）；每公里扣 0.02；sortBy distance 時直接按距離&#10;6. brandKey：剝走最後一個以「店」結尾的空白分隔詞；沒有空白用全名&#10;7. dedupeByBrand：同品牌留最近分店、佔最高排名位置；少於 3 間才補分店&#10;8. selectForScoreLookup（上限 tabelogLookupCount）、getMode</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><p><code>brandKey(&#39;ドン・キホーテ 新宿東南口別館店&#39;)</code> 回 <code>ドン・キホーテ</code>；<code>brandKey(&#39;つけ麺 五ノ神製作所&#39;)</code> 回全名。</p>
+</div><h4 id="step-pipeline" class="hd d3" data-num="4.4.2"><a class="num" href="#step-pipeline">4.4.2</a><span class="zh">兩段式流程</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 12 指令</span><button class="copy" type="button">複製</button></div><pre><code>建立 src/pipeline.js：&#10;stageOne({ chatId, origin, category, mode })：resolveRegion 為 null 回 { unsupported: true }；搜尋半徑 max(1200, walkMinutes × 80 × 1.6)；rankPreference 跟隨模式（distance → DISTANCE，否則 POPULARITY）；排除近期推薦；gateWithRelaxation；未有分數先按次要準則排出五間&#10;stageTwo({ ..., stageOneResult })：最先啟動 blog 搜尋 promise；用 region.scoreAppliesTo 分流——餐飲 await 食べログ分數 → 排序 → 去重，摘要與 blog 並行；購物跳過食べログ，await blog → Google 分 + blog 加分排序 → 去重；summarizeReviews；recordRecommendations；另算「blog 提到但不在候選池」的店最多三間</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><ul>
+<li>第一段約 1 至 2 秒，第二段約 15 至 25 秒。</li>
+<li>五間店，每間都有食べログ分數及一句繁中說明。</li>
+</ul>
+</div><div class="callout c-warn"><div class="callout-title">在日本非營業時間測試，會以為程式壞了</div><p>「越近越好」及「即食得」要求營業中。日本凌晨時二十間候選可能有十八間被擋走。印出 <code>rejected</code> 原因統計即可確認；測試時可改用「越好食越好」模式。</p>
+</div><div class="callout c-note"><div class="callout-title">為何購物分類跳過食べログ</div><p>食べログ只做餐飲，硬查會為每間店發一次注定失敗的搜尋，實測令第二段由 18 秒變 60 秒並白耗 credit。改用 Google 評分打底、本地 blog 提及加 0.6 分；加權要夠重，因為 blog 是購物層唯一的本地視角訊號。</p>
+</div><h3 id="s-4-5" class="hd d2" data-num="4.5"><a class="num" href="#s-4-5">4.5</a><span class="zh">階段五：Telegram 介面</span> <span class="en">Phase 5: Telegram</span></h3>
+<p>完成後，可以用手機實際使用。</p>
+<h4 id="step-format" class="hd d3" data-num="4.5.1"><a class="num" href="#step-format">4.5.1</a><span class="zh">訊息版式</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 13 指令</span><button class="copy" type="button">複製</button></div><pre><code>建立 src/place-types.js（primaryType 英文枚舉 → 繁中標籤對照表，describeType(place) 依次退到日文類型名、「店舖」）及 src/format.js：&#10;- renderResults：標頭「📍 地區 · 分類 · 模式」；每間店：名稱（保留日文原文）、⭐ 食べログ分數 (評論數) · Google 評分、🚶 分鐘 · 距離、🕒 營業狀態、💬 說明、📝 blog 理由&#10;- 💬 一行必須存在，沒有摘要時用 describeType&#10;- pending 為真時加「🔍 分析緊 …」&#10;- HTML escape&#10;- caption 上限 1024 字元，降級次序：先刪 blog 行 → 再減店數 → 說明永不刪&#10;- 另匯出 renderNoResults、renderUnsupportedRegion</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><p>把全部 <code>summary</code> 設為 <code>null</code> 渲染，五間店仍然每間都有 <code>💬</code> 一行。</p>
+</div><h4 id="step-bot" class="hd d3" data-num="4.5.2"><a class="num" href="#step-bot">4.5.2</a><span class="zh">Telegram bot</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 14 指令</span><button class="copy" type="button">複製</button></div><pre><code>安裝 grammy，建立 src/bot.js：&#10;1. 白名單 middleware：chat id 不等於 TELEGRAM_ALLOWED_CHAT_ID 就直接 return，不回覆&#10;2. 常駐 reply keyboard「📍 更新位置」（request_location），按下後用新位置重跑上次的分類及模式&#10;3. 兩層 inline 鍵盤：食嘢／購物 → 分類（每行三個 + 返回）&#10;4. 結果鍵盤：每間店一行 [🗺 導航 URL] [📷 相片] [✅ 去咗]；一行三個模式按鈕；「🔄 換分類」&#10;5. runQuery：stageOne → replyWithPhoto（靜態地圖 + pending caption）→ 呼叫背景函式跑 stageTwo（不要 await）→ editMessageCaption；第二段失敗保留第一段&#10;6. 事件：/start、message:location、group:*、cat:*、mode:*、photo:*（即時取 Place Photo，不快取）、visited:*、文字比對分類名、bot.catch</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><p><code>npm ls grammy</code> 已安裝；<code>node --check src/bot.js</code> 沒有錯誤。</p>
+</div><div class="callout c-warn"><div class="callout-title">第二段一定不能 `await`</div><p>grammY 預設順序處理更新。在 handler 內 <code>await</code> 第二段，20 至 40 秒內整個 bot 會被封鎖，按鈕排隊到過期，Telegram 回 <code>query is too old</code>，表現為「按鈕沒有反應」。</p>
+</div><div class="callout c-warn"><div class="callout-title">位置按鈕只能放在 reply keyboard</div><p>Telegram 只准 reply keyboard 帶 <code>request_location</code>，inline 按鈕取不到位置。桌面版通常沒有 GPS，此按鈕只在手機有效。</p>
+</div><h4 id="step-entry" class="hd d3" data-num="4.5.3"><a class="num" href="#step-entry">4.5.3</a><span class="zh">進入點與首次實測</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 15 指令</span><button class="copy" type="button">複製</button></div><pre><code>建立 src/logger.js（logs/bot-YYYY-MM-DD.log，每日一檔保留 14 日，接管 console，寫檔失敗不影響運作）及 index.js：&#10;1. 先 process.chdir() 到專案目錄（由 import.meta.url 推算），再讀 .env&#10;2. installFileLogging；檢查五個必要環境變數，缺少就列出並 exit(1)&#10;3. 開機清過期快取；SIGINT / SIGTERM 時 bot.stop()&#10;4. uncaughtException 先記錄再 exit(1)；unhandledRejection 記錄&#10;5. connectWithRetry：getMe 失敗重試最多 10 次，等待遞增至 30 秒&#10;6. polling 外層包 409 退避重試，連續 20 次才放棄&#10;package.json 加 script start。</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><p><code>npm start</code> 印出 bot username 及「Long polling 中」，<code>logs/</code> 出現當日日誌。在 Telegram <code>/start</code> → 發位置 → 揀分類，收到地圖及名單。</p>
+</div><div class="callout c-warn"><div class="callout-title">人不在日本時要手動在地圖選點</div><p>不支援地區會回「未支援地區」，這是刻意設計。在 Telegram 位置介面把地圖拖到新宿再點選位置發送。</p>
+</div><div class="callout c-warn"><div class="callout-title">不要用 `getUpdates` 檢查 bot 是否在 polling</div><p>同一個 token 只准一個 poller，而且後來者贏。外部呼叫 <code>getUpdates</code> 會即時終止 bot 的長輪詢令它收到 409，而檢查方收到 <code>ok: true</code>，很容易誤讀成「沒有 poller 在運行」。改為檢查日誌有「Long polling 中」而其後沒有錯誤。</p>
+</div><h3 id="s-4-6" class="hd d2" data-num="4.6"><a class="num" href="#s-4-6">4.6</a><span class="zh">階段六：長駐服務化</span> <span class="en">Phase 6: Run as a Service</span></h3>
+<p>完成後，bot 開機自動啟動、毋須登入、crash 自動重啟。</p>
+<h4 id="step-service" class="hd d3" data-num="4.6.1"><a class="num" href="#step-service">4.6.1</a><span class="zh">啟動器與安裝腳本</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 16 指令</span><button class="copy" type="button">複製</button></div><pre><code>建立 scripts/run-bot.cmd（純 ASCII，不要 BOM，不要用 %date%）：cd 到專案根目錄、尋找 node.exe、確保 logs 存在、node index.js 的 stdout / stderr 附加到 logs\service-stdout.log。&#10;建立 scripts/install-service.ps1（UTF-8 with BOM）：&#10;1. 檢查管理員權限、node.exe 及 .env&#10;2. 移除同名舊任務&#10;3. 清走殘留程序：命令列含 run-bot.cmd 的 cmd.exe；父程序是這些 cmd 或命令列匹配 index.js 的 node.exe；先殺 node 再殺 cmd&#10;4. 確認 logs\service-stdout.log 未被鎖住&#10;5. 註冊任務：Action 執行 run-bot.cmd（WorkingDirectory 為專案目錄）；Trigger AtStartup；RestartCount 999、RestartInterval 1 分鐘、ExecutionTimeLimit 為 TimeSpan::Zero、MultipleInstances IgnoreNew、StartWhenAvailable；Principal 為 SYSTEM、ServiceAccount、Highest&#10;6. 啟動後等 30 秒，讀日誌確認「Long polling」之後沒有錯誤&#10;另建 scripts/uninstall-service.ps1。</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><p><code>install-service.ps1</code> 首三個 byte 為 <code>EF BB BF</code>；以管理員執行後，任務狀態為 Running，上次結果為 <code>267009</code>。</p>
+</div><div class="callout c-warn"><div class="callout-title">`.ps1` 必須是 UTF-8 with BOM</div><p>Windows PowerShell 5.1 讀取無 BOM 的 <code>.ps1</code> 會當成系統 ANSI 編碼，中文變亂碼並湊出非法 token，整個腳本 parse 失敗，錯誤訊息指向莫名其妙的行號。</p>
+</div><div class="callout c-warn"><div class="callout-title">不要把重新導向寫在任務參數內</div><p><code>cmd /c &quot;&quot;node.exe&quot; index.js &gt;&gt; &quot;log&quot; 2&gt;&amp;1&quot;</code> 在 PowerShell 手動測試正常，但經工作排程器傳遞時引號會被搞亂，程序在 Node 啟動前就退出，連日誌都沒有。指向一個 <code>.cmd</code> 檔即可避免。</p>
+</div><div class="callout c-warn"><div class="callout-title">改了程式碼或設定要重啟服務</div><p>工作排程器不會重新載入檔案。以管理員身分執行 <code>Stop-ScheduledTask</code> 再 <code>Start-ScheduledTask</code>。</p>
+</div><div class="callout c-note"><div class="callout-title">為何用工作排程器，不用 NSSM</div><p>NSSM 需從第三方網站下載 exe；工作排程器是系統內建，開機自啟、crash 重啟、免登入運行三項功能等同。前提是「需要用 bot 時摸不到那台電腦」，少一個第三方組件就少一個故障源。</p>
+</div><h3 id="step-verify" class="hd d2" data-num="4.7"><a class="num" href="#step-verify">4.7</a><span class="zh">完整驗證</span> <span class="en">Verify End to End</span></h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>動作</th>
+<th>應該看到</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>重開電腦，不登入</td>
+<td>約一分鐘後日誌出現新的啟動紀錄</td>
+</tr>
+<tr>
+<td>2</td>
+<td>手機 Telegram <code>/start</code></td>
+<td>收到簡介及「📍 更新位置」按鈕</td>
+</tr>
+<tr>
+<td>3</td>
+<td>發一個日本座標</td>
+<td>出現「食嘢」「購物」兩個按鈕</td>
+</tr>
+<tr>
+<td>4</td>
+<td>食嘢 → 拉麵</td>
+<td><strong>兩秒內</strong>收到地圖及五間店，底部「分析緊」</td>
+</tr>
+<tr>
+<td>5</td>
+<td>等約二十秒</td>
+<td><strong>同一條訊息</strong>更新：多了食べログ分數及繁中說明，排序改變</td>
+</tr>
+<tr>
+<td>6</td>
+<td>第二段未完成時按其他模式</td>
+<td>立刻有反應</td>
+</tr>
+<tr>
+<td>7</td>
+<td>購物 → 藥妝</td>
+<td>五間藥妝店，沒有食べログ分數，但有說明</td>
+</tr>
+<tr>
+<td>8</td>
+<td>用另一個 Telegram 帳號發訊息</td>
+<td>完全沒有回應，日誌出現拒絕紀錄</td>
+</tr>
+</tbody></table>
+</div><p>第 5 步是整個產品的核心。排序沒有改變，代表食べログ層沒有生效。</p>
+<div class="callout c-gap"><div class="callout-title">推導步驟，未經實跑驗證</div><p>開機自動啟動這條路徑未經實際重開機驗證；註冊、手動啟動及 crash 重啟均已驗證。</p>
+</div><p class="chapter-fb"><a href="#" data-fb="4">對第 4 章有意見？</a></p>
+</section><section class="chapter" id="ch-tradeoffs">
+<h2 id="tradeoffs" class="hd d1" data-num="5"><a class="num" href="#tradeoffs">5</a><span class="zh">做法評估</span> <span class="en">Trade-offs</span></h2>
+<h3 id="s-5-1" class="hd d2" data-num="5.1"><a class="num" href="#s-5-1">5.1</a><span class="zh">好處</span> <span class="en">Pros</span></h3>
+<ul>
+<li><strong>排序有分辨力。</strong> 以食べログ做主軸，把 Google 評分四捨五入後分不開的店拉開。適用於有本地權威評分平台的地區。</li>
+<li><strong>合規取得本地評分。</strong> 只讀公開搜尋摘要，不抓取、不儲存目標網站頁面。</li>
+<li><strong>街頭體驗快。</strong> 兩段式回覆以 2 秒保底結果掩蓋 20 秒的慢資料源。</li>
+<li><strong>零運作成本。</strong> 全部在免費額度內，而且 Places 的 field mask 設計令一次請求取齊資料。</li>
+<li><strong>容易擴展地區。</strong> RegionProvider 把地區知識集中在一個檔案。</li>
+</ul>
+<h3 id="s-5-2" class="hd d2" data-num="5.2"><a class="num" href="#s-5-2">5.2</a><span class="zh">壞處</span> <span class="en">Cons</span></h3>
+<ul>
+<li><strong>單點故障。</strong> 電腦停電、斷網或 Windows 更新重啟，人在外地就完全不可用，且無法補救。</li>
+<li><strong>依賴搜尋結果格式。</strong> snippet 格式或 Google 選段邏輯改變，分數抽取就會失效。</li>
+<li><strong>食べログ 24 小時快取屬灰色地帶。</strong> 已刻意壓到最短，但仍屬短期保存。</li>
+<li><strong>購物層訊號較弱。</strong> 沒有本地權威評分，只靠 Google 評分及 blog 提及。</li>
+<li><strong>Serper 免費額度是一次性。</strong> 用完後最低消費 US$50。</li>
+</ul>
+<h3 id="s-5-3" class="hd d2" data-num="5.3"><a class="num" href="#s-5-3">5.3</a><span class="zh">難處</span> <span class="en">Challenges</span></h3>
+<ul>
+<li><strong>沒有錯誤訊息的失敗。</strong> grounding 不啟動、快取命中舊結果、服務起不到但沒有日誌，全部不會報錯。處理方式是每層都加可觀察的指標（<code>groundingChunks</code> 數量、<code>rejected</code> 原因統計、檔案日誌）。</li>
+<li><strong>資料源假設風險。</strong> 整個產品壓在「食べログ分數抽得到」之上，所以先寫獨立驗證腳本，設定 70% 命中率門檻，通過才寫正式程式碼。</li>
+<li><strong>Windows 服務化細節。</strong> BOM、引號傳遞、殘留程序、<code>%date%</code> 本地化，每一項都會令服務靜靜起不到。</li>
+</ul>
+<h3 id="s-5-4" class="hd d2" data-num="5.4"><a class="num" href="#s-5-4">5.4</a><span class="zh">未嘗試的方案</span> <span class="en">Alternatives</span></h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>方案</th>
+<th>適合甚麼情況</th>
+<th>這次為何沒有採用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Webhook + 雲端部署（Cloud Run 等）</td>
+<td>多用戶、需要高可用</td>
+<td>需要公網入口及雲端維運；單一用戶評估後認為不值得</td>
+</tr>
+<tr>
+<td>Gemini grounding 直接取食べログ分數</td>
+<td>目標網站未封鎖 AI 搜尋</td>
+<td>實測證偽：食べログ封鎖 <code>Google-Extended</code></td>
+</tr>
+<tr>
+<td>Google Custom Search JSON API</td>
+<td>需要官方搜尋 API</td>
+<td>已不接受新用戶，並將於 2027 年停止服務</td>
+</tr>
+<tr>
+<td>Brave Search API</td>
+<td>需要獨立搜尋索引</td>
+<td>2026 年 2 月取消免費層</td>
+</tr>
+<tr>
+<td>Hot Pepper／ぐるなび API</td>
+<td>需要官方餐飲 API</td>
+<td>屬商戶付費刊登平台，推薦公信力低於食べログ</td>
+</tr>
+<tr>
+<td>公開 SearXNG 實例</td>
+<td>自建免費搜尋</td>
+<td>公開實例全部有 bot 閘門或回 429</td>
+</tr>
+<tr>
+<td>NSSM</td>
+<td>可隨時登入管理的伺服器</td>
+<td>需下載第三方 binary</td>
+</tr>
+<tr>
+<td>better-sqlite3</td>
+<td>需要自訂函式或大量批次寫入</td>
+<td>原生模組在 Windows 上易因 Node 升級編譯失敗</td>
+</tr>
+</tbody></table>
+</div><p class="chapter-fb"><a href="#" data-fb="5">對第 5 章有意見？</a></p>
+</section><section class="chapter" id="ch-journal">
+<h2 id="journal" class="hd d1" data-num="6"><a class="num" href="#journal">6</a><span class="zh">開發歷程</span> <span class="en">Build Journal</span></h2>
+<p>以下記錄判斷失誤、改變主意的原因及踩過的坑。對應的正確做法已寫入 <a class="xref" href="#build">4 逐步教學</a>。</p>
+<h3 id="journal-grounding" class="hd d2" data-num="6.1"><a class="num" href="#journal-grounding">6.1</a><span class="zh">以為 Gemini 可以兼任搜尋引擎</span></h3>
+<div class="callout c-journal"><div class="callout-title">Gemini grounding 取不到食べログ分數</div><p><strong>當時以為</strong>：Gemini 的 <code>google_search</code> grounding 可以同時負責本地 blog 及食べログ分數，連 Serper 的費用都省掉。</p>
+<p><strong>實際情況</strong>：搜尋正常執行（6 條查詢、6 個來源），但零個 <code>tabelog.com</code> 來源，模型亦表示無法直接確認分數。食べログ的 robots.txt 封鎖了 <code>Google-Extended</code>，而這正是控制 Gemini 存取的 token。</p>
+<p><strong>如何發現</strong>：在寫正式程式碼前先跑 Step 0 驗證腳本，定下命中率門檻。</p>
+<p><strong>修正做法</strong>：食べログ層改用 Serper 讀取真正的 Google 搜尋結果；Gemini 保留做 blog 及摘要，這兩層完全有效。（見 <a class="xref" href="#step-serper-test">4.1.3 驗證 Serper 抽得到食べログ分數</a>）</p>
+<p><strong>教訓</strong>：架構賴以成立的假設，要寫成獨立可跑的腳本先驗證，並設定通過門檻。robots.txt 對 AI grounding 有真實封鎖效果。</p>
+</div><h3 id="journal-precision" class="hd d2" data-num="6.2"><a class="num" href="#journal-precision">6.2</a><span class="zh">分數只有一位小數</span></h3>
+<div class="callout c-journal"><div class="callout-title">3.57 變成 3.6</div><p><strong>當時以為</strong>：Serper 回傳的 <code>rating</code> 欄位已足夠排序。</p>
+<p><strong>實際情況</strong>：<code>rating</code> 只有一位小數，而食べログ的分辨力全在第二位小數。</p>
+<p><strong>如何發現</strong>：驗證腳本逐間印出 snippet 原文，發現 Google 多數挑了地址或營業時間做摘要。</p>
+<p><strong>修正做法</strong>：查詢詞加入「総合得点」，Google 改挑含分數的段落，兩位小數比例由部分提升至 6/6。（見 <a class="xref" href="#step-serper-test">4.1.3 驗證 Serper 抽得到食べログ分數</a>）</p>
+<p><strong>教訓</strong>：SERP snippet 的內容由查詢詞決定，加一個關鍵詞就可以改變抽取精度。</p>
+</div><h3 id="journal-category-first" class="hd d2" data-num="6.3"><a class="num" href="#journal-category-first">6.3</a><span class="zh">發位置即查，結果全是連鎖店</span></h3>
+<div class="callout c-journal"><div class="callout-title">零點擊設計救不回候選池</div><p><strong>當時以為</strong>：發位置後零點擊即時查詢最方便。</p>
+<p><strong>實際情況</strong>：不指定分類時，新宿 600 公尺內頭十間有八間是連鎖店。池內本身沒有好店，重新排序亦救不回。</p>
+<p><strong>如何發現</strong>：端到端測試印出候選池名單。</p>
+<p><strong>修正做法</strong>：改為分類優先，多一次點擊換取候選池純淨；模式仍記住上次選擇，可在結果底部切換。</p>
+<p><strong>教訓</strong>：排序只能在候選池內挑選。池的質素由取池條件決定，要先處理上游。</p>
+</div><h3 id="journal-shopping" class="hd d2" data-num="6.4"><a class="num" href="#journal-shopping">6.4</a><span class="zh">購物分類照查食べログ</span></h3>
+<div class="callout c-journal"><div class="callout-title">第二段由 18 秒拖到 60 秒</div><p><strong>當時以為</strong>：購物分類查食べログ頂多查不到，沒有損失。</p>
+<p><strong>實際情況</strong>：每間店發一次注定失敗的搜尋，逐條驗證十個結果全部不中，第二段延長到 60 秒並白耗 credit。</p>
+<p><strong>如何發現</strong>：實測藥妝分類時第二段明顯過慢。</p>
+<p><strong>修正做法</strong>：在 RegionProvider 加 <code>scoreAppliesTo()</code>，購物分類跳過食べログ，改用 Google 評分加本地 blog 提及 0.6 分。（見 <a class="xref" href="#step-pipeline">4.4.2 兩段式流程</a>）</p>
+<p><strong>教訓</strong>：「哪些分類有本地權威評分」屬地區知識，應放在地區抽象層，不要散落在流程中。</p>
+</div><h3 id="journal-cache-key" class="hd d2" data-num="6.5"><a class="num" href="#journal-cache-key">6.5</a><span class="zh">改了查詢詞但結果不變</span></h3>
+<div class="callout c-journal"><div class="callout-title">快取 key 只用分類 ID</div><p><strong>當時以為</strong>：品牌去重壞了，因為「激安折扣」仍然五間都是唐吉訶德。</p>
+<p><strong>實際情況</strong>：快取 key 只含分類 ID，修改查詢詞後繼續拿到舊結果，最長七日。</p>
+<p><strong>如何發現</strong>：清除快取後重跑，結果立即改變。</p>
+<p><strong>修正做法</strong>：快取 key 包含策略、實際查詢內容、rankPreference、座標及半徑。查詢詞同時由「ドン・キホーテ 激安」改為通用的「激安 ディスカウントストア」，不再鎖死品牌。（見 <a class="xref" href="#step-places">4.3.1 Places provider</a>）</p>
+<p><strong>教訓</strong>：快取 key 要包含所有會影響結果的輸入；查詢詞不要寫死品牌名。</p>
+</div><h3 id="journal-types" class="hd d2" data-num="6.6"><a class="num" href="#journal-types">6.6</a><span class="zh">Places 類型標籤不可盡信</span></h3>
+<div class="callout c-journal"><div class="callout-title">生活雜貨五間全是相機店</div><p><strong>當時以為</strong>：<code>home_goods_store</code> 可以找到生活雜貨店。</p>
+<p><strong>實際情況</strong>：新宿範圍內大型相機店都掛着這個 primary type，五間結果全是相機店。<code>bar</code>、<code>pub</code> 亦回賽馬投注站及卡拉 OK。</p>
+<p><strong>如何發現</strong>：每個分類接上後實際跑一次看回傳名單。</p>
+<p><strong>修正做法</strong>：改用 <code>searchText</code> 加日文關鍵詞，並建立分類策略對照表。（見 <a class="xref" href="#logic-categories">3.4.6 分類搜尋策略</a>）</p>
+<p><strong>教訓</strong>：第三方資料的分類標籤是資料提供者的判斷，不是事實。每個分類上線前都要看一次實際結果。</p>
+</div><h3 id="journal-format" class="hd d2" data-num="6.7"><a class="num" href="#journal-format">6.7</a><span class="zh">強制格式令模型不搜尋</span></h3>
+<div class="callout c-journal"><div class="callout-title">看似真實的數字其實憑記憶</div><p><strong>當時以為</strong>：prompt 寫明「只輸出一行，不要說明」可以方便解析。</p>
+<p><strong>實際情況</strong>：Gemini 完全沒有呼叫搜尋工具，直接憑記憶作答，數字看起來很像真的。</p>
+<p><strong>如何發現</strong>：檢查 <code>groundingMetadata</code>，<code>groundingChunks</code> 及 <code>webSearchQueries</code> 都是空的。</p>
+<p><strong>修正做法</strong>：先要求搜尋並容許自由作答，結構化輸出要求放在最後。（見 <a class="xref" href="#step-gemini">4.3.3 Gemini provider</a>）</p>
+<p><strong>教訓</strong>：使用 grounding 時，一定要檢查來源是否真的存在，不能只看回答內容。</p>
+</div><h3 id="journal-summary" class="hd d2" data-num="6.8"><a class="num" href="#journal-summary">6.8</a><span class="zh">說明行最先被刪</span></h3>
+<div class="callout c-journal"><div class="callout-title">名單只剩名字和數字</div><p><strong>當時以為</strong>：訊息過長時先刪說明行最合理；沒有評論的店不用送去摘要。</p>
+<p><strong>實際情況</strong>：用戶靠說明判斷店舖類型及決定去哪裏，沒有說明的名單失去作用。另外，Gemini 逾時會令整批說明消失。</p>
+<p><strong>如何發現</strong>：用戶回報「越近越好模式沒有繁中說明」。追查後發現與模式無關，而是逾時及沒有評論的店未被送去摘要。</p>
+<p><strong>修正做法</strong>：降級次序改為先刪 blog 行、再減店數、說明永不刪；所有店都送去摘要，並加入類型標籤作最後保底。（見 <a class="xref" href="#step-format">4.5.1 訊息版式</a>）</p>
+<p><strong>教訓</strong>：先確認用戶靠哪項資訊做決定，再定降級優先次序。症狀描述未必指向真正成因。</p>
+</div><h3 id="journal-getupdates" class="hd d2" data-num="6.9"><a class="num" href="#journal-getupdates">6.9</a><span class="zh">檢查工具殺死了服務</span></h3>
+<div class="callout c-journal"><div class="callout-title">每檢查一次就殺一次</div><p><strong>當時以為</strong>：呼叫 <code>getUpdates</code> 可以確認服務有沒有在 polling。</p>
+<p><strong>實際情況</strong>：Telegram 只准一個 poller 而且後來者贏，外部呼叫會即時終止服務的長輪詢。檢查方收到 <code>ok: true</code>，被誤讀成「沒有 poller 在運行」。這個破壞性檢查一度寫入安裝腳本，令腳本殺死自己剛裝好的服務。</p>
+<p><strong>如何發現</strong>：服務日誌反覆出現 409，且時間與檢查動作吻合。</p>
+<p><strong>修正做法</strong>：改為讀日誌判斷；程序本身加 409 退避重試。（見 <a class="xref" href="#step-entry">4.5.3 進入點與首次實測</a>）</p>
+<p><strong>教訓</strong>：檢查手段本身可能改變被檢查的狀態。對單一連線資源，只用被動方式（日誌、程序列表）檢查。</p>
+</div><h3 id="journal-service" class="hd d2" data-num="6.10"><a class="num" href="#journal-service">6.10</a><span class="zh">重裝後服務靜靜起不到</span></h3>
+<div class="callout c-journal"><div class="callout-title">兩個日誌檔都零新增</div><p><strong>當時以為</strong>：<code>Unregister-ScheduledTask</code> 會一併停止舊程序。</p>
+<p><strong>實際情況</strong>：它只移除任務定義，舊 node 程序繼續運行並佔住日誌檔 handle，令新一次啟動的重新導向失敗，Node 根本沒有啟動。舊程序命令列只是 <code>node index.js</code>，不含專案名，用專案名搜尋會漏掉它。</p>
+<p><strong>如何發現</strong>：列出所有 node 及 cmd 程序連同命令列及父程序 ID。</p>
+<p><strong>修正做法</strong>：安裝腳本以父程序 ID 追蹤或匹配 <code>index.js</code> 清走殘留程序，並檢查日誌檔是否被鎖。（見 <a class="xref" href="#step-service">4.6.1 啟動器與安裝腳本</a>）</p>
+<p><strong>教訓</strong>：「移除設定」不等於「停止程序」。重裝流程要明確處理殘留狀態。</p>
+</div><p class="chapter-fb"><a href="#" data-fb="6">對第 6 章有意見？</a></p>
+</section><section class="chapter" id="ch-extensions">
+<h2 id="extensions" class="hd d1" data-num="7"><a class="num" href="#extensions">7</a><span class="zh">延伸應用</span> <span class="en">Extensions</span></h2>
+<ul>
+<li><strong>加新地區。</strong> 在 <code>src/regions/</code> 新增一個與 <code>japan.js</code> 同介面的檔案，並在 <code>index.js</code> 註冊。要特別留意 <code>scoreAppliesTo</code>：每個地區的本地權威評分覆蓋範圍不同，沒有對等平台的地區應退回 Google 評分加本地 blog。</li>
+<li><strong>雲端精簡版。</strong> 只保留第一段（Places + 靜態地圖），部署到雲端作為家中電腦失效時的備援。</li>
+<li><strong>其他城市調參。</strong> 距離閘、步行速度及繞行係數按東京市區估算，其他城市可能需要調整。</li>
+<li><strong>服飾分類。</strong> 目前連鎖店偏多，可嘗試改用 <code>searchText</code> 加日文關鍵詞。</li>
+</ul>
+<p class="chapter-fb"><a href="#" data-fb="7">對第 7 章有意見？</a></p>
+</section><section class="chapter" id="ch-gaps">
+<h2 id="gaps" class="hd d1" data-num="8"><a class="num" href="#gaps">8</a><span class="zh">已知缺口</span> <span class="en">Known Gaps</span></h2>
+<p><strong>本頁內容</strong></p>
+<ul>
+<li>逐步教學的指令由開發紀錄及重建文件整理而成，未逐字重新執行驗證。</li>
+<li>三個第三方服務的註冊點擊流程及 BotFather 建立 bot 的步驟未逐步記錄。</li>
+<li>開發時數由 session 日期推算。</li>
+</ul>
+<p><strong>產品</strong></p>
+<ul>
+<li>只在 Windows 11、PowerShell 5.1、Node 24 上驗證；macOS 或 Linux 需要把服務化階段改為 <code>launchd</code> 或 <code>systemd</code>。</li>
+<li>開機自動啟動未經實際重開機驗證。</li>
+<li>資料源驗證集中在東京新宿、中野一帶，其他城市的類型標註質素及食べログ收錄率未知。</li>
+<li>西餐、快餐分類的候選池質素未測。</li>
+<li>購物層 blog 加權 0.6 分由實測調出，沒有嚴謹依據。</li>
+<li>Gemini 時限（搜尋 45 秒、摘要 40 秒）來自實測延遲分佈，不同網絡環境需重新量度。</li>
+</ul>
+<p class="chapter-fb"><a href="#" data-fb="8">對第 8 章有意見？</a></p>
+</section><section class="chapter" id="ch-feedback">
+<h2 id="feedback" class="hd d1" data-num="9"><a class="num" href="#feedback">9</a><span class="zh">意見反饋</span> <span class="en">Feedback</span></h2>
+<p>歡迎以下類型的意見：</p>
+<ul>
+<li>逐步教學的某一步行不通，或缺少步驟。</li>
+<li>對資料源、排序權重或地區抽象層有更好的建議。</li>
+<li>在其他城市或地區實測的結果。</li>
+</ul>
+<p>請電郵至 <a data-mail></a>，或按頁面右下角的「對本節有意見」，系統會自動填上章節編號。一般會在三個工作天內回覆。</p>
+<p class="chapter-fb"><a href="#" data-fb="9">對第 9 章有意見？</a></p>
+</section>
+  </main>
+</div>
+<button class="fb-float glass" type="button" aria-label="對本節有意見">對本節有意見</button>
+<footer class="foot">
+  <p>Crimson Lau · CKW Group　·　最後更新 2026-09-14</p>
+  <p><a href="../">返回全部指南</a></p>
+</footer>
+<script src="../assets/guide.js" defer></script>
+</body>
+</html>

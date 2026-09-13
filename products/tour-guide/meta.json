@@ -1,0 +1,12 @@
+{
+  "name": "Tour-Guide 日本旅行即時指引",
+  "tagline": "Telegram bot：發一個位置、揀一個分類，兩秒內回地圖加五間店，再用食べログ分數、本地 blog 與繁中說明重新排序。",
+  "updated": "2026-09-14",
+  "icon": "🗾",
+  "hero": "images/hero.svg",
+  "pages": ["dev"],
+  "publicUrl": "",
+  "noPublicUrlReason": "私人自用的 Telegram bot，只接受擁有人一個帳號，不對外開放。本頁只提供開發筆記，供參考重建同類工具。",
+  "contentPolicy": "full",
+  "notionPageUrl": ""
+}

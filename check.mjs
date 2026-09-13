@@ -18,16 +18,21 @@ if (!slug) {
   process.exit(2)
 }
 fs.mkdirSync('.digest', { recursive: true })
-const pages = [
+// 只有開發者頁嘅產品：開發者頁輸出做 index.html
+const metaFile = `products/${slug}/meta.json`
+const onlyDev = fs.existsSync(metaFile) && JSON.stringify(JSON.parse(fs.readFileSync(metaFile, 'utf8')).pages || []) === '["dev"]'
+const devPath = onlyDev ? '' : 'dev.html'
+const allPages = [
   ['user-top', `/guides/${slug}/`, null, 1440, 900],
   ['user-start', `/guides/${slug}/`, '#getting-started', 1440, 900],
-  ['dev-top', `/guides/${slug}/dev.html`, null, 1440, 900],
-  ['dev-build', `/guides/${slug}/dev.html`, '#build', 1440, 900],
-  ['dev-journal', `/guides/${slug}/dev.html`, '#journal', 1440, 900],
+  ['dev-top', `/guides/${slug}/${devPath}`, null, 1440, 900],
+  ['dev-build', `/guides/${slug}/${devPath}`, '#build', 1440, 900],
+  ['dev-journal', `/guides/${slug}/${devPath}`, '#journal', 1440, 900],
   ['mobile', `/guides/${slug}/`, '#getting-started', 390, 844],
   ['hub', '/guides/', null, 1440, 800],
 ]
 const browser = await chromium.launch({ channel: 'chrome' })
+const pages = onlyDev ? allPages.filter(([n]) => !n.startsWith('user')) : allPages
 for (const [name, url, anchor, w, h] of pages) {
   const page = await browser.newPage({ viewport: { width: w, height: h } })
   const errors = []

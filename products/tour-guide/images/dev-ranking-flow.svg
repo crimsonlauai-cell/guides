@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 360" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <defs>
+    <marker id="tg-rank-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0b5c8a"/>
+    </marker>
+  </defs>
+  <text x="20" y="34" font-size="19" font-weight="700" fill="#1e2a3a">由 20 間候選到 5 間推薦</text>
+  <text x="20" y="58" font-size="13" fill="#5b6b7f">ranking.js；所有數值集中在 config.js</text>
+
+  <g font-size="13">
+    <rect x="20" y="84" width="160" height="170" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <text x="36" y="112" font-size="15" font-weight="700" fill="#1e2a3a">① 取池</text>
+    <text x="36" y="138" fill="#1e2a3a">Places 最多 20 間</text>
+    <text x="36" y="160" fill="#1e2a3a">越近越好 → DISTANCE</text>
+    <text x="36" y="182" fill="#1e2a3a">其餘 → POPULARITY</text>
+    <text x="36" y="214" fill="#5b6b7f">取池準則決定</text>
+    <text x="36" y="234" fill="#5b6b7f">之後排得出甚麼</text>
+
+    <rect x="205" y="84" width="170" height="170" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <text x="221" y="112" font-size="15" font-weight="700" fill="#1e2a3a">② 硬閘</text>
+    <text x="221" y="138" fill="#1e2a3a">7 日內推薦過 → 剔</text>
+    <text x="221" y="160" fill="#1e2a3a">超出步行距離 → 剔</text>
+    <text x="221" y="182" fill="#1e2a3a">明確未營業 → 剔</text>
+    <text x="221" y="204" fill="#1e2a3a">快將關門 → 剔</text>
+    <text x="221" y="234" fill="#5b6b7f">營業資料缺失不剔</text>
+
+    <rect x="400" y="84" width="150" height="170" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <text x="416" y="112" font-size="15" font-weight="700" fill="#1e2a3a">③ 自動放寬</text>
+    <text x="416" y="138" fill="#1e2a3a">不足 5 間時</text>
+    <text x="416" y="160" fill="#1e2a3a">距離 × 1.5</text>
+    <text x="416" y="182" fill="#1e2a3a">再不足 × 2.5</text>
+    <text x="416" y="234" fill="#5b6b7f">訊息註明已擴大</text>
+
+    <rect x="575" y="84" width="165" height="170" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <text x="591" y="112" font-size="15" font-weight="700" fill="#1e2a3a">④ 排序</text>
+    <text x="591" y="138" fill="#1e2a3a">餐飲：食べログ分</text>
+    <text x="591" y="160" fill="#1e2a3a">（無分當 3.0）</text>
+    <text x="591" y="182" fill="#1e2a3a">購物：Google 分</text>
+    <text x="591" y="204" fill="#1e2a3a">　+ blog 提及 0.6</text>
+    <text x="591" y="234" fill="#5b6b7f">每公里扣 0.02</text>
+
+    <rect x="765" y="84" width="135" height="170" rx="14" fill="#f4fbfb" stroke="#4be3db"/>
+    <text x="781" y="112" font-size="15" font-weight="700" fill="#0b5c8a">⑤ 品牌去重</text>
+    <text x="781" y="138" fill="#1e2a3a">同品牌留一間</text>
+    <text x="781" y="160" fill="#1e2a3a">保留最近分店</text>
+    <text x="781" y="182" fill="#1e2a3a">不足 3 間</text>
+    <text x="781" y="204" fill="#1e2a3a">才補分店</text>
+  </g>
+  <g stroke="#0b5c8a" stroke-width="1.8" marker-end="url(#tg-rank-arrow)">
+    <line x1="182" y1="169" x2="201" y2="169"/>
+    <line x1="377" y1="169" x2="396" y2="169"/>
+    <line x1="552" y1="169" x2="571" y2="169"/>
+    <line x1="742" y1="169" x2="761" y2="169"/>
+  </g>
+
+  <rect x="20" y="276" width="880" height="64" rx="12" fill="#ffffff" stroke="#d9e2ea"/>
+  <text x="36" y="302" font-size="13" font-weight="700" fill="#1e2a3a">三個模式</text>
+  <text x="36" y="326" font-size="13" fill="#1e2a3a">🚶 越近越好：8 分鐘、按距離、須營業中　⭐ 越好食越好：25 分鐘、按分數、可今日稍後開　⚡ 即食得：12 分鐘、按分數、至少再開 45 分鐘</text>
+</svg>

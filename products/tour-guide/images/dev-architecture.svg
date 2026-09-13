@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 440" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <defs>
+    <marker id="tg-arch-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0b5c8a"/>
+    </marker>
+    <filter id="tg-arch-shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0b5c8a" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#tg-arch-shadow)">
+    <rect x="20" y="150" width="150" height="130" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <rect x="220" y="150" width="150" height="130" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <rect x="420" y="40" width="250" height="360" rx="16" fill="#f4fbfb" stroke="#4be3db"/>
+    <rect x="720" y="40" width="200" height="80" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <rect x="720" y="135" width="200" height="80" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <rect x="720" y="230" width="200" height="80" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <rect x="720" y="325" width="200" height="75" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+  </g>
+
+  <g font-size="15" font-weight="700" fill="#1e2a3a">
+    <text x="38" y="180">手機 Telegram</text>
+    <text x="238" y="180">Telegram 伺服器</text>
+    <text x="438" y="72">Node.js 常駐程序（個人電腦）</text>
+    <text x="738" y="70">Google Places</text>
+    <text x="738" y="165">Serper（SERP）</text>
+    <text x="738" y="260">Gemini API</text>
+    <text x="738" y="355">node:sqlite</text>
+  </g>
+  <g font-size="13" fill="#5b6b7f">
+    <text x="38" y="206">發位置</text>
+    <text x="38" y="228">揀分類、模式</text>
+    <text x="38" y="250">按導航、相片</text>
+
+    <text x="238" y="206">bot 只做 long polling</text>
+    <text x="238" y="228">毋須公網入口</text>
+    <text x="238" y="250">白名單只認一個 chat</text>
+
+    <text x="738" y="94">座標、評分、營業時間、日文評論</text>
+    <text x="738" y="189">食べログ分數（snippet 抽取）</text>
+    <text x="738" y="284">本地 blog grounding、繁中摘要</text>
+    <text x="738" y="377">狀態、快取、推薦紀錄</text>
+  </g>
+
+  <g font-size="13" fill="#1e2a3a">
+    <rect x="440" y="92" width="210" height="44" rx="10" fill="#ffffff" stroke="#d9e2ea"/>
+    <text x="456" y="119"><tspan font-weight="700">bot.js</tspan>　鍵盤、callback</text>
+    <rect x="440" y="146" width="210" height="44" rx="10" fill="#ffffff" stroke="#d9e2ea"/>
+    <text x="456" y="173"><tspan font-weight="700">pipeline.js</tspan>　兩段式流程</text>
+    <rect x="440" y="200" width="210" height="44" rx="10" fill="#ffffff" stroke="#d9e2ea"/>
+    <text x="456" y="227"><tspan font-weight="700">ranking.js</tspan>　硬閘、排序、去重</text>
+    <rect x="440" y="254" width="210" height="44" rx="10" fill="#ffffff" stroke="#d9e2ea"/>
+    <text x="456" y="281"><tspan font-weight="700">providers/</tspan>　三個資料源</text>
+    <rect x="440" y="308" width="210" height="44" rx="10" fill="#ffffff" stroke="#d9e2ea"/>
+    <text x="456" y="335"><tspan font-weight="700">regions/</tspan>　地區抽象層</text>
+    <text x="440" y="382" font-size="12" fill="#0b5c8a">Windows 工作排程器：開機自啟、crash 重啟</text>
+  </g>
+
+  <g stroke="#0b5c8a" stroke-width="1.8" fill="none" marker-end="url(#tg-arch-arrow)">
+    <line x1="172" y1="215" x2="216" y2="215"/>
+    <line x1="372" y1="215" x2="416" y2="215"/>
+    <line x1="672" y1="80" x2="716" y2="80"/>
+    <line x1="672" y1="175" x2="716" y2="175"/>
+    <line x1="672" y1="270" x2="716" y2="270"/>
+    <line x1="672" y1="362" x2="716" y2="362"/>
+  </g>
+</svg>
