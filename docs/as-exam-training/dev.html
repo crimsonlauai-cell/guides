@@ -1,0 +1,1063 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>AS 面試溫習｜開發者筆記</title>
+<meta name="description" content="為獲授權簽署人（AS）面試而設的抽認卡溫習工具：329 張一問一答卡，由 60 份考卷歸納，答案可追溯至法例原文。">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+</head>
+<body data-product="as-exam-training" data-page="dev" data-m="bW9jLmxpYW1nQGlhLnVhbG5vc21pcmM=">
+<div class="bg" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><span></span></div>
+<header class="topbar glass">
+  <a class="brand" href="../">Crimson Guides</a>
+  <span class="crumb">AS 面試溫習</span>
+  <nav class="switch" aria-label="切換面向">
+    <a href="index.html" class="">用戶<small>User</small></a>
+    <a href="dev.html" class="on">開發者<small>Developer</small></a>
+  </nav>
+  <button class="toc-toggle" type="button" aria-label="目錄">目錄</button>
+</header>
+<section class="hero">
+  <div class="hero-text">
+    <p class="eyebrow">開發者筆記 <span>Developer Notes</span></p>
+    <h1>AS 面試溫習</h1>
+    <p class="tagline">為獲授權簽署人（AS）面試而設的抽認卡溫習工具：329 張一問一答卡，由 60 份考卷歸納，答案可追溯至法例原文。</p>
+    <p class="meta-line">最後更新 2026-09-13　·　Crimson Lau · CKW Group</p>
+    <div class="hero-actions">
+      <a class="hero-cta" href="https://as-exam-training.vercel.app" target="_blank" rel="noopener">開啟產品 <span>Open App</span> ↗</a>
+      <a class="hero-switch" href="index.html">切換至用戶指南 →</a>
+    </div>
+    <p class="hero-url">產品網址：<a href="https://as-exam-training.vercel.app" target="_blank" rel="noopener">as-exam-training.vercel.app</a></p>
+  </div>
+  <div class="hero-art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <defs>
+    <radialGradient id="ast-hero-glow1" cx="0.75" cy="0.2" r="0.6">
+      <stop offset="0" stop-color="#4be3db" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#4be3db" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ast-hero-glow2" cx="0.15" cy="0.85" r="0.55">
+      <stop offset="0" stop-color="#60a5fa" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#60a5fa" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="ast-hero-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0b5c8a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="560" height="400" rx="24" fill="#f7fbfd"/>
+  <rect width="560" height="400" rx="24" fill="url(#ast-hero-glow1)"/>
+  <rect width="560" height="400" rx="24" fill="url(#ast-hero-glow2)"/>
+
+  <!-- 後面兩張卡 -->
+  <g transform="rotate(-8 280 200)" opacity="0.7">
+    <rect x="150" y="70" width="280" height="190" rx="18" fill="#ffffff" fill-opacity="0.6" stroke="#ffffff" filter="url(#ast-hero-shadow)"/>
+  </g>
+  <g transform="rotate(5 280 200)" opacity="0.85">
+    <rect x="140" y="80" width="290" height="200" rx="18" fill="#ffffff" fill-opacity="0.7" stroke="#ffffff" filter="url(#ast-hero-shadow)"/>
+  </g>
+
+  <!-- 前面主卡 -->
+  <g filter="url(#ast-hero-shadow)">
+    <rect x="120" y="95" width="320" height="215" rx="20" fill="#ffffff" fill-opacity="0.9" stroke="#e3edf3"/>
+  </g>
+  <rect x="146" y="120" width="58" height="24" rx="12" fill="#4be3db"/>
+  <text x="175" y="137" text-anchor="middle" font-size="12" font-weight="700" fill="#0f2233">必出題</text>
+  <rect x="212" y="120" width="92" height="24" rx="12" fill="#ffffff" stroke="#d9e2ea"/>
+  <text x="258" y="137" text-anchor="middle" font-size="12" fill="#5b6b7f">近兩年 84%</text>
+  <text x="146" y="182" font-size="21" font-weight="700" fill="#1e2a3a">《建築物條例》的立法目的</text>
+  <text x="146" y="210" font-size="21" font-weight="700" fill="#1e2a3a">是甚麼？</text>
+  <rect x="146" y="232" width="268" height="10" rx="5" fill="#e8f1f5"/>
+  <rect x="146" y="252" width="200" height="10" rx="5" fill="#e8f1f5"/>
+
+  <!-- 四級自評 -->
+  <g font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <rect x="120" y="326" width="74" height="34" rx="10" fill="#d94a4a"/><text x="157" y="348">唔識</text>
+    <rect x="202" y="326" width="74" height="34" rx="10" fill="#e08a2e"/><text x="239" y="348">好勉強</text>
+    <rect x="284" y="326" width="74" height="34" rx="10" fill="#3fa15c"/><text x="321" y="348">識</text>
+    <rect x="366" y="326" width="74" height="34" rx="10" fill="#159a93"/><text x="403" y="348">熟到爛</text>
+  </g>
+
+  <!-- 進度環 -->
+  <g transform="translate(468 108)">
+    <circle r="40" fill="#ffffff" fill-opacity="0.85" stroke="#ffffff"/>
+    <circle r="30" fill="none" stroke="#e3edf3" stroke-width="8"/>
+    <circle r="30" fill="none" stroke="#0b5c8a" stroke-width="8" stroke-linecap="round" stroke-dasharray="120 189" transform="rotate(-90)"/>
+    <text y="6" text-anchor="middle" font-size="16" font-weight="700" fill="#0b5c8a">64%</text>
+  </g>
+</svg>
+</div>
+</section>
+<div class="layout">
+  <aside class="toc glass" aria-label="目錄"><ul><li class="t1"><a href="#origin" data-target="origin"><span class="tn">1</span>緣起</a></li><li class="t2"><a href="#s-1-1" data-target="s-1-1"><span class="tn">1.1</span>構思起點</a></li><li class="t2"><a href="#s-1-2" data-target="s-1-2"><span class="tn">1.2</span>要解決的問題</a></li><li class="t2"><a href="#s-1-3" data-target="s-1-3"><span class="tn">1.3</span>範圍</a></li><li class="t1"><a href="#tools-cost" data-target="tools-cost"><span class="tn">2</span>工具與成本</a></li><li class="t2"><a href="#s-2-1" data-target="s-2-1"><span class="tn">2.1</span>AI Agent 與模型</a></li><li class="t2"><a href="#s-2-2" data-target="s-2-2"><span class="tn">2.2</span>開發工具</a></li><li class="t2"><a href="#s-2-3" data-target="s-2-3"><span class="tn">2.3</span>第三方服務</a></li><li class="t2"><a href="#s-2-4" data-target="s-2-4"><span class="tn">2.4</span>開發成本</a></li><li class="t2"><a href="#s-2-5" data-target="s-2-5"><span class="tn">2.5</span>運作成本</a></li><li class="t1"><a href="#architecture" data-target="architecture"><span class="tn">3</span>技術架構</a></li><li class="t2"><a href="#s-3-1" data-target="s-3-1"><span class="tn">3.1</span>系統總覽</a></li><li class="t2"><a href="#backend" data-target="backend"><span class="tn">3.2</span>後台技術</a></li><li class="t2"><a href="#ai" data-target="ai"><span class="tn">3.3</span>AI 技術</a></li><li class="t2"><a href="#s-3-4" data-target="s-3-4"><span class="tn">3.4</span>核心邏輯</a></li><li class="t1"><a href="#build" data-target="build"><span class="tn">4</span>逐步教學</a></li><li class="t2"><a href="#s-4-1" data-target="s-4-1"><span class="tn">4.1</span>階段一：建立語料庫</a></li><li class="t2"><a href="#s-4-2" data-target="s-4-2"><span class="tn">4.2</span>階段二：題庫結構與頻率</a></li><li class="t2"><a href="#s-4-3" data-target="s-4-3"><span class="tn">4.3</span>階段三：撰寫答案與拆卡</a></li><li class="t2"><a href="#s-4-4" data-target="s-4-4"><span class="tn">4.4</span>階段四：本機抽卡應用程式</a></li><li class="t2"><a href="#s-4-5" data-target="s-4-5"><span class="tn">4.5</span>階段五：進度同步</a></li><li class="t2"><a href="#s-4-6" data-target="s-4-6"><span class="tn">4.6</span>階段六：部署</a></li><li class="t2"><a href="#s-4-7" data-target="s-4-7"><span class="tn">4.7</span>階段七：多用戶與管理</a></li><li class="t2"><a href="#step-verify" data-target="step-verify"><span class="tn">4.8</span>完整驗證與部署</a></li><li class="t1"><a href="#tradeoffs" data-target="tradeoffs"><span class="tn">5</span>做法評估</a></li><li class="t2"><a href="#s-5-1" data-target="s-5-1"><span class="tn">5.1</span>好處</a></li><li class="t2"><a href="#s-5-2" data-target="s-5-2"><span class="tn">5.2</span>壞處</a></li><li class="t2"><a href="#s-5-3" data-target="s-5-3"><span class="tn">5.3</span>難處</a></li><li class="t2"><a href="#s-5-4" data-target="s-5-4"><span class="tn">5.4</span>未嘗試的方案</a></li><li class="t1"><a href="#journal" data-target="journal"><span class="tn">6</span>開發歷程</a></li><li class="t2"><a href="#journal-ocr" data-target="journal-ocr"><span class="tn">6.1</span>以為 OCR 已經成功</a></li><li class="t2"><a href="#journal-cards" data-target="journal-cards"><span class="tn">6.2</span>以為一條歸併題就是一張卡</a></li><li class="t2"><a href="#journal-variants" data-target="journal-variants"><span class="tn">6.3</span>以為考卷原文可以直接作題面</a></li><li class="t2"><a href="#journal-oversplit" data-target="journal-oversplit"><span class="tn">6.4</span>以為題目越多越好</a></li><li class="t2"><a href="#journal-materials" data-target="journal-materials"><span class="tn">6.5</span>以為培訓教材可信</a></li><li class="t2"><a href="#journal-multiuser" data-target="journal-multiuser"><span class="tn">6.6</span>以為單用戶不需要登入系統</a></li><li class="t2"><a href="#journal-magiclink" data-target="journal-magiclink"><span class="tn">6.7</span>以為電郵連結登入最方便</a></li><li class="t2"><a href="#journal-upsert" data-target="journal-upsert"><span class="tn">6.8</span>首次設定每次登入都重新出現</a></li><li class="t2"><a href="#journal-tabbar" data-target="journal-tabbar"><span class="tn">6.9</span>底部固定導航令人以為已經到底</a></li><li class="t2"><a href="#journal-voice" data-target="journal-voice"><span class="tn">6.10</span>答案寫得像教科書</a></li><li class="t1"><a href="#gaps" data-target="gaps"><span class="tn">7</span>已知缺口</a></li><li class="t1"><a href="#feedback" data-target="feedback"><span class="tn">8</span>意見反饋</a></li></ul></aside>
+  <main class="content">
+<section class="chapter" id="ch-origin">
+<h2 id="origin" class="hd d1" data-num="1"><a class="num" href="#origin">1</a><span class="zh">緣起</span> <span class="en">Origin</span></h2>
+<h3 id="s-1-1" class="hd d2" data-num="1.1"><a class="num" href="#s-1-1">1.1</a><span class="zh">構思起點</span> <span class="en">The Spark</span></h3>
+<p>Crimson Lau（CKW Group）機緣巧合下接觸到獲授權簽署人（AS）面試的準備工作，手上累積了兩類材料：一批法例、作業備考及守則的 PDF，以及流傳的考卷紀錄。</p>
+<p>最初的想法很簡單：做一個溫書網頁。但對「溫書工具應該是甚麼樣子」沒有既定想法，也不確定應否使用 RAG（Retrieval-Augmented Generation）。當時已用 NotebookLM 對筆記提問，答案質素令人滿意，所以真正的問題是：<strong>自己再做一個工具，價值在哪裏？</strong></p>
+<p>經過一輪需求訪談，答案逐漸清晰：NotebookLM 擅長「回答問題」，但無法告訴你<strong>該溫哪些問題、溫到甚麼程度</strong>。這個工具要解決的是後者。</p>
+<p>成品網址：<a href="https://as-exam-training.vercel.app/" target="_blank" rel="noopener">as-exam-training.vercel.app</a>（受邀用戶登入使用）。</p>
+<h3 id="s-1-2" class="hd d2" data-num="1.2"><a class="num" href="#s-1-2">1.2</a><span class="zh">要解決的問題</span> <span class="en">Problem</span></h3>
+<ol>
+<li><strong>不知道考甚麼。</strong> 考卷紀錄由考生憑記憶寫成，同一考點有多種問法。需要把 60 份考卷的題目歸納，並計算每個考點的出現頻率。</li>
+<li><strong>答案沒有可靠來源。</strong> 考卷只有問題，沒有答案；培訓教材經核實後發現多處過時或錯誤。每個答案都必須能追溯至一手原文。</li>
+<li><strong>溫習沒有焦點。</strong> 評分表六個範疇中，Aspect 1、2 為一票否決，但題目最少。需要一個按掌握度與重要性分配溫習時間的機制。</li>
+<li><strong>最終要給同事使用。</strong> 第一版只供本人使用，但架構必須可以開放給公司其他考生。</li>
+</ol>
+<h3 id="s-1-3" class="hd d2" data-num="1.3"><a class="num" href="#s-1-3">1.3</a><span class="zh">範圍</span> <span class="en">Scope</span></h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>做</th>
+<th>刻意不做</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>抽認卡：出題、心中作答、揭曉、四級自評</td>
+<td><strong>模擬面試</strong>：口試的評分依賴臨場表達，工具難以評估，投入大而回報不確定</td>
+</tr>
+<tr>
+<td>按自評與重要性加權出題</td>
+<td><strong>在應用程式內接入 LLM</strong>：答案必須可追溯，即時生成的內容無法逐字核實</td>
+</tr>
+<tr>
+<td>每題附出處，可追溯至法例原文</td>
+<td><strong>向量 RAG</strong>：語料約七十萬 token，關鍵是條號與專有代號的字面匹配，向量檢索反而容易拉回「意思相近但條號不同」的內容</td>
+</tr>
+<tr>
+<td>跨裝置同步進度、多用戶</td>
+<td><strong>自助註冊與重設密碼</strong>：用戶數量少，由管理員逐一開設更安全</td>
+</tr>
+<tr>
+<td>管理員開帳號、收取答案意見</td>
+<td><strong>網頁內編輯題庫</strong>：題庫改動需要核實，留在 git 由開發者處理</td>
+</tr>
+</tbody></table>
+</div><p class="chapter-fb"><a href="#" data-fb="1">對第 1 章有意見？</a></p>
+</section><section class="chapter" id="ch-tools-cost">
+<h2 id="tools-cost" class="hd d1" data-num="2"><a class="num" href="#tools-cost">2</a><span class="zh">工具與成本</span> <span class="en">Tools &amp; Cost</span></h2>
+<h3 id="s-2-1" class="hd d2" data-num="2.1"><a class="num" href="#s-2-1">2.1</a><span class="zh">AI Agent 與模型</span> <span class="en">Agent &amp; Models</span></h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Claude Code（桌面版）</td>
+<td>全部開發工作：需求訪談、語料抽取、題庫撰寫、網頁實作、部署指引</td>
+</tr>
+<tr>
+<td>Claude Opus 5</td>
+<td>主力模型，負責內容核實及架構決策</td>
+</tr>
+<tr>
+<td>Claude Sonnet 4.6</td>
+<td>部分較機械性的批次工作</td>
+</tr>
+<tr>
+<td>模型原生視覺能力</td>
+<td>讀取掃描件 PDF（培訓教材、部分法例列印本），毋須外部 OCR 服務</td>
+</tr>
+<tr>
+<td>NotebookLM</td>
+<td>由產品擁有人以另一個 AI 工具交叉核對答案，作為最後把關</td>
+</tr>
+<tr>
+<td>Skill：grilling</td>
+<td>需求訪談，逐條確認設計決策</td>
+</tr>
+<tr>
+<td>Skill：starter-session-audit、end-of-day</td>
+<td>每日收工時整理決策與進度</td>
+</tr>
+</tbody></table>
+</div><h3 id="s-2-2" class="hd d2" data-num="2.2"><a class="num" href="#s-2-2">2.2</a><span class="zh">開發工具</span> <span class="en">Dev Tools</span></h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>工具</th>
+<th>用途</th>
+<th>收費</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Node.js 24</td>
+<td>前端建置、題庫索引腳本</td>
+<td>免費</td>
+</tr>
+<tr>
+<td>Python 3.14</td>
+<td>語料抽取、頻率統計、卡片檢查工具</td>
+<td>免費</td>
+</tr>
+<tr>
+<td>PyMuPDF 等 PDF 工具</td>
+<td>渲染 PDF 頁面供視覺讀取、抽取文字層</td>
+<td>免費</td>
+</tr>
+<tr>
+<td>Tesseract OCR</td>
+<td>曾嘗試用於掃描件，實測無效（見 <a class="xref" href="#journal-ocr">6.1 以為 OCR 已經成功</a>）</td>
+<td>免費</td>
+</tr>
+<tr>
+<td>Git 與 GitHub（私人 repo）</td>
+<td>題庫版本控制；push 觸發部署</td>
+<td>免費</td>
+</tr>
+</tbody></table>
+</div><div class="callout c-gap"><div class="callout-title">推導步驟，未經實跑驗證</div><p>PDF 處理所用的具體 Python 套件名稱由工具腳本推斷，未逐一核對 <code>requirements</code>。</p>
+</div><h3 id="s-2-3" class="hd d2" data-num="2.3"><a class="num" href="#s-2-3">2.3</a><span class="zh">第三方服務</span> <span class="en">Services</span></h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>服務</th>
+<th>用途</th>
+<th>收費</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Supabase</td>
+<td>登入驗證、進度與意見資料庫</td>
+<td>免費方案</td>
+</tr>
+<tr>
+<td>Vercel</td>
+<td>前端託管、Serverless Function</td>
+<td>免費方案（Hobby）</td>
+</tr>
+<tr>
+<td>Resend</td>
+<td>自訂 SMTP 寄信（電郵連結登入的後備方式）</td>
+<td>免費方案</td>
+</tr>
+<tr>
+<td>e-Legislation 電子版香港法例</td>
+<td>以 RTF 匯出法例官方原文</td>
+<td>免費</td>
+</tr>
+</tbody></table>
+</div><h3 id="s-2-4" class="hd d2" data-num="2.4"><a class="num" href="#s-2-4">2.4</a><span class="zh">開發成本</span> <span class="en">Build Cost</span></h3>
+<ul>
+<li><strong>AI：</strong> Claude 付費訂閱，沒有額外 API 費用。開發期間多次用盡訂閱的用量上限，需要等候重置後繼續。</li>
+<li><strong>時間：</strong> 由 2026 年 8 月 24 日需求訪談至 9 月 13 日，約三星期，共 5 個 session、571 條指示。</li>
+<li><strong>分佈：</strong> 約七成時間用於內容（抽取、核實、拆卡、覆核），網頁本身約三成。</li>
+</ul>
+<figure class="diagram"><svg role="img" aria-label="開發時間線" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 330" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <defs>
+    <linearGradient id="ast-tl-line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4be3db"/>
+      <stop offset="1" stop-color="#0b5c8a"/>
+    </linearGradient>
+  </defs>
+  <text x="20" y="34" font-size="19" font-weight="700" fill="#1e2a3a">開發時間線（2026 年）</text>
+  <text x="20" y="58" font-size="13" fill="#5b6b7f">約三星期；紅點為重大轉折</text>
+
+  <rect x="40" y="150" width="860" height="6" rx="3" fill="url(#ast-tl-line)"/>
+
+  <g font-size="13" text-anchor="middle">
+    <!-- 08-24 -->
+    <circle cx="60" cy="153" r="9" fill="#ffffff" stroke="#4be3db" stroke-width="3"/>
+    <text x="60" y="126" font-weight="700" fill="#1e2a3a">8/24</text>
+    <text x="60" y="186" fill="#1e2a3a">需求訪談</text>
+    <text x="60" y="206" fill="#5b6b7f">決定不做 RAG</text>
+
+    <!-- 08-27 -->
+    <circle cx="190" cy="153" r="9" fill="#ffffff" stroke="#4be3db" stroke-width="3"/>
+    <text x="190" y="126" font-weight="700" fill="#1e2a3a">8/27–28</text>
+    <text x="190" y="186" fill="#1e2a3a">語料抽取</text>
+    <text x="190" y="206" fill="#5b6b7f">頻率分析、題庫初稿</text>
+
+    <!-- 09-01 -->
+    <circle cx="330" cy="153" r="10" fill="#d94a4a"/>
+    <text x="330" y="126" font-weight="700" fill="#1e2a3a">9/1–3</text>
+    <text x="330" y="186" fill="#b91c1c">發現 OCR 全空白</text>
+    <text x="330" y="206" fill="#5b6b7f">改用 VLM＋RTF 重核</text>
+
+    <!-- 09-04 -->
+    <circle cx="470" cy="153" r="10" fill="#d94a4a"/>
+    <text x="470" y="126" font-weight="700" fill="#1e2a3a">9/4–6</text>
+    <text x="470" y="186" fill="#b91c1c">改為一問一答卡</text>
+    <text x="470" y="206" fill="#5b6b7f">過度拆分後再合併</text>
+
+    <!-- 09-09 -->
+    <circle cx="610" cy="153" r="9" fill="#ffffff" stroke="#0b5c8a" stroke-width="3"/>
+    <text x="610" y="126" font-weight="700" fill="#1e2a3a">9/9</text>
+    <text x="610" y="186" fill="#1e2a3a">網頁上線</text>
+    <text x="610" y="206" fill="#5b6b7f">Supabase＋Vercel</text>
+
+    <!-- 09-11 -->
+    <circle cx="750" cy="153" r="10" fill="#d94a4a"/>
+    <text x="750" y="126" font-weight="700" fill="#1e2a3a">9/11</text>
+    <text x="750" y="186" fill="#b91c1c">開放多用戶</text>
+    <text x="750" y="206" fill="#5b6b7f">密碼登入、Admin、UI 重構</text>
+
+    <!-- 09-13 -->
+    <circle cx="880" cy="153" r="9" fill="#0b5c8a"/>
+    <text x="880" y="126" font-weight="700" fill="#1e2a3a">9/12–13</text>
+    <text x="880" y="186" fill="#1e2a3a">答案覆核</text>
+    <text x="880" y="206" fill="#5b6b7f">口述風格、簡寫表</text>
+  </g>
+
+  <rect x="20" y="246" width="900" height="60" rx="12" fill="#f4fbfb" stroke="#bfeeea"/>
+  <text x="40" y="272" font-size="13" fill="#1e2a3a">統計：5 個 session、571 條指示；前端 git 紀錄由 9/1 開始，其中 9/13 單日 38 個 commit。</text>
+  <text x="40" y="294" font-size="13" fill="#5b6b7f">約七成時間用於內容（抽取、核實、拆卡），網頁本身約三成。</text>
+</svg>
+<figcaption>開發時間線</figcaption></figure>
+<h3 id="s-2-5" class="hd d2" data-num="2.5"><a class="num" href="#s-2-5">2.5</a><span class="zh">運作成本</span> <span class="en">Running Cost</span></h3>
+<p>每月 <strong>US$0</strong>，但每個免費方案都有限制：</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>服務</th>
+<th>免費方案限制</th>
+<th>超出或違反時</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Supabase</td>
+<td>資料庫 500 MB；<strong>連續一星期無活動會暫停專案</strong></td>
+<td>需要到控制台手動恢復；資料不會遺失</td>
+</tr>
+<tr>
+<td>Vercel Hobby</td>
+<td>只限個人、非商業用途</td>
+<td>如正式在公司內推廣，按條款應升級 Pro（每位成員每月約 US$20）</td>
+</tr>
+<tr>
+<td>Resend</td>
+<td>每月 3,000 封、每日 100 封；未驗證網域只能寄往註冊電郵</td>
+<td>本產品主要用密碼登入，電郵只作後備，用量極低</td>
+</tr>
+</tbody></table>
+</div><div class="callout c-warn"><div class="callout-title">免費方案條款會變動</div><p>以上為撰寫時（2026 年 9 月）的情況，請以各服務官方頁面為準。</p>
+</div><p class="chapter-fb"><a href="#" data-fb="2">對第 2 章有意見？</a></p>
+</section><section class="chapter" id="ch-architecture">
+<h2 id="architecture" class="hd d1" data-num="3"><a class="num" href="#architecture">3</a><span class="zh">技術架構</span> <span class="en">Architecture</span></h2>
+<h3 id="s-3-1" class="hd d2" data-num="3.1"><a class="num" href="#s-3-1">3.1</a><span class="zh">系統總覽</span> <span class="en">Overview</span></h3>
+<figure class="diagram"><svg role="img" aria-label="系統架構：上半部為開發者本機的內容管道，下半部為線上系統" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 470" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <defs>
+    <marker id="ast-arch-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0b5c8a"/>
+    </marker>
+    <filter id="ast-arch-shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0b5c8a" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- 分區標題 -->
+  <text x="20" y="30" font-size="13" font-weight="700" fill="#5b6b7f" letter-spacing="1">內容管道（開發者本機）</text>
+  <text x="20" y="262" font-size="13" font-weight="700" fill="#5b6b7f" letter-spacing="1">線上系統</text>
+  <line x1="20" y1="240" x2="920" y2="240" stroke="#d9e2ea" stroke-dasharray="4 4"/>
+
+  <!-- 內容管道 -->
+  <g filter="url(#ast-arch-shadow)">
+    <rect x="20" y="46" width="200" height="170" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <rect x="260" y="46" width="200" height="170" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <rect x="500" y="46" width="200" height="170" rx="14" fill="#ffffff" stroke="#4be3db"/>
+    <rect x="740" y="46" width="180" height="170" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+  </g>
+  <g font-size="15" font-weight="700" fill="#1e2a3a">
+    <text x="38" y="76">一手來源</text>
+    <text x="278" y="76">語料庫</text>
+    <text x="518" y="76">題庫（git）</text>
+    <text x="758" y="76">建置</text>
+  </g>
+  <g font-size="13" fill="#5b6b7f">
+    <text x="38" y="102">法例、PNAP、PNRC</text>
+    <text x="38" y="124">培訓教材（掃描件）</text>
+    <text x="38" y="146">60 份考卷紀錄</text>
+    <text x="38" y="190" fill="#0b5c8a">約 500 MB PDF</text>
+
+    <text x="278" y="102">Resource/_text/</text>
+    <text x="278" y="124">RTF 匯出／文字層／VLM</text>
+    <text x="278" y="146">136 份資料＋60 份考卷</text>
+    <text x="278" y="190" fill="#0b5c8a">6.2 MB 純文字</text>
+
+    <text x="518" y="102">87 條歸併題（附出處）</text>
+    <text x="518" y="124">329 張一問一答卡</text>
+    <text x="518" y="146">簡寫對照表 248 條</text>
+    <text x="518" y="190" fill="#0b5c8a">人手覆核＋檢查工具</text>
+
+    <text x="758" y="102">build_index.mjs</text>
+    <text x="758" y="124">攤平成 cards.json</text>
+    <text x="758" y="146">打包入前端</text>
+    <text x="758" y="190" fill="#0b5c8a">git push 觸發</text>
+  </g>
+  <g stroke="#0b5c8a" stroke-width="1.8" marker-end="url(#ast-arch-arrow)">
+    <line x1="222" y1="131" x2="256" y2="131"/>
+    <line x1="462" y1="131" x2="496" y2="131"/>
+    <line x1="702" y1="131" x2="736" y2="131"/>
+  </g>
+
+  <!-- 線上系統 -->
+  <g filter="url(#ast-arch-shadow)">
+    <rect x="20" y="280" width="170" height="160" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <rect x="250" y="280" width="250" height="160" rx="14" fill="#ffffff" stroke="#4be3db"/>
+    <rect x="560" y="280" width="170" height="72" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <rect x="560" y="368" width="170" height="72" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <rect x="790" y="280" width="130" height="160" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+  </g>
+  <g font-size="15" font-weight="700" fill="#1e2a3a">
+    <text x="38" y="310">使用者</text>
+    <text x="268" y="310">Vercel</text>
+    <text x="578" y="308">Supabase Auth</text>
+    <text x="578" y="396">Supabase DB</text>
+    <text x="808" y="310">Resend</text>
+  </g>
+  <g font-size="13" fill="#5b6b7f">
+    <text x="38" y="336">電腦或手機瀏覽器</text>
+    <text x="38" y="358">電郵＋密碼登入</text>
+
+    <text x="268" y="336">靜態前端 React + Vite</text>
+    <text x="268" y="358">題庫隨前端打包，不入資料庫</text>
+    <text x="268" y="392" fill="#0b5c8a" font-weight="600">/api/admin-users</text>
+    <text x="268" y="414">Serverless，持有 service key</text>
+
+    <text x="578" y="332">登入、session</text>
+    <text x="578" y="420">進度、意見（RLS）</text>
+
+    <text x="808" y="336">SMTP 寄信</text>
+    <text x="808" y="358">電郵連結登入</text>
+    <text x="808" y="380">（後備方式）</text>
+  </g>
+  <g stroke="#0b5c8a" stroke-width="1.8" marker-end="url(#ast-arch-arrow)" fill="none">
+    <line x1="192" y1="360" x2="246" y2="360"/>
+    <line x1="502" y1="316" x2="556" y2="316"/>
+    <line x1="502" y1="404" x2="556" y2="404"/>
+    <line x1="732" y1="316" x2="786" y2="316"/>
+    <path d="M830 216 L830 250 L375 250 L375 276"/>
+  </g>
+</svg>
+<figcaption>系統架構：上半部為開發者本機的內容管道，下半部為線上系統</figcaption></figure>
+<p>整個系統分為兩條線：</p>
+<ol>
+<li><strong>內容管道（離線）。</strong> 一手來源經抽取成為純文字語料，再由 AI 撰寫成附出處的題庫 JSON，存於 git。題庫的每一次修改都有版本紀錄。</li>
+<li><strong>線上系統。</strong> 建置時把題庫打包進前端，部署到 Vercel。<strong>題庫一個字都不入資料庫</strong>；Supabase 只存用戶進度與意見。</li>
+</ol>
+<p>這個分割令內容更新毋須改動前端：修改 JSON、push，Vercel 會自動重新建置。</p>
+<h3 id="backend" class="hd d2" data-num="3.2"><a class="num" href="#backend">3.2</a><span class="zh">後台技術</span> <span class="en">Backend &amp; IT</span></h3>
+<p><strong>技術棧</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>層</th>
+<th>用甚麼</th>
+<th>為甚麼</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>前端</td>
+<td>React 19、Vite 8、Tailwind CSS 4、TypeScript 6</td>
+<td>開發者已有實戰經驗；Tailwind 的響應式工具令手機版只需調整斷點</td>
+</tr>
+<tr>
+<td>狀態管理</td>
+<td>Zustand 5</td>
+<td>登入狀態、進度、簡寫彈出卡等跨頁面狀態；比 Context 少 boilerplate，不會引起整棵樹 re-render</td>
+</tr>
+<tr>
+<td>路由</td>
+<td>React Router 7</td>
+<td>標準做法</td>
+</tr>
+<tr>
+<td>Markdown</td>
+<td>react-markdown 10、remark-gfm</td>
+<td>答案含表格與重點標記，需要完整 Markdown 支援</td>
+</tr>
+<tr>
+<td>題庫</td>
+<td>git 內的 JSON，建置時打包</td>
+<td>內容需要版本紀錄與人手核實；約 570 KB 的資料毋須資料庫查詢</td>
+</tr>
+<tr>
+<td>登入與資料</td>
+<td>Supabase（Auth、Postgres、RLS）</td>
+<td>內建電郵密碼登入與列級安全，毋須自建後端</td>
+</tr>
+<tr>
+<td>管理 API</td>
+<td>Vercel Serverless Function</td>
+<td>建立用戶需要 service key，該金鑰絕不能出現在前端</td>
+</tr>
+<tr>
+<td>部署</td>
+<td>Vercel</td>
+<td>與 GitHub 連動，push 即部署；同時提供 Serverless Function</td>
+</tr>
+</tbody></table>
+</div><p><strong>檔案樹</strong></p>
+<pre><code class="language-text">as-exam-training/
+├── data/
+│   ├── questions/       87 條歸併題：完整答案、出處、考卷原文變體
+│   ├── cards/           329 張一問一答卡（應用程式實際使用的單位）
+│   ├── glossary.json    簡寫對照表 248 條
+│   ├── exam-info.json   考試形式與合格準則
+│   └── topics.json      12 個知識範疇
+├── Resource/
+│   ├── Notes/、Papers/  原始 PDF（不入 git，約 500 MB）
+│   └── _text/           抽取後的純文字語料（入 git）
+├── tools/               抽取、頻率統計、索引、卡片檢查、風格防線腳本
+├── api/
+│   └── admin-users.js   管理員用戶管理 Serverless Function
+├── web/
+│   ├── src/             React 前端（pages、components、lib、store）
+│   └── supabase/        schema.sql、make-admin.sql
+├── SPEC.md              資料層規格
+├── SPEC-WEB.md          網頁規格
+└── vercel.json          建置設定、SPA rewrite、noindex
+</code></pre>
+<p><strong>卡片結構</strong>（<code>data/cards/*.json</code>，精簡版）</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: &quot;C-0035-03&quot;,
+  &quot;from&quot;: &quot;Q-0035&quot;,
+  &quot;question&quot;: &quot;重寫成清楚、自足的問題&quot;,
+  &quot;answer&quot;: &quot;只回答這一條問題的 Markdown 答案&quot;,
+  &quot;answer_ref&quot;: &quot;Q-0035 §四&quot;,
+  &quot;aspect&quot;: [3, 6],
+  &quot;topic&quot;: &quot;site-safety&quot;,
+  &quot;variants&quot;: [&quot;考卷中的原本問法&quot;],
+  &quot;note_for_candidate&quot;: &quot;陷阱與追問方向&quot;
+}
+</code></pre>
+<p><strong>資料表</strong>（<code>web/supabase/schema.sql</code>）</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>表</th>
+<th>內容</th>
+<th>特點</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>reviews</code></td>
+<td>每次自評一列：<code>card_id</code>、<code>rating</code>（0 至 3）、<code>session_id</code>、時間</td>
+<td>只增不改（append-only）</td>
+</tr>
+<tr>
+<td><code>sessions</code></td>
+<td>每節練習：抽出的 <code>card_ids</code>、模式、開始及結束時間</td>
+<td></td>
+</tr>
+<tr>
+<td><code>profiles</code></td>
+<td>考科、是否包括 RGBC 題、考試日期、<code>is_admin</code>、<code>onboarded</code></td>
+<td>新用戶由 trigger 自動建立</td>
+</tr>
+<tr>
+<td><code>card_comments</code></td>
+<td>用戶對答案的意見：類別、內容、處理狀態</td>
+<td>管理員可讀取全部</td>
+</tr>
+</tbody></table>
+</div><p><strong>外部接口</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>接口</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>POST /api/admin-users</code></td>
+<td>只接受四個固定操作：<code>list</code>、<code>create</code>、<code>reset_password</code>、<code>delete</code>。每次呼叫都核實 token 有效，並在伺服器端查詢 <code>is_admin</code></td>
+</tr>
+<tr>
+<td>Supabase 環境變數</td>
+<td>前端：<code>VITE_SUPABASE_URL</code>、<code>VITE_SUPABASE_ANON_KEY</code>（建置時編譯入 bundle）；伺服器端：<code>SUPABASE_SERVICE_ROLE_KEY</code>（只存於 Vercel）</td>
+</tr>
+</tbody></table>
+</div><h3 id="ai" class="hd d2" data-num="3.3"><a class="num" href="#ai">3.3</a><span class="zh">AI 技術</span> <span class="en">AI Techniques</span></h3>
+<p>應用程式本身<strong>沒有</strong>使用任何 AI。AI 集中用於開發階段的內容生產，而且每一步都設有防錯機制。</p>
+<h4 id="s-3-3-1" class="hd d3" data-num="3.3.1"><a class="num" href="#s-3-3-1">3.3.1</a><span class="zh">語料抽取的三級分流</span> <span class="en">Three-Tier Extraction</span></h4>
+<figure class="diagram"><svg role="img" aria-label="語料抽取的三級分流" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <defs>
+    <marker id="ast-pipe-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0b5c8a"/>
+    </marker>
+  </defs>
+  <text x="20" y="34" font-size="19" font-weight="700" fill="#1e2a3a">語料抽取的三級分流</text>
+  <text x="20" y="58" font-size="13" fill="#5b6b7f">按 PDF 類型選最便宜而可靠的方法，只有掃描件才使用視覺模型</text>
+
+  <rect x="20" y="170" width="150" height="90" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+  <text x="95" y="208" text-anchor="middle" font-size="15" font-weight="700" fill="#1e2a3a">一份 PDF</text>
+  <text x="95" y="232" text-anchor="middle" font-size="13" fill="#5b6b7f">先判斷類型</text>
+
+  <g stroke="#0b5c8a" stroke-width="1.8" fill="none" marker-end="url(#ast-pipe-arrow)">
+    <path d="M172 200 C 220 200, 220 120, 262 120"/>
+    <path d="M172 215 L262 215"/>
+    <path d="M172 230 C 220 230, 220 310, 262 310"/>
+  </g>
+
+  <!-- tier 1 -->
+  <rect x="266" y="80" width="370" height="80" rx="14" fill="#f4fbfb" stroke="#4be3db"/>
+  <text x="286" y="110" font-size="15" font-weight="700" fill="#0b5c8a">香港法例 → e-Legislation RTF 匯出</text>
+  <text x="286" y="136" font-size="13" fill="#1e2a3a">官方原文，免 OCR、免視覺讀取；可信度最高</text>
+  <!-- tier 2 -->
+  <rect x="266" y="175" width="370" height="80" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+  <text x="286" y="205" font-size="15" font-weight="700" fill="#1e2a3a">有文字層的 PDF → 直接抽取</text>
+  <text x="286" y="231" font-size="13" fill="#1e2a3a">PNAP、PNRC、守則大多屬此類；零 token 成本</text>
+  <!-- tier 3 -->
+  <rect x="266" y="270" width="370" height="80" rx="14" fill="#fff8ec" stroke="#f3cf8e"/>
+  <text x="286" y="300" font-size="15" font-weight="700" fill="#b45309">掃描件 → 渲染成圖，由模型視覺轉錄</text>
+  <text x="286" y="326" font-size="13" fill="#1e2a3a">培訓教材等；兩頁或四頁一版以節省用量</text>
+
+  <g stroke="#0b5c8a" stroke-width="1.8" marker-end="url(#ast-pipe-arrow)">
+    <line x1="638" y1="120" x2="690" y2="200"/>
+    <line x1="638" y1="215" x2="690" y2="215"/>
+    <line x1="638" y1="310" x2="690" y2="230"/>
+  </g>
+  <rect x="694" y="150" width="186" height="130" rx="14" fill="#ffffff" stroke="#4be3db"/>
+  <text x="712" y="182" font-size="15" font-weight="700" fill="#1e2a3a">Resource/_text/</text>
+  <text x="712" y="208" font-size="13" fill="#5b6b7f">每檔頭註明來源</text>
+  <text x="712" y="230" font-size="13" fill="#5b6b7f">及抽取方式</text>
+  <text x="712" y="260" font-size="13" fill="#0b5c8a" font-weight="600">可入 git 追蹤</text>
+
+  <rect x="20" y="370" width="860" height="36" rx="10" fill="#fef3c7"/>
+  <text x="36" y="393" font-size="13" fill="#b45309">⚠ 抽取後必須檢查內容是否為空。本專案曾有 21 份檔案 OCR 後全部空白而未被發現，導致後續核實失準。</text>
+</svg>
+<figcaption>語料抽取的三級分流</figcaption></figure>
+<p>關鍵在於<strong>按 PDF 類型選擇最便宜而可靠的方法</strong>。一頁 A4 渲染成圖片後，視覺讀取約耗 2,300 token；全數八百多頁都用視覺讀取，會消耗大量訂閱用量。所以只有真正的掃描件才使用視覺模型，法例一律改用官方 RTF 匯出。</p>
+<h4 id="s-3-3-2" class="hd d3" data-num="3.3.2"><a class="num" href="#s-3-3-2">3.3.2</a><span class="zh">考點歸併與頻率統計</span> <span class="en">Question Clustering</span></h4>
+<p>AI 讀取全部 60 份考卷，把「同一考點的不同問法」歸併為一條題目，並把每一條原文保存在 <code>variants</code> 中。頻率由程式計算：</p>
+<ul>
+<li><strong>歷來比例：</strong> 出現該考點的考卷數 ÷ 60。</li>
+<li><strong>近兩年比例：</strong> 最近 24 個月的考卷數 ÷ 32。</li>
+</ul>
+<p>兩個數字並列顯示。「歷來低、近期高」代表新興熱題，是最有預測力的訊號。</p>
+<h4 id="s-3-3-3" class="hd d3" data-num="3.3.3"><a class="num" href="#s-3-3-3">3.3.3</a><span class="zh">附出處的答案撰寫</span> <span class="en">Sourced Answer Drafting</span></h4>
+<p>AI 撰寫答案時必須遵守三條規則：</p>
+<ol>
+<li>每個數字、條號、期限都要標明出處，指到條文層級。</li>
+<li>語料中找不到明確依據的內容，寫入 <code>gaps</code>，不准自行補充。</li>
+<li>來源分級：法例原文優先於作業備考，作業備考優先於培訓教材。</li>
+</ol>
+<p>產品擁有人再以 NotebookLM 交叉核對，形成「AI 起草、另一個 AI 核對、人手裁決」的流程。</p>
+<h4 id="s-3-3-4" class="hd d3" data-num="3.3.4"><a class="num" href="#s-3-3-4">3.3.4</a><span class="zh">風格改寫的硬資料防線</span> <span class="en">Style Guard</span></h4>
+<p>後期把全部答案改寫成「考生對考官口述」的第一人稱風格。為免改寫時誤改事實，<code>tools/style_guard.py</code> 會抽出改寫前後的「硬資料」（條號、規例、金額、日數、表格編號），<strong>舊版有而新版沒有的，一律判為失敗</strong>。這條防線取代了逐張人手檢查。</p>
+<h3 id="s-3-4" class="hd d2" data-num="3.4"><a class="num" href="#s-3-4">3.4</a><span class="zh">核心邏輯</span> <span class="en">Core Logic</span></h3>
+<h4 id="logic-draw" class="hd d3" data-num="3.4.1"><a class="num" href="#logic-draw">3.4.1</a><span class="zh">加權抽籤</span> <span class="en">Weighted Draw</span></h4>
+<figure class="diagram"><svg role="img" aria-label="加權抽籤的計算步驟" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 430" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <defs>
+    <marker id="ast-draw-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0b5c8a"/>
+    </marker>
+  </defs>
+  <text x="20" y="34" font-size="19" font-weight="700" fill="#1e2a3a">加權抽籤：每張卡的權重如何計算</text>
+  <text x="20" y="58" font-size="13" fill="#5b6b7f">lib/pick.ts 的 weightOf() 與 drawSession()</text>
+
+  <!-- 步驟 -->
+  <g font-size="13">
+    <rect x="20" y="84" width="200" height="150" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <text x="38" y="112" font-size="15" font-weight="700" fill="#1e2a3a">① 基礎權重</text>
+    <text x="38" y="138" fill="#1e2a3a">唔識　　8</text>
+    <text x="38" y="160" fill="#1e2a3a">未答過　6</text>
+    <text x="38" y="182" fill="#1e2a3a">好勉強　4</text>
+    <text x="38" y="204" fill="#1e2a3a">識　　　1.5</text>
+    <text x="38" y="226" fill="#1e2a3a">熟到爛　0.4</text>
+
+    <rect x="250" y="84" width="190" height="150" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <text x="268" y="112" font-size="15" font-weight="700" fill="#1e2a3a">② 必出題加成</text>
+    <text x="268" y="140" fill="#1e2a3a">經人手確認的必出題</text>
+    <text x="268" y="166" font-size="20" font-weight="700" fill="#0b5c8a">× 1.6</text>
+
+    <rect x="470" y="84" width="190" height="150" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <text x="488" y="112" font-size="15" font-weight="700" fill="#1e2a3a">③ 時間衰減</text>
+    <text x="488" y="140" fill="#1e2a3a">超過 7 日未溫　× 1.3</text>
+    <text x="488" y="164" fill="#1e2a3a">超過 14 日未溫　× 1.6</text>
+
+    <rect x="690" y="84" width="190" height="150" rx="14" fill="#f4fbfb" stroke="#4be3db"/>
+    <text x="708" y="112" font-size="15" font-weight="700" fill="#0b5c8a">④ 抽出一張</text>
+    <text x="708" y="140" fill="#1e2a3a">按權重比例隨機抽</text>
+    <text x="708" y="162" fill="#1e2a3a">同一節內不重複</text>
+    <text x="708" y="184" fill="#1e2a3a">同一來源題最多</text>
+    <text x="708" y="206" fill="#1e2a3a">連續兩張</text>
+  </g>
+  <g stroke="#0b5c8a" stroke-width="1.8" marker-end="url(#ast-draw-arrow)">
+    <line x1="222" y1="159" x2="246" y2="159"/>
+    <line x1="442" y1="159" x2="466" y2="159"/>
+    <line x1="662" y1="159" x2="686" y2="159"/>
+  </g>
+  <path d="M785 236 L785 260 L120 260 L120 240" fill="none" stroke="#0b5c8a" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#ast-draw-arrow)"/>
+  <text x="330" y="280" font-size="13" fill="#5b6b7f">重複直至抽夠一節的題數（10／20／40）</text>
+
+  <!-- 例子 -->
+  <rect x="20" y="300" width="860" height="110" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+  <text x="38" y="328" font-size="14" font-weight="700" fill="#1e2a3a">例子</text>
+  <g font-size="13" fill="#1e2a3a">
+    <text x="38" y="354">卡 A：必出題，上次評「唔識」，10 日前　→　8 × 1.6 × 1.3 = 16.6</text>
+    <text x="38" y="378">卡 B：一般題，上次評「熟到爛」，2 日前　→　0.4</text>
+    <text x="38" y="400" fill="#0b5c8a">同一個池中，卡 A 被抽中的機會約為卡 B 的 40 倍，但卡 B 仍有機會出現，防止遺忘。</text>
+  </g>
+</svg>
+<figcaption>加權抽籤的計算步驟</figcaption></figure>
+<p>兩個細節值得留意：</p>
+<ul>
+<li><strong>未答過的新卡權重為 6</strong>，排在「唔識」與「好勉強」之間。這令新卡較早出現，但不會壓過已知的弱項。</li>
+<li><strong>同一來源題最多連續抽兩張。</strong> 一條來源題可能拆成十多張卡，連續出現會令人產生「剛剛才答過」的虛假熟悉感。</li>
+</ul>
+<h4 id="logic-append" class="hd d3" data-num="3.4.2"><a class="num" href="#logic-append">3.4.2</a><span class="zh">Append-only 進度</span> <span class="en">Append-only Progress</span></h4>
+<p>每次自評寫入 <code>reviews</code> 一列，永不修改。「每張卡目前的掌握度」由 <code>deriveStates()</code> 從全部紀錄推導：取時間最新的一列作為當前評級，同時累計作答次數。</p>
+<p>好處是溫習軌跡完整保留，可以看到「哪一張卡反覆由識變回唔識」，將來亦可據此調整權重算法，毋須遷移資料。</p>
+<p>寫入失敗時，自評先在畫面上即時更新，同時放入 <code>localStorage</code> 佇列，下次開啟應用程式時自動補交，主頁會顯示未上傳的數量。<strong>寫入失敗不可以靜靜地消失</strong>，否則用戶以為進度已儲存。</p>
+<h4 id="logic-frequency" class="hd d3" data-num="3.4.3"><a class="num" href="#logic-frequency">3.4.3</a><span class="zh">出現頻率於建置時預算</span> <span class="en">Build-time Frequency</span></h4>
+<p>頻率百分比由 <code>tools/compute_frequency.py</code> 在更新題庫時計算並寫入 JSON，附 <code>computedAt</code> 日期，<strong>不在瀏覽器即時計算</strong>。</p>
+<p>即時計算的效能其實不是問題（三百多張卡只需數毫秒），選擇預算的真正理由是：數字會進入 git，可以從 diff 看到「某題的出現率何時由 32% 升至 41%」。</p>
+<h4 id="logic-permission" class="hd d3" data-num="3.4.4"><a class="num" href="#logic-permission">3.4.4</a><span class="zh">三層權限模型</span> <span class="en">Permission Model</span></h4>
+<figure class="diagram"><svg role="img" aria-label="三層權限模型" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <defs>
+    <marker id="ast-perm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0b5c8a"/>
+    </marker>
+  </defs>
+  <text x="20" y="34" font-size="19" font-weight="700" fill="#1e2a3a">三層權限：前端金鑰公開也不會出事</text>
+  <text x="20" y="58" font-size="13" fill="#5b6b7f">Publishable key 必然出現在前端，所以安全不能依賴隱藏金鑰</text>
+
+  <!-- 層一 -->
+  <rect x="20" y="80" width="860" height="92" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+  <circle cx="56" cy="126" r="20" fill="#f4fbfb" stroke="#4be3db"/><text x="56" y="132" text-anchor="middle" font-size="15" font-weight="700" fill="#0b5c8a">1</text>
+  <text x="92" y="116" font-size="15" font-weight="700" fill="#1e2a3a">列級安全（Row Level Security）</text>
+  <text x="92" y="142" font-size="13" fill="#1e2a3a">四張表全部啟用，規則 auth.uid() = user_id：每個人只能讀寫自己的進度與意見。</text>
+  <text x="92" y="162" font-size="13" fill="#5b6b7f">管理員讀取全部意見，透過 is_admin() 函式另設規則。</text>
+
+  <!-- 層二 -->
+  <rect x="20" y="186" width="860" height="92" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+  <circle cx="56" cy="232" r="20" fill="#f4fbfb" stroke="#4be3db"/><text x="56" y="238" text-anchor="middle" font-size="15" font-weight="700" fill="#0b5c8a">2</text>
+  <text x="92" y="222" font-size="15" font-weight="700" fill="#1e2a3a">欄位級權限（Column Privileges）</text>
+  <text x="92" y="248" font-size="13" fill="#1e2a3a">RLS 只管「哪一列」，管不到「哪一欄」。profiles 表先 revoke update，再逐欄 grant。</text>
+  <text x="92" y="268" font-size="13" fill="#5b6b7f">結果：用戶可改考科、考試日期，但無法把自己的 is_admin 改成 true。</text>
+
+  <!-- 層三 -->
+  <rect x="20" y="292" width="860" height="110" rx="14" fill="#f4fbfb" stroke="#4be3db"/>
+  <circle cx="56" cy="338" r="20" fill="#ffffff" stroke="#4be3db"/><text x="56" y="344" text-anchor="middle" font-size="15" font-weight="700" fill="#0b5c8a">3</text>
+  <text x="92" y="328" font-size="15" font-weight="700" fill="#1e2a3a">伺服器端管理 API</text>
+  <g font-size="13" fill="#1e2a3a">
+    <rect x="92" y="344" width="150" height="40" rx="10" fill="#ffffff" stroke="#d9e2ea"/><text x="167" y="369" text-anchor="middle">Admin 頁面</text>
+    <rect x="290" y="344" width="210" height="40" rx="10" fill="#ffffff" stroke="#0b5c8a"/><text x="395" y="362" text-anchor="middle" font-weight="600">/api/admin-users</text><text x="395" y="378" text-anchor="middle" font-size="11" fill="#5b6b7f">核實 token → 查 DB is_admin</text>
+    <rect x="548" y="344" width="170" height="40" rx="10" fill="#ffffff" stroke="#d9e2ea"/><text x="633" y="369" text-anchor="middle">Supabase Admin API</text>
+    <text x="736" y="362" font-size="12" fill="#5b6b7f">service key 只存於</text>
+    <text x="736" y="378" font-size="12" fill="#5b6b7f">Vercel 環境變數</text>
+  </g>
+  <g stroke="#0b5c8a" stroke-width="1.8" marker-end="url(#ast-perm-arrow)">
+    <line x1="244" y1="364" x2="286" y2="364"/>
+    <line x1="502" y1="364" x2="544" y2="364"/>
+  </g>
+</svg>
+<figcaption>三層權限模型</figcaption></figure>
+<p>Supabase 的 publishable key 必然出現在前端 bundle 中，任何人都可以取得。所以安全性不能建立在「隱藏金鑰」上，而要建立在資料庫規則上。</p>
+<h4 id="logic-glossary" class="hd d3" data-num="3.4.5"><a class="num" href="#logic-glossary">3.4.5</a><span class="zh">簡寫比對</span> <span class="en">Abbreviation Matching</span></h4>
+<p>答案中的簡寫會自動加上虛線，點擊可查看說明。比對規則：</p>
+<ol>
+<li><strong>由長到短。</strong> <code>RSC(GIFW)</code> 優先於 <code>RSC</code>，<code>Cap 123A</code> 優先於 <code>Cap</code>。</li>
+<li><strong>邊界人手檢查。</strong> 不使用正規表達式的 lookbehind，因為 iOS Safari 16.4 之前不支援，會令整個 bundle 在舊款 iPhone 上無法載入。</li>
+<li><strong>揭答案前只顯示題目中的簡寫。</strong> 避免本卡簡寫列提早透露答案用到的概念。</li>
+</ol>
+<p class="chapter-fb"><a href="#" data-fb="3">對第 3 章有意見？</a></p>
+</section><section class="chapter" id="ch-build">
+<h2 id="build" class="hd d1" data-num="4"><a class="num" href="#build">4</a><span class="zh">逐步教學</span> <span class="en">Build Step-by-Step</span></h2>
+<p>以下是重建同類產品的最短路徑。步驟已經重新排序及合併，不代表實際開發次序；實際過程中的轉折見 <a class="xref" href="#journal">6 開發歷程</a>。</p>
+<p>每一步的指令可以直接貼給你的 AI agent（例如 Claude Code）。</p>
+<h3 id="s-4-1" class="hd d2" data-num="4.1"><a class="num" href="#s-4-1">4.1</a><span class="zh">階段一：建立語料庫</span> <span class="en">Phase 1: Corpus</span></h3>
+<p>完成後，你會有一個可以用關鍵字搜尋的純文字語料庫，每份檔案都註明來源及抽取方式。</p>
+<h4 id="step-folders" class="hd d3" data-num="4.1.1"><a class="num" href="#step-folders">4.1.1</a><span class="zh">整理來源資料夾</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 1 指令</span><button class="copy" type="button">複製</button></div><pre><code>建立專案資料夾，結構如下：&#10;- Resource/Notes/：放法例、作業備考、守則、教材的 PDF&#10;- Resource/Papers/：放考卷紀錄&#10;- Resource/_text/：之後放抽取出來的純文字&#10;- data/、tools/&#10;&#10;設定 .gitignore：排除 Resource/Notes 及 Resource/Papers 內的 PDF，但保留 Resource/_text。&#10;然後列出兩個 PDF 資料夾內每份檔案的頁數，並判斷每份是否有文字層。</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><ul>
+<li><code>git status</code> 不會列出任何 PDF。</li>
+<li>AI 交回一張表，每份 PDF 標示「有文字層」或「掃描件」。</li>
+</ul>
+</div><h4 id="step-rtf" class="hd d3" data-num="4.1.2"><a class="num" href="#step-rtf">4.1.2</a><span class="zh">以官方 RTF 匯出香港法例</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 2 指令</span><button class="copy" type="button">複製</button></div><pre><code>香港法例不要用 OCR。請用電子版香港法例的 RTF 匯出端點下載以下法例的中文及英文版：&#10;Cap 123、Cap 123A、Cap 123Q、Cap 59（按我的考試範圍增減）。&#10;網址格式：https://www.elegislation.gov.hk/hk/cap123!zh-Hant-HK.rtf&#10;寫一個 tools/rtf2txt.py 把 RTF 轉成純文字（要處理 \uc 的 Unicode fallback），&#10;輸出到 Resource/_text/notes/，每個檔案開頭加 HTML 註釋，寫明來源網址、抽取方式及日期。</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><ul>
+<li><code>Resource/_text/notes/</code> 出現法例文字檔，中文內容沒有亂碼。</li>
+<li>隨機抽一條條文（例如 Cap 123A reg 32），與網上版本逐字相同。</li>
+</ul>
+</div><h4 id="step-text" class="hd d3" data-num="4.1.3"><a class="num" href="#step-text">4.1.3</a><span class="zh">抽取有文字層的 PDF</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 3 指令</span><button class="copy" type="button">複製</button></div><pre><code>對 Step 1 表中「有文字層」的 PDF，直接抽取文字到 Resource/_text/，&#10;每檔開頭同樣加來源註釋，extraction 寫 text。&#10;抽完後列出每份檔案的字數。字數少於 200 的，標記為可疑，不要當成功。</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><ul>
+<li>每份輸出檔都有字數統計。</li>
+<li>沒有任何檔案只有 <code>[NO TEXT LAYER]</code> 或空白內容。</li>
+</ul>
+</div><div class="callout c-warn"><div class="callout-title">抽取結果必須檢查是否為空</div><p>工具不會因為讀不到文字而報錯，只會輸出空檔。一定要檢查字數。</p>
+</div><h4 id="step-vlm" class="hd d3" data-num="4.1.4"><a class="num" href="#step-vlm">4.1.4</a><span class="zh">以視覺模型轉錄掃描件</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 4 指令</span><button class="copy" type="button">複製</button></div><pre><code>對「掃描件」PDF，把頁面渲染成 JPEG（大字投影片可以兩頁或四頁一版以節省用量），&#10;然後用你的視覺能力逐頁轉錄成文字，保留表格結構。&#10;每檔開頭註明 extraction: vlm。&#10;轉錄完成後，抽 10 個關鍵數字或條號，與原圖再核對一次，交回核對表。</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><ul>
+<li>掃描件都有對應的文字檔。</li>
+<li>核對表中 10 個抽樣全部相符。</li>
+</ul>
+</div><div class="callout c-note"><div class="callout-title">為何不用 Tesseract</div><p>Tesseract 對清晰的文字 PDF 尚可，但對掃描件中的繁體中文表格、條號與數字錯誤率高，本專案實測輸出全部空白。模型視覺轉錄較耗用量，但準確度高，而且能保留表格結構。</p>
+</div><h3 id="s-4-2" class="hd d2" data-num="4.2"><a class="num" href="#s-4-2">4.2</a><span class="zh">階段二：題庫結構與頻率</span> <span class="en">Phase 2: Question Bank</span></h3>
+<p>完成後，你會有一份歸併了全部考卷考點、附頻率數字的題庫 JSON。</p>
+<h4 id="step-schema" class="hd d3" data-num="4.2.1"><a class="num" href="#step-schema">4.2.1</a><span class="zh">定義題庫結構</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 5 指令</span><button class="copy" type="button">複製</button></div><pre><code>先不要寫任何題目。請設計題庫 JSON 的欄位並寫成 SPEC.md，至少包括：&#10;id（Q-0001 格式，永不重用）、question、answer（Markdown）、sources（doc、ref、verified）、&#10;aspect（對應評分表 1 至 6）、tier（must 或 optional）、must_confirmed（只有人可以設為 true）、&#10;topic、stream_relevance（common、foundation-core、rgbc-only）、raw_variants（paper、text）。&#10;把 SPEC.md 交給我確認，確認前不要生成題目。</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><ul>
+<li><code>SPEC.md</code> 存在，每個欄位都有型別及意思說明。</li>
+<li>文件明確寫出「AI 不可以把 must_confirmed 設為 true」。</li>
+</ul>
+</div><h4 id="step-cluster" class="hd d3" data-num="4.2.2"><a class="num" href="#step-cluster">4.2.2</a><span class="zh">歸併考卷考點</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 6 指令</span><button class="copy" type="button">複製</button></div><pre><code>讀取 Resource/_text/papers/ 全部考卷。把「同一個考點的不同問法」歸併為一條題目，&#10;每條原文連同出自哪份考卷，存入 raw_variants。&#10;問題寫得太簡略看不明白時，參考前後一兩條問題推斷語境，並把推斷標記為 inferred。&#10;輸出到 data/questions/，先不寫答案。最後交回：題目總數、每條的變體數量。</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><ul>
+<li><code>data/questions/</code> 內的 JSON 可以被 <code>JSON.parse</code> 讀取。</li>
+<li>全部變體數量加起來，等於考卷原始問題總數。</li>
+</ul>
+</div><h4 id="step-frequency" class="hd d3" data-num="4.2.3"><a class="num" href="#step-frequency">4.2.3</a><span class="zh">計算出現頻率</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 7 指令</span><button class="copy" type="button">複製</button></div><pre><code>寫 tools/compute_frequency.py：&#10;- 考卷檔名先正規化（大小寫、日期格式不一致的要合併為同一份）&#10;- 引用了不存在考卷的變體，標記 paper_missing，不計入頻率&#10;- 計算 frequency_pct（分母 = 全部考卷數）及 frequency_pct_recent（分母 = 最近 24 個月的考卷數）&#10;- 結果寫回每條題目，並在 data/frequency-meta.json 記錄分母及 computedAt 日期</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><ul>
+<li>執行後每條題目都有兩個百分比。</li>
+<li><code>frequency-meta.json</code> 記錄的分母與實際考卷數一致。</li>
+</ul>
+</div><div class="callout c-warn"><div class="callout-title">考卷檔名不一致會令頻率虛高</div><p>同一份考卷若有兩個大小寫不同的檔名，會被計成兩份。先正規化再計算。</p>
+</div><h3 id="s-4-3" class="hd d2" data-num="4.3"><a class="num" href="#s-4-3">4.3</a><span class="zh">階段三：撰寫答案與拆卡</span> <span class="en">Phase 3: Answers &amp; Cards</span></h3>
+<p>完成後，你會有可直接用於溫習的一問一答卡，每張答案都有出處。</p>
+<h4 id="step-answers" class="hd d3" data-num="4.3.1"><a class="num" href="#step-answers">4.3.1</a><span class="zh">撰寫附出處的答案</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 8 指令</span><button class="copy" type="button">複製</button></div><pre><code>按 frequency_pct_recent 由高至低，為每條題目撰寫答案。規則：&#10;1. 先用關鍵字在 Resource/_text/ 搜尋相關條文，再全文閱讀，不要憑記憶作答&#10;2. 每個數字、條號、期限都要寫入 sources，指到條文層級&#10;3. 找不到依據的內容寫入 gaps，不要自行補充&#10;4. 法例原文與教材不一致時，以法例為準，並在 note_for_candidate 註明分歧&#10;每完成 5 條停下，交回清單讓我核對。</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><ul>
+<li>每條答案的 <code>sources</code> 不為空。</li>
+<li>隨機抽一個數字，可以在 <code>Resource/_text/</code> 找到原文。</li>
+</ul>
+</div><h4 id="step-cards" class="hd d3" data-num="4.3.2"><a class="num" href="#step-cards">4.3.2</a><span class="zh">拆成一問一答卡</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 9 指令</span><button class="copy" type="button">複製</button></div><pre><code>把 data/questions/ 的每條大題拆成一問一答的卡，存入 data/cards/Q-XXXX.json。&#10;- 卡的 question 要重寫成清楚、自足的問題，不要直接用考卷原文&#10;- answer 只回答這條問題，不多不少，平均約 220 至 300 字&#10;- 只從原答案抽取，不加入新事實&#10;- variants 只保留真正在問這張卡的考卷原文&#10;- 不要過度拆分：兩張卡答案幾乎一樣，或者對應同一條考卷原文，就要合併</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><ul>
+<li>每張卡都有 <code>id</code>、<code>from</code>、<code>question</code>、<code>answer</code>。</li>
+<li>抽三張卡，答案都只回答卡面的問題。</li>
+</ul>
+</div><h4 id="step-check-cards" class="hd d3" data-num="4.3.3"><a class="num" href="#step-check-cards">4.3.3</a><span class="zh">建立卡片檢查工具</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 10 指令</span><button class="copy" type="button">複製</button></div><pre><code>寫 tools/check_cards.py，檢查四個過度拆分的訊號：&#10;1. variants 為空的卡（沒有考卷這樣問過）&#10;2. 同一來源題內，兩張卡答案文字相似度大於 0.30&#10;3. 兩張卡對應同一條考卷原文&#10;4. 跨來源題的答案相似度大於 0.35&#10;輸出需要人手判斷的清單。</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><p>執行 <code>python tools/check_cards.py</code> 會列出可疑的卡片組合；處理後再執行，清單變短。</p>
+</div><h3 id="s-4-4" class="hd d2" data-num="4.4"><a class="num" href="#s-4-4">4.4</a><span class="zh">階段四：本機抽卡應用程式</span> <span class="en">Phase 4: Local App</span></h3>
+<p>完成後，你可以在本機瀏覽器用抽認卡溫習，暫時未有登入與同步。</p>
+<h4 id="step-frontend" class="hd d3" data-num="4.4.1"><a class="num" href="#step-frontend">4.4.1</a><span class="zh">建立前端與題庫索引</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 11 指令</span><button class="copy" type="button">複製</button></div><pre><code>在 web/ 建立 React + Vite + TypeScript + Tailwind CSS 專案，狀態管理用 Zustand。&#10;寫 tools/build_index.mjs（用 Node，不用 Python，因為部署平台的建置環境未必有 Python），&#10;把 data/cards/*.json 攤平成 web/src/data/cards.json。&#10;在 web/package.json 加 predev 及 prebuild 自動執行這個腳本，輸出檔不入 git。</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><ul>
+<li><code>npm run dev</code> 前會自動產生 <code>cards.json</code>。</li>
+<li><code>git status</code> 不會列出 <code>cards.json</code>。</li>
+</ul>
+</div><h4 id="step-draw" class="hd d3" data-num="4.4.2"><a class="num" href="#step-draw">4.4.2</a><span class="zh">實作抽卡與自評</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 12 指令</span><button class="copy" type="button">複製</button></div><pre><code>在 web/src/lib/pick.ts 實作：&#10;- weightOf(card, state)：基礎權重 唔識 8、未答過 6、好勉強 4、識 1.5、熟到爛 0.4；&#10;  必出題 ×1.6；超過 7 日未溫 ×1.3，超過 14 日 ×1.6&#10;- drawSession(cards, states, opts)：按權重不重複抽出 N 張，同一來源題最多連續兩張&#10;- deriveStates(reviews)：由自評紀錄推導每張卡的最新評級&#10;答題畫面：顯示題目 → 按 Space 揭答案 → 按 1 至 4 自評 → 下一張 → 節結報告。&#10;先把自評存在記憶體，不接資料庫。</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><ul>
+<li>開一節 10 題，可以用鍵盤完成全部流程並看到節結報告。</li>
+<li>故意全部評「唔識」，再開一節，同一批卡明顯較多重複出現。</li>
+</ul>
+</div><h3 id="s-4-5" class="hd d2" data-num="4.5"><a class="num" href="#s-4-5">4.5</a><span class="zh">階段五：進度同步</span> <span class="en">Phase 5: Sync</span></h3>
+<p>完成後，進度會儲存在雲端，電腦與手機看到同一份進度。</p>
+<h4 id="step-supabase" class="hd d3" data-num="4.5.1"><a class="num" href="#step-supabase">4.5.1</a><span class="zh">建立 Supabase 專案與資料表</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 13 指令</span><button class="copy" type="button">複製</button></div><pre><code>寫 web/supabase/schema.sql，可以重複執行不會破壞資料：&#10;- reviews（append-only 自評）、sessions、profiles、card_comments 四張表&#10;- 四張表全部 enable row level security，policy 為 auth.uid() = user_id&#10;- profiles 用欄位級權限：revoke update 後只 grant stream、include_rgbc、exam_date、onboarded&#10;- 新用戶註冊時由 trigger 自動建立 profiles 列&#10;然後一步一步教我在 Supabase 控制台建立 Free 方案專案並執行這段 SQL。</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><p>在 SQL Editor 執行以下查詢，四張表的 RLS 均為 true：</p>
+<pre><code class="language-sql">select tablename, rowsecurity from pg_tables where schemaname = &#39;public&#39;;
+</code></pre>
+</div><div class="callout c-warn"><div class="callout-title">建立組織時要選 Free</div><p>新帳號會先要求建立 Organization。如果中途出現信用卡頁面，代表選了付費方案，返回上一步改為 Free。</p>
+</div><h4 id="step-auth" class="hd d3" data-num="4.5.2"><a class="num" href="#step-auth">4.5.2</a><span class="zh">接駁登入與寫入</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 14 指令</span><button class="copy" type="button">複製</button></div><pre><code>前端接入 Supabase：&#10;- 以電郵加密碼登入；在 Supabase 關閉公開註冊&#10;- 自評先樂觀更新畫面，寫入失敗時放入 localStorage 佇列，下次開啟時補交，主頁顯示未上傳數量&#10;- 每次寫入都要檢查 error，失敗不可以靜靜忽略&#10;- 登出後把網址重設為根目錄，避免下次登入停留在上一頁&#10;VITE_SUPABASE_URL 及 VITE_SUPABASE_ANON_KEY 放在 web/.env，並加入 .gitignore。</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><ul>
+<li>在電腦答一題評「唔識」，在另一個瀏覽器登入同一帳號，主頁顯示同一個數字。</li>
+<li>刻意把 profiles 的一次寫入改成錯誤欄位，畫面會顯示錯誤而不是假裝成功。</li>
+</ul>
+</div><div class="callout c-warn"><div class="callout-title">upsert 會被欄位級權限擋住</div><p><code>upsert</code> 遇到已存在的列時會嘗試更新全部欄位，包括沒有被 grant 的 <code>user_id</code>，整個更新會被拒絕。如果同時沒有檢查 error，症狀是「設定每次登入都要重填」。改用只更新允許欄位的 <code>update</code>。</p>
+</div><h3 id="s-4-6" class="hd d2" data-num="4.6"><a class="num" href="#s-4-6">4.6</a><span class="zh">階段六：部署</span> <span class="en">Phase 6: Deploy</span></h3>
+<p>完成後，任何裝置都可以透過網址使用。</p>
+<h4 id="step-vercel" class="hd d3" data-num="4.6.1"><a class="num" href="#step-vercel">4.6.1</a><span class="zh">部署到 Vercel</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 15 指令</span><button class="copy" type="button">複製</button></div><pre><code>寫 vercel.json：&#10;- buildCommand 先安裝 web 的依賴再建置，outputDirectory 為 web/dist&#10;- rewrites 用 &quot;/((?!api/).*)&quot; 指向 /index.html（不要用 &quot;/(.*)&quot;，否則會攔截 /api）&#10;- 全站加 X-Robots-Tag: noindex&#10;然後一步一步教我在 Vercel 匯入 GitHub repo，並在按 Deploy 之前加入兩個 VITE_ 環境變數。&#10;部署後提醒我把 Supabase 的 Site URL 改為 Vercel 網址。</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><ul>
+<li>Vercel 網址可以登入，進度與本機一致。</li>
+<li>直接打開 <code>/records</code> 這類子路徑不會出現 404。</li>
+</ul>
+</div><div class="callout c-warn"><div class="callout-title">VITE_ 變數要在建置前設定</div><p><code>VITE_</code> 前綴的變數在建置時編譯入 bundle。部署後才補加是沒有效的，必須重新部署。漏設時畫面會全白。</p>
+</div><h4 id="step-resend" class="hd d3" data-num="4.6.2"><a class="num" href="#step-resend">4.6.2</a><span class="zh">設定自訂寄信服務</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 16 指令</span><button class="copy" type="button">複製</button></div><pre><code>Supabase 內建寄信服務每小時只有 2 封，不適合正式使用。&#10;一步一步教我：用產品擁有人的電郵註冊 Resend，建立只有 Sending access 權限的 API key，&#10;然後在 Supabase 的 SMTP Settings 填入 smtp.resend.com、port 587、username resend。&#10;提醒我 API key 只貼到 Supabase，不要貼到對話中。</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><p>Supabase 的電郵發送上限自動提升；觸發一次電郵登入，可以在收件箱收到。</p>
+</div><h3 id="s-4-7" class="hd d2" data-num="4.7"><a class="num" href="#s-4-7">4.7</a><span class="zh">階段七：多用戶與管理</span> <span class="en">Phase 7: Multi-user</span></h3>
+<p>完成後，管理員可以在網頁內開設帳號，並收取用戶對答案的意見。</p>
+<h4 id="step-admin-api" class="hd d3" data-num="4.7.1"><a class="num" href="#step-admin-api">4.7.1</a><span class="zh">管理員用戶 API</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 17 指令</span><button class="copy" type="button">複製</button></div><pre><code>寫 api/admin-users.js（Vercel Serverless Function）：&#10;- 只接受 POST，只允許 list、create、reset_password、delete 四個操作&#10;- 每次呼叫：先用 Authorization header 的 token 向 Supabase 核實用戶，再在伺服器端查 profiles.is_admin&#10;- create 及 reset_password 生成 16 字元強密碼（去除 0、O、1、l、I），只回傳一次&#10;- SUPABASE_SERVICE_ROLE_KEY 只從環境變數讀取，錯誤訊息不透露缺少哪個變數&#10;另外寫 web/supabase/make-admin.sql，用於在 SQL Editor 指定第一位管理員。</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><ul>
+<li>以非管理員帳號呼叫 API，回傳 403。</li>
+<li>在管理頁新增一個測試用戶，用產生的密碼可以成功登入。</li>
+</ul>
+</div><div class="callout c-warn"><div class="callout-title">service key 絕不能用 VITE_ 前綴</div><p>加上 <code>VITE_</code> 前綴的變數會編譯入前端，任何人查看網頁原始碼都能取得，而這條金鑰可以繞過全部 RLS。</p>
+</div><h4 id="step-comments" class="hd d3" data-num="4.7.2"><a class="num" href="#step-comments">4.7.2</a><span class="zh">答案意見與簡寫表</span></h4>
+<div class="c-prompt"><div class="c-prompt-head"><span>Step 18 指令</span><button class="copy" type="button">複製</button></div><pre><code>1. 答案卡底部加入意見框：四個類別、內容上限 4000 字元，寫入 card_comments；管理頁顯示意見收件匣&#10;2. 建立 data/glossary.json 簡寫對照表（每條要有中文名、英文全寫、說明、出處）&#10;3. 答案內的簡寫以 rehype plugin 包成可點擊元素，比對由長到短，不使用 regex lookbehind&#10;4. build_index.mjs 列出「卡片中出現但對照表未收錄」的大寫詞</code></pre><p class="c-prompt-note">※ 由開發紀錄重建，未經逐字實跑驗證。</p></div><div class="callout c-check"><div class="callout-title">完成後應該看到</div><ul>
+<li>在答案卡提交一條意見，管理頁可以看到。</li>
+<li><code>npm run build</code> 時會列出未收錄的簡寫（如有）。</li>
+</ul>
+</div><h3 id="step-verify" class="hd d2" data-num="4.8"><a class="num" href="#step-verify">4.8</a><span class="zh">完整驗證與部署</span> <span class="en">Verify &amp; Deploy</span></h3>
+<p>用一個真實情境由頭走到尾：</p>
+<ol>
+<li>管理員在管理頁為同事開設帳號，記下一次性密碼。</li>
+<li>同事在手機登入，完成首次設定（選地基、填考試日期），更改密碼。</li>
+<li>同事開一節 10 題「加權混合」，其中兩題評「唔識」，並對一張卡提交意見。</li>
+<li>在電腦以同一帳號登入：主頁進度一致，「專攻弱項」可抽出剛才的兩張卡。</li>
+<li>管理員在收件匣看到該意見。</li>
+<li>開發者修改對應卡片 JSON 並 push；Vercel 自動重新部署後，答案已更新，同事的進度不受影響。</li>
+</ol>
+<p><strong>日常更新：</strong> 修改 <code>data/</code> 內的 JSON，執行檢查工具，push 即可。題庫與前端完全分離，內容更新毋須改動程式碼。</p>
+<p class="chapter-fb"><a href="#" data-fb="4">對第 4 章有意見？</a></p>
+</section><section class="chapter" id="ch-tradeoffs">
+<h2 id="tradeoffs" class="hd d1" data-num="5"><a class="num" href="#tradeoffs">5</a><span class="zh">做法評估</span> <span class="en">Trade-offs</span></h2>
+<h3 id="s-5-1" class="hd d2" data-num="5.1"><a class="num" href="#s-5-1">5.1</a><span class="zh">好處</span> <span class="en">Pros</span></h3>
+<ul>
+<li><strong>答案可追溯。</strong> 每個數字都指向條文；教材錯誤因此能被發現並更正。適用於任何「答錯會付出代價」的專業考試。</li>
+<li><strong>題庫與程式分離。</strong> 內容更新只改 JSON，有完整版本紀錄，毋須資料庫遷移。適用於內容需要持續核實、但更新頻率不高的情況。</li>
+<li><strong>應用程式零 AI 成本。</strong> 用戶使用時不調用任何模型，運作成本為零，也沒有生成錯誤內容的風險。</li>
+<li><strong>Append-only 進度。</strong> 保留全部溫習軌跡，將來改進算法毋須遷移資料。</li>
+<li><strong>權限建立在資料庫規則上。</strong> 前端金鑰外洩不構成風險；即使前端程式有漏洞，用戶仍然讀不到他人資料。</li>
+</ul>
+<h3 id="s-5-2" class="hd d2" data-num="5.2"><a class="num" href="#s-5-2">5.2</a><span class="zh">壞處</span> <span class="en">Cons</span></h3>
+<ul>
+<li><strong>題庫只有開發者能改。</strong> 管理員在網頁內只能收意見，修改需要回到 Claude Code 處理。用戶數量增加、意見變多時，會成為瓶頸。</li>
+<li><strong>權重是經驗數字。</strong> 8、6、4、1.5、0.4 及各項加成未經任何學習成效數據驗證。</li>
+<li><strong>依賴免費方案。</strong> Supabase 閒置暫停、Vercel Hobby 的非商業條款，都會在正式推廣時構成限制。</li>
+<li><strong>自評依賴誠實。</strong> 系統無法驗證用戶是否真的答得出，評分偏高會令弱項被忽略。</li>
+</ul>
+<h3 id="s-5-3" class="hd d2" data-num="5.3"><a class="num" href="#s-5-3">5.3</a><span class="zh">難處</span> <span class="en">Challenges</span></h3>
+<ul>
+<li><strong>內容核實遠比寫程式難。</strong> 整個專案約七成時間用於內容。AI 撰寫的答案表面上完整，但只要底層語料有缺失，錯誤就無從察覺。解決方法是強制附出處，並定期以官方原文重核。</li>
+<li><strong>掃描件的抽取成本。</strong> 視覺讀取準確但耗用量大，需要按 PDF 類型分流，並以多頁一版的方式節省用量。</li>
+<li><strong>拆卡的粒度。</strong> 拆得太粗，答案冗長、自評沒有標準；拆得太細，同一考點重複出現。最終以「考卷原文是否對應」作為判斷準則，並寫成檢查工具。</li>
+</ul>
+<h3 id="s-5-4" class="hd d2" data-num="5.4"><a class="num" href="#s-5-4">5.4</a><span class="zh">未嘗試的方案</span> <span class="en">Alternatives</span></h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>方案</th>
+<th>適合甚麼情況</th>
+<th>這次為何沒有採用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FSRS 或 SM-2 間隔重複算法</td>
+<td>長期記憶、題量數千張以上</td>
+<td>距離面試只有數星期，簡單加權已足夠；未實際比較過效果</td>
+</tr>
+<tr>
+<td>向量 RAG 即時問答</td>
+<td>語料龐大、問題開放</td>
+<td>考點以條號和專有代號為主，字面匹配更準；答案必須可預先核實</td>
+</tr>
+<tr>
+<td>在應用程式內用 LLM 評分口述答案</td>
+<td>需要評估表達能力</td>
+<td>評分標準難以一致，成本持續發生；未實際嘗試</td>
+</tr>
+<tr>
+<td>Firebase</td>
+<td>需要即時同步、已使用 Google Cloud 生態</td>
+<td>需要另行設定 Google Cloud 計費，而 Supabase 已能滿足需求</td>
+</tr>
+<tr>
+<td>Google Apps Script 加 Google Sheets</td>
+<td>極少用戶、無需嚴格權限</td>
+<td>並發寫入不可靠，沒有列級安全</td>
+</tr>
+<tr>
+<td>Cloudflare Pages</td>
+<td>純靜態網站</td>
+<td>曾考慮使用；後來需要 Serverless Function 管理用戶，改用 Vercel 一站處理</td>
+</tr>
+<tr>
+<td>Microsoft 365 單一登入</td>
+<td>公司全面推廣</td>
+<td>需要公司 IT 部門進行應用程式註冊及授權，時程不受控，留待正式推廣時再加</td>
+</tr>
+</tbody></table>
+</div><p class="chapter-fb"><a href="#" data-fb="5">對第 5 章有意見？</a></p>
+</section><section class="chapter" id="ch-journal">
+<h2 id="journal" class="hd d1" data-num="6"><a class="num" href="#journal">6</a><span class="zh">開發歷程</span> <span class="en">Build Journal</span></h2>
+<p>以下記錄開發過程中的判斷失誤、改變主意的原因，以及踩過的坑。對應的正確做法已寫入 <a class="xref" href="#build">4 逐步教學</a>。</p>
+<h3 id="journal-ocr" class="hd d2" data-num="6.1"><a class="num" href="#journal-ocr">6.1</a><span class="zh">以為 OCR 已經成功</span></h3>
+<div class="callout c-journal"><div class="callout-title">語料「看似完整」，其實有 21 份是空白</div><p><strong>當時以為</strong>：以 Tesseract 處理掃描件後，語料庫已經齊全，答案亦已標記「已核實」。</p>
+<p><strong>實際情況</strong>：21 份抽取檔（包括全部法例 PDF 及六節培訓教材）每一頁都只有 <code>[NO TEXT LAYER]</code>，一個字都沒有。但答案的 <code>verified</code> 欄位卻寫着「OCR 官方 PDF」。</p>
+<p><strong>如何發現</strong>：產品擁有人質疑：「沒有加入新材料，為甚麼重新核實一次就找出這麼多錯誤？」追查後發現，11 條法例題中有 8 條出錯，而 8 條全部落在語料空白的範圍內，沒有例外。</p>
+<p><strong>修正做法</strong>：改以模型視覺轉錄掃描件，其後再發現 e-Legislation 的 RTF 匯出端點，法例全部改用官方原文。視覺轉錄的 28 個關鍵數字與官方原文逐一核對，全部相符。（見 <a class="xref" href="#step-rtf">4.1.2 以官方 RTF 匯出香港法例</a>、<a class="xref" href="#step-vlm">4.1.4 以視覺模型轉錄掃描件</a>）</p>
+<p><strong>教訓</strong>：錯誤不是出於判斷力，而是出於素材空白而未被察覺。抽取後必須檢查字數；「已核實」標記必須說明核對的是哪一份原文。</p>
+</div><h3 id="journal-cards" class="hd d2" data-num="6.2"><a class="num" href="#journal-cards">6.2</a><span class="zh">以為一條歸併題就是一張卡</span></h3>
+<div class="callout c-journal"><div class="callout-title">抽到「吊具點 check」，揭開答案有 5,724 字</div><p><strong>當時以為</strong>：87 條歸併題直接作為抽認卡使用即可。</p>
+<p><strong>實際情況</strong>：歸併題涵蓋一整個主題，答案中位數 2,517 字，最長近 12,000 字。抽到一條簡單問題，揭開的答案九成內容與問題無關，自評也失去標準。</p>
+<p><strong>如何發現</strong>：實際試用時，產品擁有人指出：「問題問甚麼，就只答甚麼，不要多餘的內容。」</p>
+<p><strong>修正做法</strong>：保留歸併題作為參考層，另外拆出一問一答的卡層，應用程式只使用卡層。（見 <a class="xref" href="#step-cards">4.3.2 拆成一問一答卡</a>）</p>
+<p><strong>教訓</strong>：資料的「儲存單位」與「使用單位」不一定相同。先想清楚用戶一次互動需要多少資訊，再決定資料粒度。</p>
+</div><h3 id="journal-variants" class="hd d2" data-num="6.3"><a class="num" href="#journal-variants">6.3</a><span class="zh">以為考卷原文可以直接作題面</span></h3>
+<div class="callout c-journal"><div class="callout-title">69% 的考卷原文是碎片</div><p><strong>當時以為</strong>：從每張卡的考卷原文中隨機抽一條作題面，既真實又有變化。</p>
+<p><strong>實際情況</strong>：實測 823 條原文，69% 是考生逐字記下的碎片，31% 是幾條問題合併成一行。直接顯示會出現「333?」、「AS&#39;s Duty ?」，或一行塞了六個問題。</p>
+<p><strong>如何發現</strong>：產品擁有人提出：「原文有些很短、意義不明，用戶會看不明白。」隨後以程式統計證實。</p>
+<p><strong>修正做法</strong>：題面一律重寫成清楚、自足的問題；考卷原文摺疊放在答案卡最底，作為「考官實際怎樣問」的情報。</p>
+<p><strong>教訓</strong>：真實資料不等於可用資料。展示給用戶之前，先量度資料質素。</p>
+</div><h3 id="journal-oversplit" class="hd d2" data-num="6.4"><a class="num" href="#journal-oversplit">6.4</a><span class="zh">以為題目越多越好</span></h3>
+<div class="callout c-journal"><div class="callout-title">同一條法例拆成八張卡</div><p><strong>當時以為</strong>：拆得越細，覆蓋越完整。</p>
+<p><strong>實際情況</strong>：考卷只問了一句「BD control mechanism」，卻被拆成八張卡；竹棚尺寸拆成四張，答案幾乎相同。第一批 81 張卡中有兩成半屬於重複。</p>
+<p><strong>如何發現</strong>：產品擁有人明確指出：「做這個應用程式不是追求數量，而是幫考生快速上手。」</p>
+<p><strong>修正做法</strong>：訂立合併規則，81 張併為 61 張，並寫成四訊號檢查工具，每做完一組卡就執行一次。（見 <a class="xref" href="#step-check-cards">4.3.3 建立卡片檢查工具</a>）</p>
+<p><strong>教訓</strong>：「不要過度拆分」這種原則，只寫在指令裏並不足夠，要轉化為可以執行的檢查。</p>
+</div><h3 id="journal-materials" class="hd d2" data-num="6.5"><a class="num" href="#journal-materials">6.5</a><span class="zh">以為培訓教材可信</span></h3>
+<div class="callout c-journal"><div class="callout-title">吊運顏色少了一種</div><p><strong>當時以為</strong>：坊間 AS 培訓班的教材經過整理，可以作為主要來源。</p>
+<p><strong>實際情況</strong>：教材列出吊運識別有 6 種顏色，官方手冊是 7 種（遺漏了「黑色：不可作吊重用途」）。其他錯誤包括：建築噪音限制時段、僱員違例罰款金額、已被取代的舊規例條號。</p>
+<p><strong>如何發現</strong>：產品擁有人憑行業經驗質疑顏色數目，其後查閱官方手冊證實。系統性核對後，共記錄九項教材錯誤。</p>
+<p><strong>修正做法</strong>：訂立來源分級，法例原文優先；教材與官方不一致的地方，在答案卡「考生注意」中提示。</p>
+<p><strong>教訓</strong>：二手資料的權威感往往來自排版和課程名氣，而不是準確性。專業範疇的答案要追溯到一手原文。</p>
+</div><h3 id="journal-multiuser" class="hd d2" data-num="6.6"><a class="num" href="#journal-multiuser">6.6</a><span class="zh">以為單用戶不需要登入系統</span></h3>
+<div class="callout c-journal"><div class="callout-title">決定曾經來回三次</div><p><strong>當時以為</strong>：第一版只供本人使用，登入可以省略。</p>
+<p><strong>實際情況</strong>：需求先由「公司平台」收窄為「只供自己用」，後來又變回「現在就要開放給同事」。</p>
+<p><strong>如何發現</strong>：每次需求改變時，都要重新檢視資料表設計。</p>
+<p><strong>修正做法</strong>：即使在「只供自己用」階段，資料表第一日已經有 <code>user_id</code> 及 RLS。所以最後開放多用戶時，資料庫毋須遷移，只需加入管理員功能。（見 <a class="xref" href="#step-supabase">4.5.1 建立 Supabase 專案與資料表</a>）</p>
+<p><strong>教訓</strong>：對「將來可能多用戶」的產品，資料表的使用者欄位與列級安全在第一天就要到位，成本極低，事後補加卻很貴。</p>
+</div><h3 id="journal-magiclink" class="hd d2" data-num="6.7"><a class="num" href="#journal-magiclink">6.7</a><span class="zh">以為電郵連結登入最方便</span></h3>
+<div class="callout c-journal"><div class="callout-title">每小時只能寄兩封信</div><p><strong>當時以為</strong>：電郵連結登入（Magic Link）沒有密碼要管理，最簡單。</p>
+<p><strong>實際情況</strong>：Supabase 內建寄信服務每小時只有 2 封，本機測試已經用完配額；每部新裝置都要收信點擊；在電腦點擊連結，登入狀態只會留在電腦。</p>
+<p><strong>如何發現</strong>：產品擁有人在手機登入時遇到「email rate limit exceeded」，並表示「要去收信拿連結非常不方便」。</p>
+<p><strong>修正做法</strong>：先接入 Resend 提升寄信上限，最後改為電郵加密碼登入，由管理員在網頁內開設帳號。電郵連結保留作後備。（見 <a class="xref" href="#step-resend">4.6.2 設定自訂寄信服務</a>、<a class="xref" href="#step-admin-api">4.7.1 管理員用戶 API</a>）</p>
+<p><strong>教訓</strong>：「對開發者最簡單」與「對用戶最方便」是兩回事。登入方式要以用戶實際使用的裝置與頻率來判斷。</p>
+</div><h3 id="journal-upsert" class="hd d2" data-num="6.8"><a class="num" href="#journal-upsert">6.8</a><span class="zh">首次設定每次登入都重新出現</span></h3>
+<div class="callout c-journal"><div class="callout-title">寫入被權限擋住，但畫面照常跳轉</div><p><strong>當時以為</strong>：<code>upsert</code> 已經把首次設定儲存。</p>
+<p><strong>實際情況</strong>：為防止用戶自封管理員，<code>profiles</code> 表設定了欄位級權限。<code>upsert</code> 遇到已存在的列時會更新全部欄位，包括沒有權限的 <code>user_id</code>，整個更新被拒絕。程式沒有檢查 error，所以畫面照常跳轉。</p>
+<p><strong>如何發現</strong>：產品擁有人回報：「我已經選了一次，登出再入又問多一次。」</p>
+<p><strong>修正做法</strong>：改用只更新允許欄位的寫法，並為每次寫入加入錯誤檢查。同時發現 <code>insert</code> 權限也未收緊，一併修正。（見 <a class="xref" href="#step-auth">4.5.2 接駁登入與寫入</a>）</p>
+<p><strong>教訓</strong>：安全規則與寫入方式會互相影響。所有寫入都要檢查錯誤，否則安全機制會變成無聲的故障。</p>
+</div><h3 id="journal-tabbar" class="hd d2" data-num="6.9"><a class="num" href="#journal-tabbar">6.9</a><span class="zh">底部固定導航令人以為已經到底</span></h3>
+<div class="callout c-journal"><div class="callout-title">長頁面下的大片空白</div><p><strong>當時以為</strong>：手機應用程式常見的底部四個分頁，放在網頁上同樣合適。</p>
+<p><strong>實際情況</strong>：頁面內容較長時，最後一段內容與底部導航之間出現大片空白，用戶以為已經到底，不會再向下捲動；登出按鈕亦只放在設定頁。</p>
+<p><strong>如何發現</strong>：產品擁有人試用後提出觀感問題，並提供另一個常用系統的佈局作參考。</p>
+<p><strong>修正做法</strong>：改為頂欄（含登出）、可收起的左側導航、主內容及右側資訊欄；練習時則全屏，不顯示外框。</p>
+<p><strong>教訓</strong>：手機應用程式的慣例未必適用於網頁。佈局參考用戶每天已經熟悉的系統，比追隨潮流更有效。</p>
+</div><h3 id="journal-voice" class="hd d2" data-num="6.10"><a class="num" href="#journal-voice">6.10</a><span class="zh">答案寫得像教科書</span></h3>
+<div class="callout c-journal"><div class="callout-title">內容正確，但缺乏臨場感</div><p><strong>當時以為</strong>：把法例內容整理成條理分明的答案即可。</p>
+<p><strong>實際情況</strong>：面試是口試，考生需要「說得出口」的答案。書面整理的答案要在腦中轉換才能說出，溫習效率較低。</p>
+<p><strong>如何發現</strong>：產品擁有人在人手覆核答案時提出，希望答案以「我是考生、你是考官」的角度直接回答。</p>
+<p><strong>修正做法</strong>：全部答案改寫成第一人稱口述稿，但表格保留，因為溫習時腦中需要表格來記數字。為免改寫時改動事實，以程式比對改寫前後的條號、金額、日數，缺失即判為失敗。</p>
+<p><strong>教訓</strong>：產品的最終形態要貼近用戶真正的使用場景。大規模改寫時，要用機械檢查取代逐字人手覆核。</p>
+</div><p class="chapter-fb"><a href="#" data-fb="6">對第 6 章有意見？</a></p>
+</section><section class="chapter" id="ch-gaps">
+<h2 id="gaps" class="hd d1" data-num="7"><a class="num" href="#gaps">7</a><span class="zh">已知缺口</span> <span class="en">Known Gaps</span></h2>
+<p><strong>內容</strong></p>
+<ul>
+<li>仍有 18 個「已核實」標記曾以空白的 OCR 檔為依據，未全部以官方原文重核。</li>
+<li>65 項 <code>gaps</code>（考過但答案未能完整回答的內容）未收窄，目前在「參考題」中列出。</li>
+<li>約 287 張卡只經過風格改寫及程式比對（狀態 <code>styled</code>），未經人手逐張覆核。</li>
+<li>24 項待專家確認的實務問題尚未解決。</li>
+</ul>
+<p><strong>功能</strong></p>
+<ul>
+<li>未支援離線使用。</li>
+<li>卡片答案內的交叉引用（例如 <code>C-0003-01</code>）未能點擊跳轉。</li>
+<li>「睇來源題全文」未接駁至歸併題的完整答案。</li>
+<li>撰寫本指南時發現兩個顯示問題：部分答案中的 <code>**</code> 粗體符號未被渲染；「參考題」分頁有一張內容空白的卡。</li>
+</ul>
+<p><strong>營運</strong></p>
+<ul>
+<li>未設定定期存取 Supabase 的排程，連續一星期無人使用時專案會被暫停。</li>
+<li>Vercel Hobby 方案只限非商業用途，正式在公司推廣前需要確認條款。</li>
+</ul>
+<p><strong>本指南</strong></p>
+<ul>
+<li>逐步教學的指令由開發紀錄重建，未逐字重新執行驗證。</li>
+<li>標示「推導步驟」的內容屬推斷，請自行核對。</li>
+<li>截圖只在桌面版 Chrome 及手機尺寸模擬下擷取。</li>
+</ul>
+<p class="chapter-fb"><a href="#" data-fb="7">對第 7 章有意見？</a></p>
+</section><section class="chapter" id="ch-feedback">
+<h2 id="feedback" class="hd d1" data-num="8"><a class="num" href="#feedback">8</a><span class="zh">意見反饋</span> <span class="en">Feedback</span></h2>
+<p>歡迎以下類型的意見：</p>
+<ul>
+<li>逐步教學的某一步行不通，或者缺少步驟。</li>
+<li>對架構、權重算法或內容核實流程有更好的建議。</li>
+<li>想了解更多細節的部分。</li>
+</ul>
+<p>請電郵至 <a data-mail></a>，或按頁面右下角的「對本節有意見」，系統會自動填上章節編號。</p>
+<p class="chapter-fb"><a href="#" data-fb="8">對第 8 章有意見？</a></p>
+</section>
+  </main>
+</div>
+<button class="fb-float glass" type="button" aria-label="對本節有意見">對本節有意見</button>
+<footer class="foot">
+  <p>Crimson Lau · CKW Group　·　最後更新 2026-09-13</p>
+  <p><a href="../">返回全部指南</a></p>
+</footer>
+<script src="../assets/guide.js" defer></script>
+</body>
+</html>

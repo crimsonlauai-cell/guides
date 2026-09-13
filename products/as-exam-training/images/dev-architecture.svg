@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 470" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <defs>
+    <marker id="ast-arch-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0b5c8a"/>
+    </marker>
+    <filter id="ast-arch-shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0b5c8a" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- 分區標題 -->
+  <text x="20" y="30" font-size="13" font-weight="700" fill="#5b6b7f" letter-spacing="1">內容管道（開發者本機）</text>
+  <text x="20" y="262" font-size="13" font-weight="700" fill="#5b6b7f" letter-spacing="1">線上系統</text>
+  <line x1="20" y1="240" x2="920" y2="240" stroke="#d9e2ea" stroke-dasharray="4 4"/>
+
+  <!-- 內容管道 -->
+  <g filter="url(#ast-arch-shadow)">
+    <rect x="20" y="46" width="200" height="170" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <rect x="260" y="46" width="200" height="170" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <rect x="500" y="46" width="200" height="170" rx="14" fill="#ffffff" stroke="#4be3db"/>
+    <rect x="740" y="46" width="180" height="170" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+  </g>
+  <g font-size="15" font-weight="700" fill="#1e2a3a">
+    <text x="38" y="76">一手來源</text>
+    <text x="278" y="76">語料庫</text>
+    <text x="518" y="76">題庫（git）</text>
+    <text x="758" y="76">建置</text>
+  </g>
+  <g font-size="13" fill="#5b6b7f">
+    <text x="38" y="102">法例、PNAP、PNRC</text>
+    <text x="38" y="124">培訓教材（掃描件）</text>
+    <text x="38" y="146">60 份考卷紀錄</text>
+    <text x="38" y="190" fill="#0b5c8a">約 500 MB PDF</text>
+
+    <text x="278" y="102">Resource/_text/</text>
+    <text x="278" y="124">RTF 匯出／文字層／VLM</text>
+    <text x="278" y="146">136 份資料＋60 份考卷</text>
+    <text x="278" y="190" fill="#0b5c8a">6.2 MB 純文字</text>
+
+    <text x="518" y="102">87 條歸併題（附出處）</text>
+    <text x="518" y="124">329 張一問一答卡</text>
+    <text x="518" y="146">簡寫對照表 248 條</text>
+    <text x="518" y="190" fill="#0b5c8a">人手覆核＋檢查工具</text>
+
+    <text x="758" y="102">build_index.mjs</text>
+    <text x="758" y="124">攤平成 cards.json</text>
+    <text x="758" y="146">打包入前端</text>
+    <text x="758" y="190" fill="#0b5c8a">git push 觸發</text>
+  </g>
+  <g stroke="#0b5c8a" stroke-width="1.8" marker-end="url(#ast-arch-arrow)">
+    <line x1="222" y1="131" x2="256" y2="131"/>
+    <line x1="462" y1="131" x2="496" y2="131"/>
+    <line x1="702" y1="131" x2="736" y2="131"/>
+  </g>
+
+  <!-- 線上系統 -->
+  <g filter="url(#ast-arch-shadow)">
+    <rect x="20" y="280" width="170" height="160" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <rect x="250" y="280" width="250" height="160" rx="14" fill="#ffffff" stroke="#4be3db"/>
+    <rect x="560" y="280" width="170" height="72" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <rect x="560" y="368" width="170" height="72" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+    <rect x="790" y="280" width="130" height="160" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+  </g>
+  <g font-size="15" font-weight="700" fill="#1e2a3a">
+    <text x="38" y="310">使用者</text>
+    <text x="268" y="310">Vercel</text>
+    <text x="578" y="308">Supabase Auth</text>
+    <text x="578" y="396">Supabase DB</text>
+    <text x="808" y="310">Resend</text>
+  </g>
+  <g font-size="13" fill="#5b6b7f">
+    <text x="38" y="336">電腦或手機瀏覽器</text>
+    <text x="38" y="358">電郵＋密碼登入</text>
+
+    <text x="268" y="336">靜態前端 React + Vite</text>
+    <text x="268" y="358">題庫隨前端打包，不入資料庫</text>
+    <text x="268" y="392" fill="#0b5c8a" font-weight="600">/api/admin-users</text>
+    <text x="268" y="414">Serverless，持有 service key</text>
+
+    <text x="578" y="332">登入、session</text>
+    <text x="578" y="420">進度、意見（RLS）</text>
+
+    <text x="808" y="336">SMTP 寄信</text>
+    <text x="808" y="358">電郵連結登入</text>
+    <text x="808" y="380">（後備方式）</text>
+  </g>
+  <g stroke="#0b5c8a" stroke-width="1.8" marker-end="url(#ast-arch-arrow)" fill="none">
+    <line x1="192" y1="360" x2="246" y2="360"/>
+    <line x1="502" y1="316" x2="556" y2="316"/>
+    <line x1="502" y1="404" x2="556" y2="404"/>
+    <line x1="732" y1="316" x2="786" y2="316"/>
+    <path d="M830 216 L830 250 L375 250 L375 276"/>
+  </g>
+</svg>

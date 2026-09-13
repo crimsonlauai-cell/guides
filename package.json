@@ -1,0 +1,17 @@
+{
+  "name": "guides",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "strict": "node build.mjs --strict",
+    "scan": "node scan.mjs --all",
+    "serve": "node serve.mjs",
+    "shoot": "node shoot.mjs",
+    "check": "node check.mjs"
+  },
+  "devDependencies": {
+    "marked": "^18.0.13",
+    "playwright-core": "^1.63.0"
+  }
+}

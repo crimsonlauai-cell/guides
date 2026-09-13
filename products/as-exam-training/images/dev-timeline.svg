@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 330" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <defs>
+    <linearGradient id="ast-tl-line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4be3db"/>
+      <stop offset="1" stop-color="#0b5c8a"/>
+    </linearGradient>
+  </defs>
+  <text x="20" y="34" font-size="19" font-weight="700" fill="#1e2a3a">開發時間線（2026 年）</text>
+  <text x="20" y="58" font-size="13" fill="#5b6b7f">約三星期；紅點為重大轉折</text>
+
+  <rect x="40" y="150" width="860" height="6" rx="3" fill="url(#ast-tl-line)"/>
+
+  <g font-size="13" text-anchor="middle">
+    <!-- 08-24 -->
+    <circle cx="60" cy="153" r="9" fill="#ffffff" stroke="#4be3db" stroke-width="3"/>
+    <text x="60" y="126" font-weight="700" fill="#1e2a3a">8/24</text>
+    <text x="60" y="186" fill="#1e2a3a">需求訪談</text>
+    <text x="60" y="206" fill="#5b6b7f">決定不做 RAG</text>
+
+    <!-- 08-27 -->
+    <circle cx="190" cy="153" r="9" fill="#ffffff" stroke="#4be3db" stroke-width="3"/>
+    <text x="190" y="126" font-weight="700" fill="#1e2a3a">8/27–28</text>
+    <text x="190" y="186" fill="#1e2a3a">語料抽取</text>
+    <text x="190" y="206" fill="#5b6b7f">頻率分析、題庫初稿</text>
+
+    <!-- 09-01 -->
+    <circle cx="330" cy="153" r="10" fill="#d94a4a"/>
+    <text x="330" y="126" font-weight="700" fill="#1e2a3a">9/1–3</text>
+    <text x="330" y="186" fill="#b91c1c">發現 OCR 全空白</text>
+    <text x="330" y="206" fill="#5b6b7f">改用 VLM＋RTF 重核</text>
+
+    <!-- 09-04 -->
+    <circle cx="470" cy="153" r="10" fill="#d94a4a"/>
+    <text x="470" y="126" font-weight="700" fill="#1e2a3a">9/4–6</text>
+    <text x="470" y="186" fill="#b91c1c">改為一問一答卡</text>
+    <text x="470" y="206" fill="#5b6b7f">過度拆分後再合併</text>
+
+    <!-- 09-09 -->
+    <circle cx="610" cy="153" r="9" fill="#ffffff" stroke="#0b5c8a" stroke-width="3"/>
+    <text x="610" y="126" font-weight="700" fill="#1e2a3a">9/9</text>
+    <text x="610" y="186" fill="#1e2a3a">網頁上線</text>
+    <text x="610" y="206" fill="#5b6b7f">Supabase＋Vercel</text>
+
+    <!-- 09-11 -->
+    <circle cx="750" cy="153" r="10" fill="#d94a4a"/>
+    <text x="750" y="126" font-weight="700" fill="#1e2a3a">9/11</text>
+    <text x="750" y="186" fill="#b91c1c">開放多用戶</text>
+    <text x="750" y="206" fill="#5b6b7f">密碼登入、Admin、UI 重構</text>
+
+    <!-- 09-13 -->
+    <circle cx="880" cy="153" r="9" fill="#0b5c8a"/>
+    <text x="880" y="126" font-weight="700" fill="#1e2a3a">9/12–13</text>
+    <text x="880" y="186" fill="#1e2a3a">答案覆核</text>
+    <text x="880" y="206" fill="#5b6b7f">口述風格、簡寫表</text>
+  </g>
+
+  <rect x="20" y="246" width="900" height="60" rx="12" fill="#f4fbfb" stroke="#bfeeea"/>
+  <text x="40" y="272" font-size="13" fill="#1e2a3a">統計：5 個 session、571 條指示；前端 git 紀錄由 9/1 開始，其中 9/13 單日 38 個 commit。</text>
+  <text x="40" y="294" font-size="13" fill="#5b6b7f">約七成時間用於內容（抽取、核實、拆卡），網頁本身約三成。</text>
+</svg>

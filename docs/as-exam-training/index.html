@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>AS 面試溫習｜用戶指南</title>
+<meta name="description" content="為獲授權簽署人（AS）面試而設的抽認卡溫習工具：329 張一問一答卡，由 60 份考卷歸納，答案可追溯至法例原文。">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
+</head>
+<body data-product="as-exam-training" data-page="user" data-m="bW9jLmxpYW1nQGlhLnVhbG5vc21pcmM=">
+<div class="bg" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"><span></span></div>
+<header class="topbar glass">
+  <a class="brand" href="../">Crimson Guides</a>
+  <span class="crumb">AS 面試溫習</span>
+  <nav class="switch" aria-label="切換面向">
+    <a href="index.html" class="on">用戶<small>User</small></a>
+    <a href="dev.html" class="">開發者<small>Developer</small></a>
+  </nav>
+  <button class="toc-toggle" type="button" aria-label="目錄">目錄</button>
+</header>
+<section class="hero">
+  <div class="hero-text">
+    <p class="eyebrow">用戶指南 <span>User Guide</span></p>
+    <h1>AS 面試溫習</h1>
+    <p class="tagline">為獲授權簽署人（AS）面試而設的抽認卡溫習工具：329 張一問一答卡，由 60 份考卷歸納，答案可追溯至法例原文。</p>
+    <p class="meta-line">最後更新 2026-09-13　·　Crimson Lau · CKW Group</p>
+    <div class="hero-actions">
+      <a class="hero-cta" href="https://as-exam-training.vercel.app" target="_blank" rel="noopener">開啟產品 <span>Open App</span> ↗</a>
+      <a class="hero-switch" href="dev.html">切換至開發者筆記 →</a>
+    </div>
+    <p class="hero-url">產品網址：<a href="https://as-exam-training.vercel.app" target="_blank" rel="noopener">as-exam-training.vercel.app</a></p>
+  </div>
+  <div class="hero-art"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 400" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <defs>
+    <radialGradient id="ast-hero-glow1" cx="0.75" cy="0.2" r="0.6">
+      <stop offset="0" stop-color="#4be3db" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#4be3db" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ast-hero-glow2" cx="0.15" cy="0.85" r="0.55">
+      <stop offset="0" stop-color="#60a5fa" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#60a5fa" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="ast-hero-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0b5c8a" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="560" height="400" rx="24" fill="#f7fbfd"/>
+  <rect width="560" height="400" rx="24" fill="url(#ast-hero-glow1)"/>
+  <rect width="560" height="400" rx="24" fill="url(#ast-hero-glow2)"/>
+
+  <!-- 後面兩張卡 -->
+  <g transform="rotate(-8 280 200)" opacity="0.7">
+    <rect x="150" y="70" width="280" height="190" rx="18" fill="#ffffff" fill-opacity="0.6" stroke="#ffffff" filter="url(#ast-hero-shadow)"/>
+  </g>
+  <g transform="rotate(5 280 200)" opacity="0.85">
+    <rect x="140" y="80" width="290" height="200" rx="18" fill="#ffffff" fill-opacity="0.7" stroke="#ffffff" filter="url(#ast-hero-shadow)"/>
+  </g>
+
+  <!-- 前面主卡 -->
+  <g filter="url(#ast-hero-shadow)">
+    <rect x="120" y="95" width="320" height="215" rx="20" fill="#ffffff" fill-opacity="0.9" stroke="#e3edf3"/>
+  </g>
+  <rect x="146" y="120" width="58" height="24" rx="12" fill="#4be3db"/>
+  <text x="175" y="137" text-anchor="middle" font-size="12" font-weight="700" fill="#0f2233">必出題</text>
+  <rect x="212" y="120" width="92" height="24" rx="12" fill="#ffffff" stroke="#d9e2ea"/>
+  <text x="258" y="137" text-anchor="middle" font-size="12" fill="#5b6b7f">近兩年 84%</text>
+  <text x="146" y="182" font-size="21" font-weight="700" fill="#1e2a3a">《建築物條例》的立法目的</text>
+  <text x="146" y="210" font-size="21" font-weight="700" fill="#1e2a3a">是甚麼？</text>
+  <rect x="146" y="232" width="268" height="10" rx="5" fill="#e8f1f5"/>
+  <rect x="146" y="252" width="200" height="10" rx="5" fill="#e8f1f5"/>
+
+  <!-- 四級自評 -->
+  <g font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">
+    <rect x="120" y="326" width="74" height="34" rx="10" fill="#d94a4a"/><text x="157" y="348">唔識</text>
+    <rect x="202" y="326" width="74" height="34" rx="10" fill="#e08a2e"/><text x="239" y="348">好勉強</text>
+    <rect x="284" y="326" width="74" height="34" rx="10" fill="#3fa15c"/><text x="321" y="348">識</text>
+    <rect x="366" y="326" width="74" height="34" rx="10" fill="#159a93"/><text x="403" y="348">熟到爛</text>
+  </g>
+
+  <!-- 進度環 -->
+  <g transform="translate(468 108)">
+    <circle r="40" fill="#ffffff" fill-opacity="0.85" stroke="#ffffff"/>
+    <circle r="30" fill="none" stroke="#e3edf3" stroke-width="8"/>
+    <circle r="30" fill="none" stroke="#0b5c8a" stroke-width="8" stroke-linecap="round" stroke-dasharray="120 189" transform="rotate(-90)"/>
+    <text y="6" text-anchor="middle" font-size="16" font-weight="700" fill="#0b5c8a">64%</text>
+  </g>
+</svg>
+</div>
+</section>
+<div class="layout">
+  <aside class="toc glass" aria-label="目錄"><ul><li class="t1"><a href="#intro" data-target="intro"><span class="tn">1</span>前言</a></li><li class="t2"><a href="#s-1-1" data-target="s-1-1"><span class="tn">1.1</span>產品簡介</a></li><li class="t2"><a href="#s-1-2" data-target="s-1-2"><span class="tn">1.2</span>適用對象</a></li><li class="t2"><a href="#s-1-3" data-target="s-1-3"><span class="tn">1.3</span>關鍵名詞</a></li><li class="t1"><a href="#value" data-target="value"><span class="tn">2</span>產品價值</a></li><li class="t2"><a href="#s-2-1" data-target="s-2-1"><span class="tn">2.1</span>解決的問題</a></li><li class="t2"><a href="#s-2-2" data-target="s-2-2"><span class="tn">2.2</span>用前與用後</a></li><li class="t2"><a href="#s-2-3" data-target="s-2-3"><span class="tn">2.3</span>使用場景</a></li><li class="t1"><a href="#prepare" data-target="prepare"><span class="tn">3</span>使用前準備</a></li><li class="t2"><a href="#s-3-1" data-target="s-3-1"><span class="tn">3.1</span>所需條件</a></li><li class="t2"><a href="#access" data-target="access"><span class="tn">3.2</span>如何進入</a></li><li class="t2"><a href="#s-3-3" data-target="s-3-3"><span class="tn">3.3</span>費用</a></li><li class="t1"><a href="#getting-started" data-target="getting-started"><span class="tn">4</span>開始使用</a></li><li class="t2"><a href="#sign-in" data-target="sign-in"><span class="tn">4.1</span>登入系統</a></li><li class="t2"><a href="#setup" data-target="setup"><span class="tn">4.2</span>設定考科與考試日期</a></li><li class="t2"><a href="#home" data-target="home"><span class="tn">4.3</span>認識主頁</a></li><li class="t2"><a href="#practice" data-target="practice"><span class="tn">4.4</span>選擇練習模式</a></li><li class="t2"><a href="#reveal" data-target="reveal"><span class="tn">4.5</span>作答與揭曉答案</a></li><li class="t2"><a href="#rate" data-target="rate"><span class="tn">4.6</span>誠實自評</a></li><li class="t2"><a href="#summary" data-target="summary"><span class="tn">4.7</span>查看節結報告</a></li><li class="t1"><a href="#advanced" data-target="advanced"><span class="tn">5</span>進階功能</a></li><li class="t2"><a href="#s-5-1" data-target="s-5-1"><span class="tn">5.1</span>題目庫與搜尋</a></li><li class="t2"><a href="#s-5-2" data-target="s-5-2"><span class="tn">5.2</span>參考題</a></li><li class="t2"><a href="#s-5-3" data-target="s-5-3"><span class="tn">5.3</span>簡寫對照</a></li><li class="t2"><a href="#s-5-4" data-target="s-5-4"><span class="tn">5.4</span>溫習記錄與弱項</a></li><li class="t2"><a href="#comment" data-target="comment"><span class="tn">5.5</span>對答案提出意見</a></li><li class="t2"><a href="#settings" data-target="settings"><span class="tn">5.6</span>個人設定</a></li><li class="t2"><a href="#s-5-7" data-target="s-5-7"><span class="tn">5.7</span>加至手機主畫面</a></li><li class="t1"><a href="#troubleshooting" data-target="troubleshooting"><span class="tn">6</span>疑難排解</a></li><li class="t2"><a href="#s-6-1" data-target="s-6-1"><span class="tn">6.1</span>常見問題</a></li><li class="t2"><a href="#s-6-2" data-target="s-6-2"><span class="tn">6.2</span>出錯時的處理</a></li><li class="t1"><a href="#feedback" data-target="feedback"><span class="tn">7</span>意見反饋</a></li></ul></aside>
+  <main class="content">
+<section class="chapter" id="ch-intro">
+<h2 id="intro" class="hd d1" data-num="1"><a class="num" href="#intro">1</a><span class="zh">前言</span> <span class="en">Introduction</span></h2>
+<h3 id="s-1-1" class="hd d2" data-num="1.1"><a class="num" href="#s-1-1">1.1</a><span class="zh">產品簡介</span> <span class="en">What It Is</span></h3>
+<p>「AS 面試溫習」是一個網頁版的抽認卡（Flashcard）溫習工具，專為準備屋宇署獲授權簽署人（Authorized Signatory，AS）面試的同事而設。</p>
+<p><strong>產品網址：<a href="https://as-exam-training.vercel.app/" target="_blank" rel="noopener">as-exam-training.vercel.app</a></strong>（需要帳號登入，見 <a class="xref" href="#access">3.2 如何進入</a>）</p>
+<p>題庫由過往 60 份考卷紀錄歸納而成，整理為 329 張一問一答的卡。每張卡的答案均附有出處，可追溯至法例、作業備考或屋宇署守則。系統會按你每次的自評結果調整出題次序：不熟悉的題目出得密，已熟記的題目逐步減少。</p>
+<figure class="shot"><img src="images/user-home.png" alt="主頁：顯示必出題與全庫的掌握進度、功能入口及合格準則" loading="lazy"><figcaption>主頁：顯示必出題與全庫的掌握進度、功能入口及合格準則</figcaption></figure><h3 id="s-1-2" class="hd d2" data-num="1.2"><a class="num" href="#s-1-2">1.2</a><span class="zh">適用對象</span> <span class="en">Who It Is For</span></h3>
+<ul>
+<li>準備註冊專門承建商（地基工程）［RSC(Foundation)］AS 面試的同事。</li>
+<li>準備註冊一般建築承建商（RGBC）AS 面試的同事。題庫包含上蓋專屬題目，可按需要納入。</li>
+<li>每日只有十多二十分鐘，希望用零碎時間有系統地溫習的人。</li>
+</ul>
+<p>本工具只供受邀用戶使用，帳號由產品擁有人開設。</p>
+<h3 id="s-1-3" class="hd d2" data-num="1.3"><a class="num" href="#s-1-3">1.3</a><span class="zh">關鍵名詞</span> <span class="en">Key Terms</span></h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>名詞</th>
+<th>意思</th>
+<th>在哪裏見到</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AS</td>
+<td>獲授權簽署人（Authorized Signatory），代表註冊承建商就《建築物條例》事宜行事</td>
+<td>全站</td>
+</tr>
+<tr>
+<td>RSC(F)</td>
+<td>註冊專門承建商（地基工程）</td>
+<td>設定、抽卡範圍</td>
+</tr>
+<tr>
+<td>RGBC</td>
+<td>註冊一般建築承建商</td>
+<td>設定、抽卡範圍</td>
+</tr>
+<tr>
+<td>Aspect</td>
+<td>面試評分表的六個範疇，Aspect 1、2 為一票否決項</td>
+<td>主頁、題目庫標籤</td>
+</tr>
+<tr>
+<td>必出題</td>
+<td>經人手確認、在考卷中高頻出現的題目，出題權重較高</td>
+<td>卡片標籤、主頁進度</td>
+</tr>
+<tr>
+<td>四級自評</td>
+<td>看完答案後自評：「唔識」、「好勉強」、「識」、「熟到爛」</td>
+<td>答題畫面</td>
+</tr>
+<tr>
+<td>參考題</td>
+<td>沒有標準答案的題目，例如公司意外率，只供提醒</td>
+<td>題目庫</td>
+</tr>
+<tr>
+<td>近兩年 %</td>
+<td>該題在最近 24 個月考卷中出現的比例</td>
+<td>答案卡右上角</td>
+</tr>
+</tbody></table>
+</div><p class="chapter-fb"><a href="#" data-fb="1">對第 1 章有意見？</a></p>
+</section><section class="chapter" id="ch-value">
+<h2 id="value" class="hd d1" data-num="2"><a class="num" href="#value">2</a><span class="zh">產品價值</span> <span class="en">Why Use It</span></h2>
+<h3 id="s-2-1" class="hd d2" data-num="2.1"><a class="num" href="#s-2-1">2.1</a><span class="zh">解決的問題</span> <span class="en">Pain Points</span></h3>
+<p>準備 AS 面試時，一般會遇到四個困難：</p>
+<ol>
+<li><strong>考卷紀錄零散。</strong> 過往考卷由不同考生憑記憶寫下，字眼簡略、重複，難以歸納出「到底考甚麼」。</li>
+<li><strong>參考資料過多。</strong> 法例、規例、作業備考（PNAP、PNRC）及守則加起來超過一百份，難以判斷哪一份對應哪一題。</li>
+<li><strong>教材內容有誤。</strong> 坊間培訓教材有部分內容已經過時，例如條號已被新規例取代、罰款金額寫錯，考生很難自行察覺。</li>
+<li><strong>無法掌握進度。</strong> 溫習時熟悉與不熟悉的題目混在一起，花了時間重溫已經識的內容，弱項反而沒有溫到。</li>
+</ol>
+<h3 id="s-2-2" class="hd d2" data-num="2.2"><a class="num" href="#s-2-2">2.2</a><span class="zh">用前與用後</span> <span class="en">Before &amp; After</span></h3>
+<figure class="diagram"><svg role="img" aria-label="用前與用後的溫習方式比較" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <defs>
+    <marker id="ast-ba-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0b5c8a"/>
+    </marker>
+    <linearGradient id="ast-ba-after" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4be3db" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#4be3db" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 用前 -->
+  <rect x="20" y="20" width="370" height="380" rx="18" fill="#ffffff" stroke="#d9e2ea"/>
+  <text x="44" y="60" font-size="20" font-weight="700" fill="#5b6b7f">用前：自行溫習</text>
+  <g font-size="15" fill="#1e2a3a">
+    <circle cx="52" cy="104" r="14" fill="#fef3c7"/><text x="52" y="109" text-anchor="middle" font-size="13" fill="#b45309">1</text>
+    <text x="78" y="100">60 份考卷散落各處</text><text x="78" y="122" font-size="13" fill="#5b6b7f">題目重複、字眼簡略，難以歸納</text>
+    <circle cx="52" cy="170" r="14" fill="#fef3c7"/><text x="52" y="175" text-anchor="middle" font-size="13" fill="#b45309">2</text>
+    <text x="78" y="166">過百份法例、作業備考及教材</text><text x="78" y="188" font-size="13" fill="#5b6b7f">不知道哪一份與哪一題相關</text>
+    <circle cx="52" cy="236" r="14" fill="#fef3c7"/><text x="52" y="241" text-anchor="middle" font-size="13" fill="#b45309">3</text>
+    <text x="78" y="232">培訓教材部分內容已過時</text><text x="78" y="254" font-size="13" fill="#5b6b7f">數字、條號錯誤難以察覺</text>
+    <circle cx="52" cy="302" r="14" fill="#fef3c7"/><text x="52" y="307" text-anchor="middle" font-size="13" fill="#b45309">4</text>
+    <text x="78" y="298">無法判斷自己掌握多少</text><text x="78" y="320" font-size="13" fill="#5b6b7f">弱項與熟悉的題目混在一起重溫</text>
+  </g>
+
+  <line x1="400" y1="210" x2="478" y2="210" stroke="#0b5c8a" stroke-width="2" marker-end="url(#ast-ba-arrow)"/>
+
+  <!-- 用後 -->
+  <rect x="490" y="20" width="370" height="380" rx="18" fill="url(#ast-ba-after)" stroke="#4be3db"/>
+  <text x="514" y="60" font-size="20" font-weight="700" fill="#0b5c8a">用後：AS 面試溫習</text>
+  <g font-size="15" fill="#1e2a3a">
+    <circle cx="522" cy="104" r="14" fill="#ffffff" stroke="#4be3db"/><text x="522" y="109" text-anchor="middle" font-size="13" fill="#0b5c8a">✓</text>
+    <text x="548" y="100">329 張一問一答的抽認卡</text><text x="548" y="122" font-size="13" fill="#5b6b7f">由 60 份考卷歸納，標示出現頻率</text>
+    <circle cx="522" cy="170" r="14" fill="#ffffff" stroke="#4be3db"/><text x="522" y="175" text-anchor="middle" font-size="13" fill="#0b5c8a">✓</text>
+    <text x="548" y="166">每個答案均附出處</text><text x="548" y="188" font-size="13" fill="#5b6b7f">可追溯至法例條文或作業備考</text>
+    <circle cx="522" cy="236" r="14" fill="#ffffff" stroke="#4be3db"/><text x="522" y="241" text-anchor="middle" font-size="13" fill="#0b5c8a">✓</text>
+    <text x="548" y="232">以法例原文為準</text><text x="548" y="254" font-size="13" fill="#5b6b7f">教材錯誤已逐項更正並提示</text>
+    <circle cx="522" cy="302" r="14" fill="#ffffff" stroke="#4be3db"/><text x="522" y="307" text-anchor="middle" font-size="13" fill="#0b5c8a">✓</text>
+    <text x="548" y="298">按掌握程度自動出題</text><text x="548" y="320" font-size="13" fill="#5b6b7f">弱項出得密，熟悉的題目逐步退役</text>
+  </g>
+  <text x="514" y="376" font-size="13" fill="#0b5c8a" font-weight="600">每節 10 至 40 題，約 10 至 30 分鐘</text>
+</svg>
+<figcaption>用前與用後的溫習方式比較</figcaption></figure>
+<h3 id="s-2-3" class="hd d2" data-num="2.3"><a class="num" href="#s-2-3">2.3</a><span class="zh">使用場景</span> <span class="en">Use Cases</span></h3>
+<p><strong>日常溫習。</strong> 每日開一節「加權混合」練習，20 題約需 15 分鐘。系統會自動把你答得不好的卡排得更前。</p>
+<p><strong>面試前一至兩星期。</strong> 改用「只練必出題」模式，集中處理高頻題目；配合主頁的必出題進度，確認全部達到「識」或「熟到爛」。</p>
+<p><strong>臨面試前幾日。</strong> 使用「專攻弱項」模式，只抽最近自評為「唔識」或「好勉強」的卡，逐一清除。</p>
+<p><strong>碎片時間。</strong> 在手機瀏覽器開啟，乘車或等候時做幾題；進度會自動同步到電腦。</p>
+<p class="chapter-fb"><a href="#" data-fb="2">對第 2 章有意見？</a></p>
+</section><section class="chapter" id="ch-prepare">
+<h2 id="prepare" class="hd d1" data-num="3"><a class="num" href="#prepare">3</a><span class="zh">使用前準備</span> <span class="en">Before You Start</span></h2>
+<h3 id="s-3-1" class="hd d2" data-num="3.1"><a class="num" href="#s-3-1">3.1</a><span class="zh">所需條件</span> <span class="en">Requirements</span></h3>
+<ul>
+<li>電腦或手機，使用 Chrome、Edge 或 Safari 等現代瀏覽器。</li>
+<li>穩定的網絡連線（本工具暫不支援離線使用）。</li>
+<li>由產品擁有人開設的帳號。</li>
+</ul>
+<h3 id="access" class="hd d2" data-num="3.2"><a class="num" href="#access">3.2</a><span class="zh">如何進入</span> <span class="en">Access</span></h3>
+<ol>
+<li>聯絡產品擁有人 Crimson，提供你用於登入的電郵地址。</li>
+<li>產品擁有人開設帳號後，會把一次性密碼<strong>親手</strong>交給你。系統不會寄出任何註冊電郵。</li>
+<li>打開網址 <a href="https://as-exam-training.vercel.app" target="_blank" rel="noopener">as-exam-training.vercel.app</a>，以電郵及該密碼登入。</li>
+<li>首次登入後，請立即到「設定」頁更改密碼（見 <a class="xref" href="#settings">5.6 個人設定</a>）。</li>
+</ol>
+<h3 id="s-3-3" class="hd d2" data-num="3.3"><a class="num" href="#s-3-3">3.3</a><span class="zh">費用</span> <span class="en">Cost</span></h3>
+<p>免費。</p>
+<p class="chapter-fb"><a href="#" data-fb="3">對第 3 章有意見？</a></p>
+</section><section class="chapter" id="ch-getting-started">
+<h2 id="getting-started" class="hd d1" data-num="4"><a class="num" href="#getting-started">4</a><span class="zh">開始使用</span> <span class="en">Getting Started</span></h2>
+<h3 id="sign-in" class="hd d2" data-num="4.1"><a class="num" href="#sign-in">4.1</a><span class="zh">登入系統</span> <span class="en">Sign In</span></h3>
+<p>打開網址後會看到登入畫面。</p>
+<ol>
+<li>在「電郵」欄輸入你的電郵地址。</li>
+<li>在「密碼」欄輸入密碼。</li>
+<li>按「登入」。</li>
+</ol>
+<figure class="shot"><img src="images/user-login.png" alt="登入畫面" loading="lazy"><figcaption>登入畫面</figcaption></figure><div class="callout c-check"><div class="callout-title">完成後應該看到</div><p>登入後會直接進入「主頁」，左側為導航列，右上角有「登出」按鈕。</p>
+</div><div class="callout c-warn"><div class="callout-title">忘記密碼</div><p>系統沒有自助重設功能。請聯絡產品擁有人重設，你會收到新的一次性密碼。</p>
+</div><h3 id="setup" class="hd d2" data-num="4.2"><a class="num" href="#setup">4.2</a><span class="zh">設定考科與考試日期</span> <span class="en">Set Up Your Profile</span></h3>
+<p>首次登入時，系統會問你兩條問題：考哪一科，以及是否知道考試日期。兩者都只是預設值，之後可以在「設定」頁修改。</p>
+<ol>
+<li>選擇「地基（RSC Foundation）」或「一般建築（RGBC）」。這會決定預設抽卡範圍：選地基的話，上蓋專屬題目預設不會抽出。</li>
+<li>如已知道考試日期，選「知道」並填上日期；主頁會顯示倒數日數。不知道的話選「仲未知」，之後再補。</li>
+<li>按「開始溫習」。</li>
+</ol>
+<p>如之後需要修改，到左側導航的「設定」：</p>
+<figure class="shot"><img src="images/user-settings.png" alt="設定頁：考試日期、改密碼及預設抽卡範圍" loading="lazy"><figcaption>設定頁：考試日期、改密碼及預設抽卡範圍</figcaption></figure><div class="callout c-check"><div class="callout-title">完成後應該看到</div><p>設定考試日期並按「儲存」後，會顯示「考試日期已儲存。」，主頁右側會出現倒數日數。</p>
+</div><h3 id="home" class="hd d2" data-num="4.3"><a class="num" href="#home">4.3</a><span class="zh">認識主頁</span> <span class="en">The Home Page</span></h3>
+<p>主頁分為三部分：</p>
+<ol>
+<li><strong>兩個進度圓圖。</strong> 左邊是「必出題達標」，右邊是「所有題目」。「達標」的定義是最近一次自評為「識」或「熟到爛」。右邊另有四級自評的分佈。</li>
+<li><strong>三個功能入口。</strong> 「開始答題」、「回顧記錄」、「題目庫」。</li>
+<li><strong>合格準則。</strong> 列出面試評分表的六個範疇及合格條件。</li>
+</ol>
+<figure class="diagram"><svg role="img" aria-label="面試評分的六個範疇及合格條件" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 400" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <text x="24" y="40" font-size="19" font-weight="700" fill="#1e2a3a">面試評分的六個範疇</text>
+  <text x="24" y="64" font-size="13" fill="#5b6b7f">根據 PNRC 38 附錄 I 第 3(e) 段；每項評為 Pass、Marginal 或 Fail</text>
+
+  <!-- 一票否決 -->
+  <rect x="24" y="86" width="400" height="120" rx="16" fill="#fff5f5" stroke="#f3b4b4"/>
+  <text x="44" y="116" font-size="14" font-weight="700" fill="#b91c1c">一票否決：必須兩項皆 Pass</text>
+  <rect x="44" y="130" width="176" height="60" rx="12" fill="#ffffff" stroke="#f3b4b4"/>
+  <text x="60" y="155" font-size="15" font-weight="700" fill="#1e2a3a">Aspect 1</text>
+  <text x="60" y="177" font-size="13" fill="#5b6b7f">法定角色、職能及職責</text>
+  <rect x="232" y="130" width="176" height="60" rx="12" fill="#ffffff" stroke="#f3b4b4"/>
+  <text x="248" y="155" font-size="15" font-weight="700" fill="#1e2a3a">Aspect 2</text>
+  <text x="248" y="177" font-size="13" fill="#5b6b7f">條例目的及管制機制</text>
+
+  <!-- 其餘四項 -->
+  <rect x="24" y="224" width="832" height="120" rx="16" fill="#f4fbfb" stroke="#bfeeea"/>
+  <text x="44" y="254" font-size="14" font-weight="700" fill="#0b5c8a">其餘四項：至少 2 項 Pass，加 1 項 Marginal</text>
+  <g font-size="13">
+    <rect x="44" y="268" width="192" height="60" rx="12" fill="#ffffff" stroke="#bfeeea"/>
+    <text x="60" y="293" font-size="15" font-weight="700" fill="#1e2a3a">Aspect 3</text><text x="60" y="314" fill="#5b6b7f">本港情況一般認識</text>
+    <rect x="248" y="268" width="192" height="60" rx="12" fill="#ffffff" stroke="#bfeeea"/>
+    <text x="264" y="293" font-size="15" font-weight="700" fill="#1e2a3a">Aspect 4</text><text x="264" y="314" fill="#5b6b7f">條例、規例及守則</text>
+    <rect x="452" y="268" width="192" height="60" rx="12" fill="#ffffff" stroke="#bfeeea"/>
+    <text x="468" y="293" font-size="15" font-weight="700" fill="#1e2a3a">Aspect 5</text><text x="468" y="314" fill="#5b6b7f">本地法定程序</text>
+    <rect x="656" y="268" width="184" height="60" rx="12" fill="#ffffff" stroke="#bfeeea"/>
+    <text x="672" y="293" font-size="15" font-weight="700" fill="#1e2a3a">Aspect 6</text><text x="672" y="314" fill="#5b6b7f">技術知識及實際經驗</text>
+  </g>
+
+  <!-- 右上：溫習提示 -->
+  <rect x="444" y="86" width="412" height="120" rx="16" fill="#ffffff" stroke="#d9e2ea"/>
+  <text x="464" y="116" font-size="14" font-weight="700" fill="#0b5c8a">溫習時間分配提示</text>
+  <text x="464" y="144" font-size="14" fill="#1e2a3a">Aspect 1、2 的題目最少，</text>
+  <text x="464" y="168" font-size="14" fill="#1e2a3a">但任何一項 Fail 即整體 Fail。</text>
+  <text x="464" y="192" font-size="13" fill="#5b6b7f">題目庫以「★」標示這兩項，應優先溫熟。</text>
+
+  <text x="24" y="378" font-size="13" fill="#5b6b7f">Fail 條件：Aspect 1 或 2 任何一項 Fail，或其餘四項多於一項 Fail。兩者皆非則為 Marginal。</text>
+</svg>
+<figcaption>面試評分的六個範疇及合格條件</figcaption></figure>
+<div class="callout c-tip"><div class="callout-title">提示</div><p>Aspect 1 及 2 的題目數量最少，但任何一項評為 Fail 即整體不合格。溫習時應優先處理這兩項，題目庫以「★」標示。</p>
+</div><h3 id="practice" class="hd d2" data-num="4.4"><a class="num" href="#practice">4.4</a><span class="zh">選擇練習模式</span> <span class="en">Choose a Practice Mode</span></h3>
+<p>按「開始答題」或左側導航的「答題」，進入練習設定。</p>
+<ol>
+<li><strong>選擇方式。</strong><ul>
+<li>「加權混合」：全部卡按掌握度加權抽出，日常首選。</li>
+<li>「只練必出題」：只抽經人手確認的必出題，適合面試前一至兩星期。</li>
+<li>「專攻弱項」：只抽最近自評為「唔識」或「好勉強」的卡。</li>
+</ul>
+</li>
+<li><strong>選擇題數。</strong> 10 題、20 題或 40 題。一場真實面試約問 40 題，其中 15 至 20 題出自必出題。</li>
+<li><strong>選擇抽卡範圍。</strong> 考地基的同事可選擇是否包括上蓋（rgbc-only）的卡。</li>
+<li>按「開始（N 題）」。</li>
+</ol>
+<figure class="shot"><img src="images/user-practice.png" alt="練習設定：三種方式、題數及抽卡範圍" loading="lazy"><figcaption>練習設定：三種方式、題數及抽卡範圍</figcaption></figure><div class="callout c-check"><div class="callout-title">完成後應該看到</div><p>畫面切換至全屏答題模式，頂部顯示進度條及「01/10」之類的題號。</p>
+</div><h3 id="reveal" class="hd d2" data-num="4.5"><a class="num" href="#reveal">4.5</a><span class="zh">作答與揭曉答案</span> <span class="en">Answer and Reveal</span></h3>
+<p>每張卡先只顯示題目，請<strong>在心中完整作答</strong>，再揭曉答案。</p>
+<ol>
+<li>閱讀題目，在心中或低聲說出你的答案。</li>
+<li>按「揭開答案」，或按鍵盤的空白鍵（Space）。</li>
+</ol>
+<figure class="shot"><img src="images/user-card-front.png" alt="題目正面：先作答，再揭曉答案" loading="lazy"><figcaption>題目正面：先作答，再揭曉答案</figcaption></figure><p>答案卡由上而下分為：本卡簡寫、答案、考生注意（中伏位）、出處，以及留意見的入口。答案卡右上角顯示「近兩年」出現比例。</p>
+<figure class="shot"><img src="images/user-card-answer.png" alt="答案卡：答案、近兩年出現比例及四級自評按鈕" loading="lazy"><figcaption>答案卡：答案、近兩年出現比例及四級自評按鈕</figcaption></figure><div class="callout c-check"><div class="callout-title">完成後應該看到</div><p>答案下方出現四個顏色按鈕：「唔識」、「好勉強」、「識」、「熟到爛」。</p>
+</div><div class="callout c-tip"><div class="callout-title">提示</div><p>答案以「考生對考官口述」的第一人稱寫成，可以直接照讀練習。表格則保留，方便記憶數字。</p>
+</div><h3 id="rate" class="hd d2" data-num="4.6"><a class="num" href="#rate">4.6</a><span class="zh">誠實自評</span> <span class="en">Rate Yourself</span></h3>
+<p>對照答案後，按實際表現選擇其中一級。桌面版可以用鍵盤數字鍵 1 至 4。</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>按鈕</th>
+<th>何時選擇</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>唔識</td>
+<td>答不出，或答錯關鍵內容</td>
+</tr>
+<tr>
+<td>好勉強</td>
+<td>大致方向正確，但漏了數字、條號或重點</td>
+</tr>
+<tr>
+<td>識</td>
+<td>答得完整，只有小瑕疵</td>
+</tr>
+<tr>
+<td>熟到爛</td>
+<td>可以流暢、完整地說出，包括數字和條號</td>
+</tr>
+</tbody></table>
+</div><p>你的選擇會決定這張卡日後出現的頻率：</p>
+<figure class="diagram"><svg role="img" aria-label="四級自評如何影響下一次出題" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 330" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <text x="24" y="38" font-size="19" font-weight="700" fill="#1e2a3a">自評結果如何影響下一次出題</text>
+  <text x="24" y="62" font-size="13" fill="#5b6b7f">每張卡以最近一次自評決定出現機會；數值為相對比例，示意用</text>
+
+  <g font-size="15">
+    <text x="24" y="112" font-weight="700" fill="#d94a4a">唔識</text>
+    <rect x="130" y="94" width="560" height="26" rx="8" fill="#d94a4a" fill-opacity="0.85"/>
+    <text x="704" y="112" fill="#1e2a3a">最常出現</text>
+
+    <text x="24" y="156" font-weight="700" fill="#b45309">未答過</text>
+    <rect x="130" y="138" width="420" height="26" rx="8" fill="#9aa8b5" fill-opacity="0.7"/>
+    <text x="564" y="156" fill="#1e2a3a">新卡會較早出現</text>
+
+    <text x="24" y="200" font-weight="700" fill="#b45309">好勉強</text>
+    <rect x="130" y="182" width="280" height="26" rx="8" fill="#e08a2e" fill-opacity="0.85"/>
+    <text x="424" y="200" fill="#1e2a3a">經常出現</text>
+
+    <text x="24" y="244" font-weight="700" fill="#2f7d48">識</text>
+    <rect x="130" y="226" width="105" height="26" rx="8" fill="#3fa15c" fill-opacity="0.85"/>
+    <text x="249" y="244" fill="#1e2a3a">間中出現</text>
+
+    <text x="24" y="288" font-weight="700" fill="#0f766e">熟到爛</text>
+    <rect x="130" y="270" width="28" height="26" rx="8" fill="#159a93" fill-opacity="0.85"/>
+    <text x="172" y="288" fill="#1e2a3a">半退役，偶爾重溫防遺忘</text>
+  </g>
+
+  <rect x="620" y="210" width="236" height="96" rx="14" fill="#f4fbfb" stroke="#bfeeea"/>
+  <text x="638" y="238" font-size="13" font-weight="700" fill="#0b5c8a">另外兩項加成</text>
+  <text x="638" y="262" font-size="13" fill="#1e2a3a">必出題：出現機會 × 1.6</text>
+  <text x="638" y="286" font-size="13" fill="#1e2a3a">超過 7 日未溫：再提高</text>
+</svg>
+<figcaption>四級自評如何影響下一次出題</figcaption></figure>
+<div class="callout c-warn"><div class="callout-title">請誠實評分</div><p>自評偏高會令弱項卡太少出現，進度圓圖亦會失真。拿不準時，選較低的一級。</p>
+</div><h3 id="summary" class="hd d2" data-num="4.7"><a class="num" href="#summary">4.7</a><span class="zh">查看節結報告</span> <span class="en">Session Summary</span></h3>
+<p>完成一節所有題目後，會顯示節結報告。</p>
+<ol>
+<li>頂部顯示四級自評的數量。</li>
+<li>「今節要補返」列出你評為「唔識」或「好勉強」的卡，這些卡的權重已經自動調高。</li>
+<li>按「再嚟一節」繼續，或按「返主頁」查看最新進度。</li>
+</ol>
+<figure class="shot"><img src="images/user-session-summary.png" alt="節結報告：四級分佈及需要補溫的卡" loading="lazy"><figcaption>節結報告：四級分佈及需要補溫的卡</figcaption></figure><div class="callout c-check"><div class="callout-title">完成後應該看到</div><p>返回主頁後，兩個進度圓圖的數字已經更新。</p>
+</div><p class="chapter-fb"><a href="#" data-fb="4">對第 4 章有意見？</a></p>
+</section><section class="chapter" id="ch-advanced">
+<h2 id="advanced" class="hd d1" data-num="5"><a class="num" href="#advanced">5</a><span class="zh">進階功能</span> <span class="en">Advanced Features</span></h2>
+<h3 id="s-5-1" class="hd d2" data-num="5.1"><a class="num" href="#s-5-1">5.1</a><span class="zh">題目庫與搜尋</span> <span class="en">Question Bank</span></h3>
+<p>「題目庫」讓你瀏覽全部題目及答案，不計入進度。</p>
+<ul>
+<li><strong>搜尋欄</strong>可以搜尋題目、答案，連考官在考卷中的原本問法都能找到，例如輸入「BO 精神」。</li>
+<li><strong>評分範疇</strong>按 Aspect 篩選，「★」代表一票否決項。</li>
+<li><strong>範疇</strong>按 12 個知識範疇篩選，例如「地基工程」、「地盤安全」。</li>
+<li>勾選「只睇必出題」可只顯示必出題。</li>
+</ul>
+<figure class="shot"><img src="images/user-bank.png" alt="題目庫：搜尋、評分範疇及知識範疇篩選" loading="lazy"><figcaption>題目庫：搜尋、評分範疇及知識範疇篩選</figcaption></figure><h3 id="s-5-2" class="hd d2" data-num="5.2"><a class="num" href="#s-5-2">5.2</a><span class="zh">參考題</span> <span class="en">Reference Questions</span></h3>
+<p>題目庫的第二個分頁「參考題（冇標準答案）」收錄兩類題目：</p>
+<ol>
+<li><strong>公司／個人特定題。</strong> 例如「公司現時千人意外率？」。答案是你所屬公司的實際數字，題庫無法提供，請在考前向公司安全部門索取並記熟。</li>
+<li><strong>未核實項目。</strong> 官方原文未收錄、答案未能確定的內容。考官追問時，坦白表示會查證，比說出不肯定的數字更好。</li>
+</ol>
+<p>這些題目不會在練習中抽出，亦不計入進度。</p>
+<figure class="shot"><img src="images/user-bank-reference.png" alt="參考題分頁：公司特定題及未核實項目" loading="lazy"><figcaption>參考題分頁：公司特定題及未核實項目</figcaption></figure><h3 id="s-5-3" class="hd d2" data-num="5.3"><a class="num" href="#s-5-3">5.3</a><span class="zh">簡寫對照</span> <span class="en">Abbreviations</span></h3>
+<p>題目及答案經常出現簡寫，例如 RSE、TCP、BA14。你可以用三種方式查閱：</p>
+<ol>
+<li><strong>本卡簡寫列。</strong> 答題時，題目下方會列出本卡用到的簡寫；揭答案前只列題目中的簡寫，避免提早透露答案。</li>
+<li><strong>就地查閱。</strong> 文字下有虛線的簡寫，在桌面版滑鼠停留、在手機按一下，會彈出說明小卡。</li>
+<li><strong>簡寫表頁面。</strong> 左側導航的「簡寫表」收錄 248 條，可搜尋及按類別篩選。</li>
+</ol>
+<figure class="shot"><img src="images/user-glossary.png" alt="答題時的本卡簡寫列" loading="lazy"><figcaption>答題時的本卡簡寫列</figcaption></figure><figure class="shot"><img src="images/user-glossary-page.png" alt="簡寫表：搜尋及九個分類" loading="lazy"><figcaption>簡寫表：搜尋及九個分類</figcaption></figure><h3 id="s-5-4" class="hd d2" data-num="5.4"><a class="num" href="#s-5-4">5.4</a><span class="zh">溫習記錄與弱項</span> <span class="en">Records</span></h3>
+<p>「記錄」頁顯示：</p>
+<ul>
+<li>累計自評次數及接觸過的卡數。</li>
+<li>最近 14 日每日的答題數量。</li>
+<li>「弱項排行」：最近自評為「唔識」或「好勉強」的卡，可以作為下一節「專攻弱項」的參考。</li>
+</ul>
+<figure class="shot"><img src="images/user-records.png" alt="個人記錄：最近 14 日及弱項排行" loading="lazy"><figcaption>個人記錄：最近 14 日及弱項排行</figcaption></figure><h3 id="comment" class="hd d2" data-num="5.5"><a class="num" href="#comment">5.5</a><span class="zh">對答案提出意見</span> <span class="en">Comment on an Answer</span></h3>
+<p>如果你認為某張卡的答案有問題，可以直接在答案卡底部留言，產品擁有人會收到並跟進。</p>
+<ol>
+<li>揭開答案後，捲動至答案卡底部，按「呢張卡有問題？留個意見」。</li>
+<li>選擇意見類別：「答案唔夠好」、「數字或條號信唔落」、「問法唔清楚」或「其他」。</li>
+<li>輸入具體內容，例如哪一個數字、你認為正確的出處。</li>
+<li>按「交意見」。</li>
+</ol>
+<figure class="shot"><img src="images/user-comment.png" alt="答案卡底部的意見框" loading="lazy"><figcaption>答案卡底部的意見框</figcaption></figure><div class="callout c-check"><div class="callout-title">完成後應該看到</div><p>提交後，該卡下次出現時會顯示「（你之前留過）」。</p>
+</div><h3 id="settings" class="hd d2" data-num="5.6"><a class="num" href="#settings">5.6</a><span class="zh">個人設定</span> <span class="en">Settings</span></h3>
+<p>左側導航的「設定」頁可以：</p>
+<ul>
+<li>修改或清除考試日期。</li>
+<li>更改密碼（最少 10 個字元）。首次登入後請立即更改。</li>
+<li>更改預設抽卡範圍（地基或一般建築）。</li>
+</ul>
+<h3 id="s-5-7" class="hd d2" data-num="5.7"><a class="num" href="#s-5-7">5.7</a><span class="zh">加至手機主畫面</span> <span class="en">Add to Home Screen</span></h3>
+<p>在手機瀏覽器打開網址並登入後，可以把網頁加至主畫面，之後像應用程式一樣開啟：</p>
+<ul>
+<li><strong>iPhone（Safari）：</strong> 按分享按鈕，選「加入主畫面」。</li>
+<li><strong>Android（Chrome）：</strong> 按右上角選單，選「加到主畫面」。</li>
+</ul>
+<p>登入狀態會保留，無需每次重新登入。</p>
+<figure class="shot"><img src="images/user-home-mobile.png" alt="手機版主頁" loading="lazy"><figcaption>手機版主頁</figcaption></figure><p class="chapter-fb"><a href="#" data-fb="5">對第 5 章有意見？</a></p>
+</section><section class="chapter" id="ch-troubleshooting">
+<h2 id="troubleshooting" class="hd d1" data-num="6"><a class="num" href="#troubleshooting">6</a><span class="zh">疑難排解</span> <span class="en">Troubleshooting</span></h2>
+<h3 id="s-6-1" class="hd d2" data-num="6.1"><a class="num" href="#s-6-1">6.1</a><span class="zh">常見問題</span> <span class="en">FAQ</span></h3>
+<p><strong>問：為甚麼同一題經常出現？</strong></p>
+<p>答：你最近對該題的自評可能是「唔識」或「好勉強」，系統會提高它的出現機會。當你評為「識」或「熟到爛」後，出現次數會明顯減少。另外，必出題的出現機會本身較高。</p>
+<p><strong>問：必出題是怎樣決定的？</strong></p>
+<p>答：先按題目在 60 份考卷中的出現頻率篩選，再由產品擁有人逐題人手確認。系統本身不會自行把題目設為必出題。</p>
+<p><strong>問：答案與我在培訓班學到的不同，應該相信哪一個？</strong></p>
+<p>答：題庫以法例原文及屋宇署官方文件為準。部分培訓教材已經過時或有錯漏，答案卡的「考生注意」會提示已知的分歧。如仍有疑問，請使用 <a class="xref" href="#comment">5.5 對答案提出意見</a> 留言。</p>
+<p><strong>問：可以離線使用嗎？</strong></p>
+<p>答：暫時不可以。答題及自評需要網絡連線才能儲存。</p>
+<p><strong>問：我考地基，為甚麼題目庫會見到上蓋的題目？</strong></p>
+<p>答：題目庫顯示全部題目以供參考，但練習時預設不抽上蓋專屬的卡。你可以在練習設定的「抽卡範圍」自行納入。</p>
+<h3 id="s-6-2" class="hd d2" data-num="6.2"><a class="num" href="#s-6-2">6.2</a><span class="zh">出錯時的處理</span> <span class="en">When Things Go Wrong</span></h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>現象</th>
+<th>可能原因</th>
+<th>處理方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>登入時顯示密碼錯誤</td>
+<td>密碼輸入錯誤，或已被重設</td>
+<td>確認大小寫；仍然失敗請聯絡產品擁有人重設</td>
+</tr>
+<tr>
+<td>主頁數字沒有更新</td>
+<td>自評未能即時上傳</td>
+<td>重新整理頁面；系統會在下次開啟時自動補交未上傳的自評</td>
+</tr>
+<tr>
+<td>選「專攻弱項」時顯示沒有卡</td>
+<td>你暫時沒有自評為「唔識」或「好勉強」的卡</td>
+<td>先用「加權混合」完成幾節</td>
+</tr>
+<tr>
+<td>手機上看不到左側導航</td>
+<td>手機版把導航收在選單內</td>
+<td>按左上角的「☰」按鈕</td>
+</tr>
+<tr>
+<td>登入後每次都要求重新設定</td>
+<td>設定未能儲存</td>
+<td>重新整理後再試一次；如持續出現，請聯絡產品擁有人</td>
+</tr>
+</tbody></table>
+</div><p class="chapter-fb"><a href="#" data-fb="6">對第 6 章有意見？</a></p>
+</section><section class="chapter" id="ch-feedback">
+<h2 id="feedback" class="hd d1" data-num="7"><a class="num" href="#feedback">7</a><span class="zh">意見反饋</span> <span class="en">Feedback</span></h2>
+<p><strong>對題目或答案有意見：</strong> 請直接在答案卡底部留言（見 <a class="xref" href="#comment">5.5 對答案提出意見</a>）。系統會記錄是哪一張卡、由哪一個帳號提出，處理起來最快。</p>
+<p><strong>對這份指南有意見：</strong> 例如步驟寫得不清楚、截圖與實際畫面不符，請電郵至 <a data-mail></a>，或按頁面右下角的「對本節有意見」按鈕，系統會自動填上章節編號。</p>
+<p>一般會在三個工作天內回覆。</p>
+<p class="chapter-fb"><a href="#" data-fb="7">對第 7 章有意見？</a></p>
+</section>
+  </main>
+</div>
+<button class="fb-float glass" type="button" aria-label="對本節有意見">對本節有意見</button>
+<footer class="foot">
+  <p>Crimson Lau · CKW Group　·　最後更新 2026-09-13</p>
+  <p><a href="../">返回全部指南</a></p>
+</footer>
+<script src="../assets/guide.js" defer></script>
+</body>
+</html>

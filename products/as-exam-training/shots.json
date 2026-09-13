@@ -1,0 +1,386 @@
+{
+  "viewport": [
+    1280,
+    800
+  ],
+  "shots": [
+    {
+      "label": "seed-session-1",
+      "url": "https://as-exam-training.vercel.app/practice",
+      "steps": [
+        {
+          "wait": 2000
+        },
+        {
+          "click": "text=10 題"
+        },
+        {
+          "click": "text=/^開始（/"
+        },
+        {
+          "waitFor": "text=揭開答案"
+        },
+        {
+          "wait": 600
+        },
+        {
+          "keys": [
+            "Space",
+            "4",
+            "Space",
+            "3",
+            "Space",
+            "2",
+            "Space",
+            "3",
+            "Space",
+            "1",
+            "Space",
+            "4",
+            "Space",
+            "3",
+            "Space",
+            "2",
+            "Space",
+            "4",
+            "Space",
+            "3"
+          ],
+          "gap": 450
+        },
+        {
+          "wait": 1500
+        }
+      ]
+    },
+    {
+      "file": "user-session-summary.png",
+      "url": "https://as-exam-training.vercel.app/practice",
+      "mask": [
+        "span.truncate:has-text(\"@\")"
+      ],
+      "steps": [
+        {
+          "wait": 2000
+        },
+        {
+          "click": "text=10 題"
+        },
+        {
+          "click": "text=/^開始（/"
+        },
+        {
+          "waitFor": "text=揭開答案"
+        },
+        {
+          "wait": 600
+        },
+        {
+          "keys": [
+            "Space",
+            "3",
+            "Space",
+            "4",
+            "Space",
+            "1",
+            "Space",
+            "3",
+            "Space",
+            "2",
+            "Space",
+            "4",
+            "Space",
+            "3",
+            "Space",
+            "3",
+            "Space",
+            "2",
+            "Space",
+            "4"
+          ],
+          "gap": 450
+        },
+        {
+          "wait": 2000
+        }
+      ]
+    },
+    {
+      "file": "user-settings.png",
+      "url": "https://as-exam-training.vercel.app/settings",
+      "mask": [
+        "span.truncate:has-text(\"@\")"
+      ],
+      "steps": [
+        {
+          "wait": 2000
+        },
+        {
+          "fill": [
+            "input[type=date]",
+            "2026-12-31"
+          ]
+        },
+        {
+          "click": "button:text-is(\"儲存\")"
+        },
+        {
+          "wait": 1500
+        }
+      ]
+    },
+    {
+      "file": "user-home.png",
+      "url": "https://as-exam-training.vercel.app/",
+      "mask": [
+        "span.truncate:has-text(\"@\")"
+      ],
+      "steps": [
+        {
+          "wait": 2500
+        }
+      ]
+    },
+    {
+      "file": "user-practice.png",
+      "url": "https://as-exam-training.vercel.app/practice",
+      "mask": [
+        "span.truncate:has-text(\"@\")"
+      ],
+      "steps": [
+        {
+          "wait": 2000
+        }
+      ]
+    },
+    {
+      "file": "user-card-front.png",
+      "url": "https://as-exam-training.vercel.app/practice",
+      "mask": [
+        "span.truncate:has-text(\"@\")"
+      ],
+      "steps": [
+        {
+          "wait": 2000
+        },
+        {
+          "click": "text=10 題"
+        },
+        {
+          "click": "text=/^開始（/"
+        },
+        {
+          "waitFor": "text=揭開答案"
+        },
+        {
+          "wait": 600
+        }
+      ]
+    },
+    {
+      "file": "user-card-answer.png",
+      "url": "https://as-exam-training.vercel.app/practice",
+      "mask": [
+        "span.truncate:has-text(\"@\")"
+      ],
+      "steps": [
+        {
+          "wait": 2000
+        },
+        {
+          "click": "text=10 題"
+        },
+        {
+          "click": "text=/^開始（/"
+        },
+        {
+          "waitFor": "text=揭開答案"
+        },
+        {
+          "wait": 600
+        },
+        {
+          "press": "Space"
+        },
+        {
+          "wait": 1000
+        }
+      ],
+      "viewport": [
+        1280,
+        1060
+      ]
+    },
+    {
+      "file": "user-glossary.png",
+      "url": "https://as-exam-training.vercel.app/practice",
+      "mask": [
+        "span.truncate:has-text(\"@\")"
+      ],
+      "steps": [
+        {
+          "wait": 2000
+        },
+        {
+          "click": "text=10 題"
+        },
+        {
+          "click": "text=/^開始（/"
+        },
+        {
+          "waitFor": "text=揭開答案"
+        },
+        {
+          "wait": 600
+        },
+        {
+          "press": "Space"
+        },
+        {
+          "wait": 800
+        },
+        {
+          "click": "button.ab"
+        },
+        {
+          "wait": 800
+        }
+      ]
+    },
+    {
+      "file": "user-comment.png",
+      "url": "https://as-exam-training.vercel.app/practice",
+      "mask": [
+        "span.truncate:has-text(\"@\")"
+      ],
+      "steps": [
+        {
+          "wait": 2000
+        },
+        {
+          "click": "text=10 題"
+        },
+        {
+          "click": "text=/^開始（/"
+        },
+        {
+          "waitFor": "text=揭開答案"
+        },
+        {
+          "wait": 600
+        },
+        {
+          "press": "Space"
+        },
+        {
+          "wait": 800
+        },
+        {
+          "click": "text=呢張卡有問題？留個意見"
+        },
+        {
+          "wait": 500
+        },
+        {
+          "fill": [
+            "textarea",
+            "（示範）呢個日數我信唔落，想再核對原文"
+          ]
+        },
+        {
+          "scroll": "textarea"
+        },
+        {
+          "eval": "document.querySelectorAll('body *').forEach(e=>{const s=getComputedStyle(e);if(s.position==='fixed'&&parseInt(s.bottom)===0&&e.offsetHeight<200)e.style.display='none'})"
+        },
+        {
+          "wait": 500
+        }
+      ]
+    },
+    {
+      "file": "user-bank.png",
+      "url": "https://as-exam-training.vercel.app/bank",
+      "mask": [
+        "span.truncate:has-text(\"@\")"
+      ],
+      "steps": [
+        {
+          "wait": 2500
+        }
+      ]
+    },
+    {
+      "file": "user-bank-reference.png",
+      "url": "https://as-exam-training.vercel.app/bank",
+      "mask": [
+        "span.truncate:has-text(\"@\")",
+        "text=/Ken_Lam/"
+      ],
+      "steps": [
+        {
+          "wait": 2000
+        },
+        {
+          "click": "text=參考題（冇標準答案）"
+        },
+        {
+          "wait": 1000
+        },
+        {
+          "scroll": "text=公司現時千人意外率"
+        }
+      ]
+    },
+    {
+      "file": "user-records.png",
+      "url": "https://as-exam-training.vercel.app/records",
+      "mask": [
+        "span.truncate:has-text(\"@\")"
+      ],
+      "steps": [
+        {
+          "wait": 2500
+        }
+      ]
+    },
+    {
+      "file": "user-glossary-page.png",
+      "url": "https://as-exam-training.vercel.app/glossary",
+      "mask": [
+        "span.truncate:has-text(\"@\")"
+      ],
+      "steps": [
+        {
+          "wait": 2000
+        }
+      ]
+    },
+    {
+      "file": "user-login.png",
+      "url": "https://as-exam-training.vercel.app/",
+      "fresh": true,
+      "steps": [
+        {
+          "wait": 2500
+        }
+      ]
+    },
+    {
+      "file": "user-home-mobile.png",
+      "url": "https://as-exam-training.vercel.app/",
+      "viewport": [
+        390,
+        844
+      ],
+      "mask": [
+        "span.truncate:has-text(\"@\")"
+      ],
+      "steps": [
+        {
+          "wait": 2500
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "AS 面試溫習",
+  "tagline": "為獲授權簽署人（AS）面試而設的抽認卡溫習工具：329 張一問一答卡，由 60 份考卷歸納，答案可追溯至法例原文。",
+  "updated": "2026-09-13",
+  "icon": "📝",
+  "hero": "images/hero.svg",
+  "repo": "crimsonlauai-cell/as-exam-training",
+  "publicUrl": "https://as-exam-training.vercel.app",
+  "contentPolicy": "full",
+  "notionPageUrl": "https://app.notion.com/p/3daeed70f057815fad83d034a4702654"
+}

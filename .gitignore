@@ -1,0 +1,5 @@
+node_modules/
+.digest/
+.shot-profile/
+*.log
+.claude/

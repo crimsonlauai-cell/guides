@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <defs>
+    <marker id="ast-perm-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0b5c8a"/>
+    </marker>
+  </defs>
+  <text x="20" y="34" font-size="19" font-weight="700" fill="#1e2a3a">三層權限：前端金鑰公開也不會出事</text>
+  <text x="20" y="58" font-size="13" fill="#5b6b7f">Publishable key 必然出現在前端，所以安全不能依賴隱藏金鑰</text>
+
+  <!-- 層一 -->
+  <rect x="20" y="80" width="860" height="92" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+  <circle cx="56" cy="126" r="20" fill="#f4fbfb" stroke="#4be3db"/><text x="56" y="132" text-anchor="middle" font-size="15" font-weight="700" fill="#0b5c8a">1</text>
+  <text x="92" y="116" font-size="15" font-weight="700" fill="#1e2a3a">列級安全（Row Level Security）</text>
+  <text x="92" y="142" font-size="13" fill="#1e2a3a">四張表全部啟用，規則 auth.uid() = user_id：每個人只能讀寫自己的進度與意見。</text>
+  <text x="92" y="162" font-size="13" fill="#5b6b7f">管理員讀取全部意見，透過 is_admin() 函式另設規則。</text>
+
+  <!-- 層二 -->
+  <rect x="20" y="186" width="860" height="92" rx="14" fill="#ffffff" stroke="#d9e2ea"/>
+  <circle cx="56" cy="232" r="20" fill="#f4fbfb" stroke="#4be3db"/><text x="56" y="238" text-anchor="middle" font-size="15" font-weight="700" fill="#0b5c8a">2</text>
+  <text x="92" y="222" font-size="15" font-weight="700" fill="#1e2a3a">欄位級權限（Column Privileges）</text>
+  <text x="92" y="248" font-size="13" fill="#1e2a3a">RLS 只管「哪一列」，管不到「哪一欄」。profiles 表先 revoke update，再逐欄 grant。</text>
+  <text x="92" y="268" font-size="13" fill="#5b6b7f">結果：用戶可改考科、考試日期，但無法把自己的 is_admin 改成 true。</text>
+
+  <!-- 層三 -->
+  <rect x="20" y="292" width="860" height="110" rx="14" fill="#f4fbfb" stroke="#4be3db"/>
+  <circle cx="56" cy="338" r="20" fill="#ffffff" stroke="#4be3db"/><text x="56" y="344" text-anchor="middle" font-size="15" font-weight="700" fill="#0b5c8a">3</text>
+  <text x="92" y="328" font-size="15" font-weight="700" fill="#1e2a3a">伺服器端管理 API</text>
+  <g font-size="13" fill="#1e2a3a">
+    <rect x="92" y="344" width="150" height="40" rx="10" fill="#ffffff" stroke="#d9e2ea"/><text x="167" y="369" text-anchor="middle">Admin 頁面</text>
+    <rect x="290" y="344" width="210" height="40" rx="10" fill="#ffffff" stroke="#0b5c8a"/><text x="395" y="362" text-anchor="middle" font-weight="600">/api/admin-users</text><text x="395" y="378" text-anchor="middle" font-size="11" fill="#5b6b7f">核實 token → 查 DB is_admin</text>
+    <rect x="548" y="344" width="170" height="40" rx="10" fill="#ffffff" stroke="#d9e2ea"/><text x="633" y="369" text-anchor="middle">Supabase Admin API</text>
+    <text x="736" y="362" font-size="12" fill="#5b6b7f">service key 只存於</text>
+    <text x="736" y="378" font-size="12" fill="#5b6b7f">Vercel 環境變數</text>
+  </g>
+  <g stroke="#0b5c8a" stroke-width="1.8" marker-end="url(#ast-perm-arrow)">
+    <line x1="244" y1="364" x2="286" y2="364"/>
+    <line x1="502" y1="364" x2="544" y2="364"/>
+  </g>
+</svg>

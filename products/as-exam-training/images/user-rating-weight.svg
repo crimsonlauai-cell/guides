@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 330" font-family="PingFang TC, Noto Sans TC, Microsoft JhengHei, sans-serif">
+  <text x="24" y="38" font-size="19" font-weight="700" fill="#1e2a3a">自評結果如何影響下一次出題</text>
+  <text x="24" y="62" font-size="13" fill="#5b6b7f">每張卡以最近一次自評決定出現機會；數值為相對比例，示意用</text>
+
+  <g font-size="15">
+    <text x="24" y="112" font-weight="700" fill="#d94a4a">唔識</text>
+    <rect x="130" y="94" width="560" height="26" rx="8" fill="#d94a4a" fill-opacity="0.85"/>
+    <text x="704" y="112" fill="#1e2a3a">最常出現</text>
+
+    <text x="24" y="156" font-weight="700" fill="#b45309">未答過</text>
+    <rect x="130" y="138" width="420" height="26" rx="8" fill="#9aa8b5" fill-opacity="0.7"/>
+    <text x="564" y="156" fill="#1e2a3a">新卡會較早出現</text>
+
+    <text x="24" y="200" font-weight="700" fill="#b45309">好勉強</text>
+    <rect x="130" y="182" width="280" height="26" rx="8" fill="#e08a2e" fill-opacity="0.85"/>
+    <text x="424" y="200" fill="#1e2a3a">經常出現</text>
+
+    <text x="24" y="244" font-weight="700" fill="#2f7d48">識</text>
+    <rect x="130" y="226" width="105" height="26" rx="8" fill="#3fa15c" fill-opacity="0.85"/>
+    <text x="249" y="244" fill="#1e2a3a">間中出現</text>
+
+    <text x="24" y="288" font-weight="700" fill="#0f766e">熟到爛</text>
+    <rect x="130" y="270" width="28" height="26" rx="8" fill="#159a93" fill-opacity="0.85"/>
+    <text x="172" y="288" fill="#1e2a3a">半退役，偶爾重溫防遺忘</text>
+  </g>
+
+  <rect x="620" y="210" width="236" height="96" rx="14" fill="#f4fbfb" stroke="#bfeeea"/>
+  <text x="638" y="238" font-size="13" font-weight="700" fill="#0b5c8a">另外兩項加成</text>
+  <text x="638" y="262" font-size="13" fill="#1e2a3a">必出題：出現機會 × 1.6</text>
+  <text x="638" y="286" font-size="13" fill="#1e2a3a">超過 7 日未溫：再提高</text>
+</svg>
